@@ -40,7 +40,7 @@ const WallOfFame = () => {
   ];
 
   return (
-    <section id="wall-of-fame" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="members" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -51,8 +51,7 @@ const WallOfFame = () => {
           </div>
           
           <h2 className="text-5xl sm:text-6xl font-display font-bold mb-6">
-            <span className="text-acid-lime glow-text">Wall of</span>{' '}
-            <span className="text-hot-pink neon-text">Fame</span>
+            <span className="text-acid-lime glow-text">Members</span>
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -128,7 +127,7 @@ const WallOfFame = () => {
               <input placeholder="Twitter/Website" className="p-3 bg-background border border-border rounded-lg" />
               <input placeholder="3D Model URL" className="p-3 bg-background border border-border rounded-lg" />
             </div>
-            <Button className="mt-4 btn-neon">Add to Wall of Fame</Button>
+            <Button className="mt-4 btn-neon">Add Member</Button>
           </div>
         </div>
       </div>
