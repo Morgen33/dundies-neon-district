@@ -11,8 +11,14 @@ const Marketplace = () => {
     script.innerHTML = `
       (function(){
         const SYMBOL = "dundies";
-        const CORS_PROXY = "https://api.allorigins.win/raw?url=";
         const BASE = "https://api-mainnet.magiceden.dev/v2";
+        
+        // Exact URLs as provided
+        const activitiesUrl = \`\${BASE}/collections/\${SYMBOL}/activities?offset=0&limit=50&type=buyNow\`;
+        const tokenUrl = (mint) => \`\${BASE}/tokens/\${mint}\`;
+        const statsUrl = \`\${BASE}/collections/\${SYMBOL}/stats\`;
+        const listingsUrl = \`\${BASE}/collections/\${SYMBOL}/listings?offset=0&limit=24&acceptedPayment=ALL\`;
+        
         const LIST_LIMIT = 24;
         const ACT_LIMIT = 12;
 
@@ -62,15 +68,20 @@ const Marketplace = () => {
           return Math.max(1,Math.floor(diff))+'s';
         };
         
+        
         const fetchJson = async (url) => {
           try {
-            // First try with CORS proxy
-            const proxyUrl = CORS_PROXY + encodeURIComponent(url);
-            const response = await fetch(proxyUrl);
-            if (!response.ok) throw new Error('Proxy failed');
+            console.log('Fetching from:', url);
+            const response = await fetch(url, {
+              method: 'GET',
+              headers: {
+                'Accept': 'application/json',
+              },
+            });
+            if (!response.ok) throw new Error(\`HTTP \${response.status}\`);
             return await response.json();
           } catch (error) {
-            console.log('CORS proxy failed, falling back to mock data');
+            console.log('Direct fetch failed:', error.message);
             throw error;
           }
         };
@@ -78,7 +89,7 @@ const Marketplace = () => {
         // Stats
         async function loadStats(){
           try{
-            const d = await fetchJson(\`\${BASE}/collections/\${SYMBOL}/stats\`);
+            const d = await fetchJson(statsUrl);
             const floor = d.floorPrice != null ? (sol(d.floorPrice) ?? d.floorPrice) : null;
             const html = \`
               <div class="chip">Floor: <b>\${floor!=null ? f(floor,2) : '—'}</b> SOL</div>
@@ -102,7 +113,7 @@ const Marketplace = () => {
         async function loadListings(){
           $listings.innerHTML = \`<div class="empty" style="grid-column:1/-1">Loading listings…</div>\`;
           try{
-            const list = await fetchJson(\`\${BASE}/collections/\${SYMBOL}/listings?offset=0&limit=\${LIST_LIMIT}&acceptedPayment=ALL\`);
+            const list = await fetchJson(listingsUrl);
             if(!Array.isArray(list) || list.length===0){
               throw new Error('No listings found');
             }
@@ -111,7 +122,7 @@ const Marketplace = () => {
               let img = it.img || it.image;
               if(!img && it.tokenMint){
                 try{
-                  const meta = await fetchJson(\`\${BASE}/tokens/\${it.tokenMint}\`);
+                  const meta = await fetchJson(tokenUrl(it.tokenMint));
                   img = meta.img || meta.image;
                 }catch{}
               }
@@ -141,7 +152,7 @@ const Marketplace = () => {
         async function loadActivity(){
           $activity.innerHTML = \`<div class="empty" style="grid-column:1/-1">Loading activity…</div>\`;
           try{
-            const acts = await fetchJson(\`\${BASE}/collections/\${SYMBOL}/activities?offset=0&limit=50&type=buyNow\`);
+            const acts = await fetchJson(activitiesUrl);
             const slice = (Array.isArray(acts)?acts:[]).slice(0, ACT_LIMIT);
             if(slice.length===0){
               throw new Error('No recent activity');
@@ -151,7 +162,7 @@ const Marketplace = () => {
               const mint = a.tokenMint || a.mint;
               let img, name;
               try{
-                const meta = await fetchJson(\`\${BASE}/tokens/\${mint}\`);
+                const meta = await fetchJson(tokenUrl(mint));
                 img = meta.img || meta.image; name = meta.name;
               }catch{}
               out.push(card({
