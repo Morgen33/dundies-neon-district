@@ -12,7 +12,7 @@ const Marketplace = () => {
       (function(){
         const SYMBOL = "dundies";
         const DIRECT = "https://api-mainnet.magiceden.dev/v2";
-        const WORKER = ""; // Proxy worker URL if needed
+        const WORKER = ""; // or your Cloudflare worker URL if you set one up
         
         const url = (p) => WORKER
           ? \`\${WORKER}?u=\${encodeURIComponent(\`\${DIRECT}/\${p}\`)}\`
@@ -93,7 +93,7 @@ const Marketplace = () => {
         async function loadListings(){
           $listings.innerHTML = \`<div class="empty" style="grid-column:1/-1">Loading listings…</div>\`;
           try{
-            const list = await fetchJson(\`collections/\${SYMBOL}/listings?offset=0&limit=\${LIST_LIMIT}&acceptedPayment=ALL\`);
+            const list = await fetchJson(\`collections/\${SYMBOL}/listings?offset=0&limit=\${LIST_LIMIT}\`);
             if(!Array.isArray(list) || list.length===0){
               throw new Error('No listings found');
             }
