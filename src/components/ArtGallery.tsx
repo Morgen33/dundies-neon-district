@@ -5,6 +5,12 @@ import galleryImage1 from '@/assets/dundie-gallery-1.png';
 import galleryImage2 from '@/assets/dundie-gallery-2.png';
 import galleryImage3 from '@/assets/dundie-gallery-3.png';
 import galleryImage4 from '@/assets/dundie-gallery-4.png';
+import dundieCrown from '@/assets/dundie-crown.png';
+import dundiePinkHair from '@/assets/dundie-pink-hair.png';
+import dundieFishing from '@/assets/dundie-fishing.png';
+import dundieCowboy from '@/assets/dundie-cowboy.png';
+import dundieWizard from '@/assets/dundie-wizard.png';
+import dundieBaseball from '@/assets/dundie-baseball.png';
 
 const ArtGallery = () => {
   const [selectedImage, setSelectedImage] = useState<any>(null);
@@ -39,20 +45,47 @@ const ArtGallery = () => {
       traits: ['Hat', 'Pirate', 'Weapon'],
       rarity: 'Rare'
     },
-    // Duplicates for demo
     {
       id: 5,
-      src: galleryImage1,
-      title: 'Cyber Wizard',
-      traits: ['Wizard', 'Neon', 'Future'],
+      src: dundieCrown,
+      title: 'Royal Crown',
+      traits: ['Hat', 'Crown', 'Royal'],
       rarity: 'Mythic'
     },
     {
       id: 6,
-      src: galleryImage2,
-      title: 'Neon Athlete',
-      traits: ['Sports', 'Electric', 'Champion'],
+      src: dundiePinkHair,
+      title: 'Dreamer',
+      traits: ['Hair', 'Thoughts', 'Pink'],
       rarity: 'Epic'
+    },
+    {
+      id: 7,
+      src: dundieFishing,
+      title: 'Fisher King',
+      traits: ['Sports', 'Beard', 'Fishing'],
+      rarity: 'Rare'
+    },
+    {
+      id: 8,
+      src: dundieCowboy,
+      title: 'Wild West',
+      traits: ['Hat', 'Sunglasses', 'Cowboy'],
+      rarity: 'Legendary'
+    },
+    {
+      id: 9,
+      src: dundieWizard,
+      title: 'Star Mage',
+      traits: ['Wizard', 'Hat', 'Stars'],
+      rarity: 'Epic'
+    },
+    {
+      id: 10,
+      src: dundieBaseball,
+      title: 'Home Run Hero',
+      traits: ['Sports', 'Hat', 'Baseball'],
+      rarity: 'Rare'
     }
   ];
 
