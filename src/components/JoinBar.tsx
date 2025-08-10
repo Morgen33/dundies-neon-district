@@ -1,0 +1,85 @@
+import { Button } from '@/components/ui/button';
+import { ExternalLink, Twitter, MessageCircle } from 'lucide-react';
+
+const JoinBar = () => {
+  return (
+    <section id="join" className="py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Full-width neon strip */}
+        <div className="relative overflow-hidden bg-gradient-to-r from-hot-pink via-electric-purple to-neon-blue rounded-3xl p-8 sm:p-12">
+          {/* Background effects */}
+          <div className="absolute inset-0 bg-gradient-to-r from-hot-pink/90 via-electric-purple/90 to-neon-blue/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+          
+          {/* Floating shapes */}
+          <div className="absolute top-4 left-8 w-8 h-8 bg-white/20 rounded-full animate-bounce"></div>
+          <div className="absolute bottom-6 right-12 w-6 h-6 bg-white/30 rounded-full animate-bounce delay-500"></div>
+          <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-white/25 rounded-full animate-bounce delay-300"></div>
+
+          <div className="relative z-10 text-center space-y-8">
+            {/* Headline */}
+            <div className="space-y-4">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-background">
+                Ready to Join the
+              </h2>
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-background">
+                <span className="inline-block animate-pulse">NEON</span>{' '}
+                <span className="inline-block animate-pulse delay-200">REVOLUTION</span>
+                <span className="inline-block animate-pulse delay-400">?</span>
+              </div>
+            </div>
+
+            <p className="text-xl text-background/90 max-w-2xl mx-auto">
+              Don't miss out on the loudest, brightest NFT community in the space
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button 
+                className="bg-background text-hot-pink hover:bg-background/90 hover:text-electric-purple px-8 py-4 text-lg font-semibold rounded-full border-2 border-background hover:border-background/80 magnetic transform hover:scale-105 transition-all duration-300 shadow-lg"
+                onClick={() => window.open('https://www.launchmynft.io/collections/8pXL1gZGWq1Y6wA7RJTmAVXcwBhzn65XdeLL7yA8AwFb/ZMZXWPY2COXyqoohzTfK', '_blank')}
+              >
+                <ExternalLink className="mr-2 w-5 h-5" />
+                View Collection
+              </Button>
+
+              <Button 
+                className="bg-background text-neon-blue hover:bg-background/90 hover:text-electric-purple px-8 py-4 text-lg font-semibold rounded-full border-2 border-background hover:border-background/80 magnetic transform hover:scale-105 transition-all duration-300 shadow-lg"
+                onClick={() => window.open('https://x.com/DundiesDistrict', '_blank')}
+              >
+                <Twitter className="mr-2 w-5 h-5" />
+                Join X
+              </Button>
+
+              <Button 
+                className="bg-background text-acid-lime hover:bg-background/90 hover:text-hot-pink px-8 py-4 text-lg font-semibold rounded-full border-2 border-background hover:border-background/80 magnetic transform hover:scale-105 transition-all duration-300 shadow-lg"
+                onClick={() => window.open('https://discord.gg/vjSdsjDTZx', '_blank')}
+              >
+                <MessageCircle className="mr-2 w-5 h-5" />
+                Enter Discord
+              </Button>
+            </div>
+
+            {/* Quick stats */}
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 pt-4">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-background">1,000</div>
+                <div className="text-sm text-background/80">Unique NFTs</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-background">500+</div>
+                <div className="text-sm text-background/80">Collectors</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-background">24/7</div>
+                <div className="text-sm text-background/80">Community</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default JoinBar;

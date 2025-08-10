@@ -2,95 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Dundies District Design System - Neon on Black */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base Colors - Black Canvas */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Neon Accent System */
+    --hot-pink: 322 100% 62%;
+    --electric-purple: 262 100% 68%;
+    --neon-blue: 192 100% 50%;
+    --acid-lime: 82 100% 60%;
+    --off-white: 0 0% 96%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Theme Mappings */
+    --primary: var(--hot-pink);
+    --primary-foreground: 0 0% 0%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: var(--electric-purple);
+    --secondary-foreground: 0 0% 96%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: var(--neon-blue);
+    --accent-foreground: 0 0% 0%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 70%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 96%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: var(--hot-pink);
 
-    --radius: 0.5rem;
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(var(--hot-pink)), hsl(var(--electric-purple)));
+    --gradient-glow: linear-gradient(135deg, hsl(var(--neon-blue)), hsl(var(--acid-lime)));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 0%), hsl(0 0% 5%));
 
-    --sidebar-background: 0 0% 98%;
+    /* Shadows & Effects */
+    --shadow-neon: 0 0 20px hsl(var(--hot-pink) / 0.5);
+    --shadow-glow: 0 0 30px hsl(var(--neon-blue) / 0.4);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.6);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --sidebar-primary: 240 5.9% 10%;
+    --radius: 1rem;
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar (not used in this design) */
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: var(--hot-pink);
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: var(--hot-pink);
   }
 }
 
@@ -100,6 +77,187 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fredoka', cursive;
+    font-weight: 600;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Neon Button Variants */
+  .btn-neon {
+    @apply px-8 py-4 rounded-full font-semibold transition-all duration-300;
+    @apply bg-gradient-to-r from-hot-pink to-electric-purple;
+    @apply text-background shadow-neon hover:shadow-glow;
+    @apply hover:scale-105 active:scale-95;
+    box-shadow: 0 0 20px hsl(var(--hot-pink) / 0.5);
+  }
+
+  .btn-outline-neon {
+    @apply px-8 py-4 rounded-full font-semibold transition-all duration-300;
+    @apply border-2 border-hot-pink bg-transparent text-hot-pink;
+    @apply hover:bg-hot-pink hover:text-background hover:shadow-neon;
+    @apply hover:scale-105 active:scale-95;
+  }
+
+  .btn-glow {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+    @apply bg-gradient-to-r from-neon-blue to-acid-lime;
+    @apply text-background hover:shadow-glow;
+    @apply hover:scale-105 active:scale-95;
+    box-shadow: 0 0 15px hsl(var(--neon-blue) / 0.4);
+  }
+
+  /* Sticker Cards */
+  .sticker-card {
+    @apply relative p-6 rounded-3xl transition-all duration-300;
+    @apply bg-gradient-to-br from-muted to-background;
+    @apply border-2 border-hot-pink/30 shadow-card;
+    @apply hover:border-hot-pink hover:shadow-neon hover:scale-105;
+    @apply hover:-rotate-2 cursor-pointer;
+  }
+
+  /* Neon Text Effects */
+  .neon-text {
+    text-shadow: 0 0 10px hsl(var(--hot-pink)), 0 0 20px hsl(var(--hot-pink)), 0 0 30px hsl(var(--hot-pink));
+  }
+
+  .glow-text {
+    text-shadow: 0 0 10px hsl(var(--neon-blue)), 0 0 20px hsl(var(--neon-blue));
+  }
+
+  /* Animated Elements */
+  .wiggle {
+    animation: wiggle 0.5s ease-in-out;
+  }
+
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .pulse-neon {
+    animation: pulse-neon 2s ease-in-out infinite;
+  }
+
+  /* Magnetic Effect */
+  .magnetic {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .magnetic:hover {
+    transform: scale(1.05) translateY(-2px);
+  }
+}
+
+@layer utilities {
+  /* Color Utilities */
+  .text-hot-pink { color: hsl(var(--hot-pink)); }
+  .text-electric-purple { color: hsl(var(--electric-purple)); }
+  .text-neon-blue { color: hsl(var(--neon-blue)); }
+  .text-acid-lime { color: hsl(var(--acid-lime)); }
+  .text-off-white { color: hsl(var(--off-white)); }
+
+  .bg-hot-pink { background-color: hsl(var(--hot-pink)); }
+  .bg-electric-purple { background-color: hsl(var(--electric-purple)); }
+  .bg-neon-blue { background-color: hsl(var(--neon-blue)); }
+  .bg-acid-lime { background-color: hsl(var(--acid-lime)); }
+
+  .border-hot-pink { border-color: hsl(var(--hot-pink)); }
+  .border-electric-purple { border-color: hsl(var(--electric-purple)); }
+  .border-neon-blue { border-color: hsl(var(--neon-blue)); }
+  .border-acid-lime { border-color: hsl(var(--acid-lime)); }
+
+  /* Gradient Utilities */
+  .bg-gradient-neon { background: var(--gradient-neon); }
+  .bg-gradient-glow { background: var(--gradient-glow); }
+  .bg-gradient-subtle { background: var(--gradient-subtle); }
+}
+
+/* Animations */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-neon {
+  0%, 100% { 
+    text-shadow: 0 0 10px hsl(var(--hot-pink)), 0 0 20px hsl(var(--hot-pink)), 0 0 30px hsl(var(--hot-pink));
+  }
+  50% { 
+    text-shadow: 0 0 5px hsl(var(--hot-pink)), 0 0 10px hsl(var(--hot-pink)), 0 0 15px hsl(var(--hot-pink));
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40%, 43% {
+    transform: translateY(-30px);
+  }
+  70% {
+    transform: translateY(-15px);
+  }
+  90% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Additional utility animations */
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
 }
