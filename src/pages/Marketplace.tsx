@@ -36,10 +36,14 @@ const Marketplace = () => {
         };
 
         const mockListings = [
-          { tokenMint: "mock1", tokenName: "Dundie #1234", price: 0.25, img: "https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://creator-hub-prod.s3.us-east-2.amazonaws.com/dundies_pfp_1701463227244.png" },
-          { tokenMint: "mock2", tokenName: "Dundie #5678", price: 0.18, img: "https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://creator-hub-prod.s3.us-east-2.amazonaws.com/dundies_pfp_1701463227244.png" },
-          { tokenMint: "mock3", tokenName: "Dundie #9012", price: 0.33, img: "https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://creator-hub-prod.s3.us-east-2.amazonaws.com/dundies_pfp_1701463227244.png" },
-          { tokenMint: "mock4", tokenName: "Dundie #3456", price: 0.42, img: "https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://creator-hub-prod.s3.us-east-2.amazonaws.com/dundies_pfp_1701463227244.png" }
+          { tokenMint: "mock1", tokenName: "Dundie Crown #1234", price: 0.25, img: "/src/assets/dundie-crown.png" },
+          { tokenMint: "mock2", tokenName: "Dundie Pink Hair #5678", price: 0.18, img: "/src/assets/dundie-pink-hair.png" },
+          { tokenMint: "mock3", tokenName: "Dundie Fishing #9012", price: 0.33, img: "/src/assets/dundie-fishing.png" },
+          { tokenMint: "mock4", tokenName: "Dundie Cowboy #3456", price: 0.42, img: "/src/assets/dundie-cowboy.png" },
+          { tokenMint: "mock5", tokenName: "Dundie Wizard #7890", price: 0.15, img: "/src/assets/dundie-wizard.png" },
+          { tokenMint: "mock6", tokenName: "Dundie Baseball #2468", price: 0.28, img: "/src/assets/dundie-baseball.png" },
+          { tokenMint: "mock7", tokenName: "Dundie Hero #1357", price: 0.52, img: "/src/assets/dundie-hero-1.png" },
+          { tokenMint: "mock8", tokenName: "Dundie Rare #9753", price: 0.75, img: "/src/assets/dundie-hero-2.png" }
         ];
 
         tabs.forEach(btn=>{
