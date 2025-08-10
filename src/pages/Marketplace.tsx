@@ -75,17 +75,34 @@ const Marketplace = () => {
         
         const fetchJson = async (url) => {
           try {
-            console.log('Fetching from:', url);
-            const response = await fetch(url, {
-              method: 'GET',
-              headers: {
-                'Accept': 'application/json',
-              },
-            });
-            if (!response.ok) throw new Error(\`HTTP \${response.status}\`);
-            return await response.json();
+            // Try multiple CORS proxy approaches
+            const proxies = [
+              \`https://corsproxy.io/?\${encodeURIComponent(url)}\`,
+              \`https://api.allorigins.win/raw?url=\${encodeURIComponent(url)}\`,
+              \`https://cors-anywhere.herokuapp.com/\${url}\`
+            ];
+            
+            for (const proxyUrl of proxies) {
+              try {
+                console.log('Trying proxy:', proxyUrl);
+                const response = await fetch(proxyUrl, {
+                  method: 'GET',
+                  headers: {
+                    'Accept': 'application/json',
+                  },
+                });
+                if (!response.ok) throw new Error(\`HTTP \${response.status}\`);
+                const data = await response.json();
+                console.log('Successfully fetched real data:', data);
+                return data;
+              } catch (proxyError) {
+                console.log('Proxy failed:', proxyError.message);
+                continue;
+              }
+            }
+            throw new Error('All proxies failed');
           } catch (error) {
-            console.log('Direct fetch failed:', error.message);
+            console.log('All fetch attempts failed:', error.message);
             throw error;
           }
         };
@@ -105,10 +122,10 @@ const Marketplace = () => {
             console.log('Using mock stats data');
             // Use mock data as fallback
             const html = \`
-              <div class="chip">Floor: <b>\${f(mockStats.floorPrice,2)}</b> SOL</div>
-              <div class="chip">Listed: <b>\${mockStats.listedCount}</b></div>
-              <div class="chip">24h Vol: <b>\${f(mockStats.volume24hr,2)}</b></div>
-              <div class="chip">All-time Vol: <b>\${f(mockStats.volumeAll,2)}</b></div>\`;
+              <div class="chip">Floor: <b>0.15</b> SOL</div>
+              <div class="chip">Listed: <b>142</b></div>
+              <div class="chip">24h Vol: <b>12.5</b></div>
+              <div class="chip">All-time Vol: <b>1847.2</b></div>\`;
             $stats.innerHTML = html;
           }
         }
@@ -139,15 +156,16 @@ const Marketplace = () => {
             $listings.innerHTML = out.join('');
             $listings.dataset.loaded = "1";
           }catch(e){
-            console.log('Using mock listings data');
-            // Use mock data as fallback
-            const out = mockListings.map(it => card({
-              href:\`https://magiceden.io/marketplace/dundies\`,
-              img: it.img,
-              name: it.tokenName,
-              price: it.price
-            }));
-            $listings.innerHTML = out.join('');
+            console.log('API failed, showing message to visit Magic Eden directly');
+            // Show message directing to Magic Eden
+            $listings.innerHTML = \`
+              <div class="empty" style="grid-column:1/-1">
+                <p style="margin-bottom:16px">Unable to load live listings due to API restrictions.</p>
+                <a href="https://magiceden.io/marketplace/dundies" target="_blank" rel="noopener" 
+                   style="color:hsl(var(--hot-pink));text-decoration:none;font-weight:600">
+                  → View Live Dundies on Magic Eden ←
+                </a>
+              </div>\`;
             $listings.dataset.loaded = "1";
           }
         }
@@ -178,20 +196,16 @@ const Marketplace = () => {
             $activity.innerHTML = out.join('');
             $activity.dataset.loaded = "1";
           }catch(e){
-            console.log('Using mock activity data');
-            // Use mock data for activity
-            const mockActivity = mockListings.map((item, index) => ({
-              ...item,
-              sub: \`\${Math.floor(Math.random() * 24) + 1}h ago\`
-            }));
-            const out = mockActivity.map(a => card({
-              href:\`https://magiceden.io/marketplace/dundies\`,
-              img: a.img,
-              name: a.tokenName,
-              price: a.price,
-              sub: a.sub
-            }));
-            $activity.innerHTML = out.join('');
+            console.log('API failed, showing message to visit Magic Eden directly');
+            // Show message directing to Magic Eden for activity
+            $activity.innerHTML = \`
+              <div class="empty" style="grid-column:1/-1">
+                <p style="margin-bottom:16px">Unable to load live activity due to API restrictions.</p>
+                <a href="https://magiceden.io/marketplace/dundies" target="_blank" rel="noopener" 
+                   style="color:hsl(var(--hot-pink));text-decoration:none;font-weight:600">
+                  → View Live Trading Activity on Magic Eden ←
+                </a>
+              </div>\`;
             $activity.dataset.loaded = "1";
           }
         }
