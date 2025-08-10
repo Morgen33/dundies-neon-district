@@ -127,11 +127,11 @@
 
   /* Neon Text Effects */
   .neon-text {
-    text-shadow: 0 0 10px hsl(var(--hot-pink)), 0 0 20px hsl(var(--hot-pink)), 0 0 30px hsl(var(--hot-pink));
+    text-shadow: 0 0 5px hsl(var(--hot-pink) / 0.6), 0 0 10px hsl(var(--hot-pink) / 0.4), 0 0 15px hsl(var(--hot-pink) / 0.2);
   }
 
   .glow-text {
-    text-shadow: 0 0 10px hsl(var(--neon-blue)), 0 0 20px hsl(var(--neon-blue));
+    text-shadow: 0 0 5px hsl(var(--neon-blue) / 0.6), 0 0 10px hsl(var(--neon-blue) / 0.4);
   }
 
   /* Animated Elements */
