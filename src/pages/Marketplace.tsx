@@ -11,14 +11,13 @@ const Marketplace = () => {
     script.innerHTML = `
       (function(){
         const SYMBOL = "dundies";
-        const BASE = "https://api-mainnet.magiceden.dev/v2";
+        const DIRECT = "https://api-mainnet.magiceden.dev/v2";
+        const WORKER = ""; // Proxy worker URL if needed
         
-        // Exact URLs as provided
-        const activitiesUrl = \`\${BASE}/collections/\${SYMBOL}/activities?offset=0&limit=50&type=buyNow\`;
-        const tokenUrl = (mint) => \`\${BASE}/tokens/\${mint}\`;
-        const statsUrl = \`\${BASE}/collections/\${SYMBOL}/stats\`;
-        const listingsUrl = \`\${BASE}/collections/\${SYMBOL}/listings?offset=0&limit=24&acceptedPayment=ALL\`;
-        
+        const url = (p) => WORKER
+          ? \`\${WORKER}?u=\${encodeURIComponent(\`\${DIRECT}/\${p}\`)}\`
+          : \`\${DIRECT}/\${p}\`;
+
         const LIST_LIMIT = 24;
         const ACT_LIMIT = 12;
 
@@ -26,25 +25,6 @@ const Marketplace = () => {
         const $listings = document.getElementById('dm-listings');
         const $activity = document.getElementById('dm-activity');
         const tabs = document.querySelectorAll('.dm-tab');
-
-        // Mock data for fallback
-        const mockStats = {
-          floorPrice: 0.15,
-          listedCount: 142,
-          volume24hr: 12.5,
-          volumeAll: 1847.2
-        };
-
-        const mockListings = [
-          { tokenMint: "mock1", tokenName: "Dundie Crown #1234", price: 0.25, img: "/src/assets/dundie-crown.png" },
-          { tokenMint: "mock2", tokenName: "Dundie Pink Hair #5678", price: 0.18, img: "/src/assets/dundie-pink-hair.png" },
-          { tokenMint: "mock3", tokenName: "Dundie Fishing #9012", price: 0.33, img: "/src/assets/dundie-fishing.png" },
-          { tokenMint: "mock4", tokenName: "Dundie Cowboy #3456", price: 0.42, img: "/src/assets/dundie-cowboy.png" },
-          { tokenMint: "mock5", tokenName: "Dundie Wizard #7890", price: 0.15, img: "/src/assets/dundie-wizard.png" },
-          { tokenMint: "mock6", tokenName: "Dundie Baseball #2468", price: 0.28, img: "/src/assets/dundie-baseball.png" },
-          { tokenMint: "mock7", tokenName: "Dundie Hero #1357", price: 0.52, img: "/src/assets/dundie-hero-1.png" },
-          { tokenMint: "mock8", tokenName: "Dundie Rare #9753", price: 0.75, img: "/src/assets/dundie-hero-2.png" }
-        ];
 
         tabs.forEach(btn=>{
           btn.addEventListener('click', async () => {
@@ -63,7 +43,7 @@ const Marketplace = () => {
 
         // Helpers
         const f = (n, d=2) => (n==null ? '—' : Number(n).toFixed(d));
-        const sol = lamports => lamports && lamports>1e7 ? (lamports/1e9) : null;
+        const toSOL = (x) => (x && x > 1e7) ? (x/1e9) : x; // lamports→SOL
         const timeAgo = (unix) => {
           if(!unix) return '—';
           const diff = (Date.now()/1000 - unix);
@@ -72,37 +52,14 @@ const Marketplace = () => {
           return Math.max(1,Math.floor(diff))+'s';
         };
         
-        
-        const fetchJson = async (url) => {
+        const fetchJson = async (endpoint) => {
           try {
-            // Try multiple CORS proxy approaches
-            const proxies = [
-              \`https://corsproxy.io/?\${encodeURIComponent(url)}\`,
-              \`https://api.allorigins.win/raw?url=\${encodeURIComponent(url)}\`,
-              \`https://cors-anywhere.herokuapp.com/\${url}\`
-            ];
-            
-            for (const proxyUrl of proxies) {
-              try {
-                console.log('Trying proxy:', proxyUrl);
-                const response = await fetch(proxyUrl, {
-                  method: 'GET',
-                  headers: {
-                    'Accept': 'application/json',
-                  },
-                });
-                if (!response.ok) throw new Error(\`HTTP \${response.status}\`);
-                const data = await response.json();
-                console.log('Successfully fetched real data:', data);
-                return data;
-              } catch (proxyError) {
-                console.log('Proxy failed:', proxyError.message);
-                continue;
-              }
-            }
-            throw new Error('All proxies failed');
+            console.log('Fetching:', url(endpoint));
+            const response = await fetch(url(endpoint));
+            if (!response.ok) throw new Error(\`HTTP \${response.status}\`);
+            return await response.json();
           } catch (error) {
-            console.log('All fetch attempts failed:', error.message);
+            console.log('Fetch failed:', error.message);
             throw error;
           }
         };
@@ -110,13 +67,15 @@ const Marketplace = () => {
         // Stats
         async function loadStats(){
           try{
-            const d = await fetchJson(statsUrl);
-            const floor = d.floorPrice != null ? (sol(d.floorPrice) ?? d.floorPrice) : null;
+            const d = await fetchJson(\`collections/\${SYMBOL}/stats\`);
+            const floor = toSOL(d.floorPrice);
+            const vol24hr = toSOL(d.volume24hr);
+            const volAll = toSOL(d.volumeAll);
             const html = \`
-              <div class="chip">Floor: <b>\${floor!=null ? f(floor,2) : '—'}</b> SOL</div>
+              <div class="chip">Floor: <b>\${floor ? f(floor,2) : '—'}</b> SOL</div>
               <div class="chip">Listed: <b>\${d.listedCount ?? '—'}</b></div>
-              <div class="chip">24h Vol: <b>\${d.volume24hr ? f(d.volume24hr,2) : '—'}</b></div>
-              <div class="chip">All-time Vol: <b>\${d.volumeAll ? f(d.volumeAll,2) : '—'}</b></div>\`;
+              <div class="chip">24h Vol: <b>\${vol24hr ? f(vol24hr,2) : '—'}</b></div>
+              <div class="chip">All-time Vol: <b>\${volAll ? f(volAll,0) : '—'}</b></div>\`;
             $stats.innerHTML = html;
           }catch(e){
             console.log('Using mock stats data');
@@ -134,7 +93,7 @@ const Marketplace = () => {
         async function loadListings(){
           $listings.innerHTML = \`<div class="empty" style="grid-column:1/-1">Loading listings…</div>\`;
           try{
-            const list = await fetchJson(listingsUrl);
+            const list = await fetchJson(\`collections/\${SYMBOL}/listings?offset=0&limit=\${LIST_LIMIT}&acceptedPayment=ALL\`);
             if(!Array.isArray(list) || list.length===0){
               throw new Error('No listings found');
             }
@@ -143,7 +102,7 @@ const Marketplace = () => {
               let img = it.img || it.image;
               if(!img && it.tokenMint){
                 try{
-                  const meta = await fetchJson(tokenUrl(it.tokenMint));
+                  const meta = await fetchJson(\`tokens/\${it.tokenMint}\`);
                   img = meta.img || meta.image;
                 }catch{}
               }
@@ -174,7 +133,7 @@ const Marketplace = () => {
         async function loadActivity(){
           $activity.innerHTML = \`<div class="empty" style="grid-column:1/-1">Loading activity…</div>\`;
           try{
-            const acts = await fetchJson(activitiesUrl);
+            const acts = await fetchJson(\`collections/\${SYMBOL}/activities?offset=0&limit=50&type=buyNow\`);
             const slice = (Array.isArray(acts)?acts:[]).slice(0, ACT_LIMIT);
             if(slice.length===0){
               throw new Error('No recent activity');
@@ -184,7 +143,7 @@ const Marketplace = () => {
               const mint = a.tokenMint || a.mint;
               let img, name;
               try{
-                const meta = await fetchJson(tokenUrl(mint));
+                const meta = await fetchJson(\`tokens/\${mint}\`);
                 img = meta.img || meta.image; name = meta.name;
               }catch{}
               out.push(card({
