@@ -6,20 +6,15 @@ import { ExternalLink, Zap, TrendingUp, Activity } from 'lucide-react';
 
 const Marketplace = () => {
   useEffect(() => {
-    // Inject the Magic Eden marketplace widget script
+    // Inject the optimized Magic Eden marketplace widget
     const script = document.createElement('script');
     script.innerHTML = `
       (function(){
         const SYMBOL = "dundies";
         const DIRECT = "https://api-mainnet.magiceden.dev/v2";
-        const WORKER = ""; // or your Cloudflare worker URL if you set one up
-        
-        const url = (p) => WORKER
-          ? \`\${WORKER}?u=\${encodeURIComponent(\`\${DIRECT}/\${p}\`)}\`
-          : \`\${DIRECT}/\${p}\`;
-
-        const LIST_LIMIT = 24;
-        const ACT_LIMIT = 12;
+        // If preview blocks CORS, put your Cloudflare Worker URL here:
+        const WORKER = ""; // e.g. "https://me-proxy-yourname.workers.dev"
+        const url = (p) => WORKER ? \`\${WORKER}?u=\${encodeURIComponent(\`\${DIRECT}/\${p}\`)}\` : \`\${DIRECT}/\${p}\`;
 
         const $stats = document.getElementById('dm-stats');
         const $listings = document.getElementById('dm-listings');
@@ -27,154 +22,68 @@ const Marketplace = () => {
         const tabs = document.querySelectorAll('.dm-tab');
 
         tabs.forEach(btn=>{
-          btn.addEventListener('click', async () => {
+          btn.addEventListener('click', () => {
             tabs.forEach(b=>b.classList.remove('active'));
             btn.classList.add('active');
             const tab = btn.dataset.tab;
-            if(tab==='listings'){
-              $activity.style.display='none'; $listings.style.display='';
-              if(!$listings.dataset.loaded) loadListings();
-            }else{
-              $listings.style.display='none'; $activity.style.display='';
-              if(!$activity.dataset.loaded) loadActivity();
-            }
+            if(tab==='listings'){ $activity.style.display='none'; $listings.style.display=''; if(!$listings.dataset.loaded) loadListings(); }
+            else { $listings.style.display='none'; $activity.style.display=''; if(!$activity.dataset.loaded) loadActivity(); }
           });
         });
 
-        // Helpers
-        const f = (n, d=2) => (n==null ? '—' : Number(n).toFixed(d));
-        const toSOL = (x) => (x && x > 1e7) ? (x/1e9) : x; // lamports→SOL
-        const timeAgo = (unix) => {
-          if(!unix) return '—';
-          const diff = (Date.now()/1000 - unix);
-          const u = [[31536000,'y'],[2592000,'mo'],[604800,'w'],[86400,'d'],[3600,'h'],[60,'m']];
-          for(const [s,label] of u){ if(diff>=s) return Math.floor(diff/s)+label; }
-          return Math.max(1,Math.floor(diff))+'s';
-        };
-        
-        const fetchJson = async (endpoint) => {
-          try {
-            console.log('Fetching:', url(endpoint));
-            const response = await fetch(url(endpoint));
-            if (!response.ok) throw new Error(\`HTTP \${response.status}\`);
-            return await response.json();
-          } catch (error) {
-            console.log('Fetch failed:', error.message);
-            throw error;
-          }
-        };
+        const toSOL = (x) => (x && x > 1e7) ? x/1e9 : x;
+        const f = (n,d=2)=> n==null ? '—' : Number(n).toFixed(d);
+        const timeAgo = (u)=>{const d=(Date.now()/1000-u);const a=[[31536000,'y'],[2592000,'mo'],[604800,'w'],[86400,'d'],[3600,'h'],[60,'m']];for(const[s,l]of a){if(d>=s)return Math.floor(d/s)+l}return Math.max(1,Math.floor(d))+'s'};
+        const fetchJson = (u)=> fetch(u).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()});
 
-        // Stats
         async function loadStats(){
           try{
-            const d = await fetchJson(\`collections/\${SYMBOL}/stats\`);
-            const floor = toSOL(d.floorPrice);
-            const vol24hr = toSOL(d.volume24hr);
-            const volAll = toSOL(d.volumeAll);
-            const html = \`
-              <div class="chip">Floor: <b>\${floor ? f(floor,2) : '—'}</b> SOL</div>
+            const d = await fetchJson(url(\`collections/\${SYMBOL}/stats\`));
+            $stats.innerHTML = \`
+              <div class="chip">Floor: <b>\${f(toSOL(d.floorPrice),2)}</b> SOL</div>
               <div class="chip">Listed: <b>\${d.listedCount ?? '—'}</b></div>
-              <div class="chip">24h Vol: <b>\${vol24hr ? f(vol24hr,2) : '—'}</b></div>
-              <div class="chip">All-time Vol: <b>\${volAll ? f(volAll,0) : '—'}</b></div>\`;
-            $stats.innerHTML = html;
-          }catch(e){
-            console.log('Using mock stats data');
-            // Use mock data as fallback
-            const html = \`
-              <div class="chip">Floor: <b>0.15</b> SOL</div>
-              <div class="chip">Listed: <b>142</b></div>
-              <div class="chip">24h Vol: <b>12.5</b></div>
-              <div class="chip">All-time Vol: <b>1847.2</b></div>\`;
-            $stats.innerHTML = html;
-          }
+              <div class="chip">24h Vol: <b>\${f(toSOL(d.avgPrice24hr),2)}</b></div>
+              <div class="chip">All-time Vol: <b>\${f(toSOL(d.volumeAll),0)}</b></div>\`;
+          }catch(e){ $stats.innerHTML = \`<div class="chip">Stats unavailable</div>\`; console.error(e); }
         }
 
-        // Listings
         async function loadListings(){
           $listings.innerHTML = \`<div class="empty" style="grid-column:1/-1">Loading listings…</div>\`;
           try{
-            const list = await fetchJson(\`collections/\${SYMBOL}/listings?offset=0&limit=\${LIST_LIMIT}\`);
-            if(!Array.isArray(list) || list.length===0){
-              throw new Error('No listings found');
-            }
+            // NOTE: no acceptedPayment param here (fixes your 400 error)
+            const list = await fetchJson(url(\`collections/\${SYMBOL}/listings?offset=0&limit=24\`));
+            if(!Array.isArray(list) || list.length===0){ $listings.innerHTML = \`<div class="empty" style="grid-column:1/-1">No listings found.</div>\`; return; }
             const out = [];
             for(const it of list){
-              let img = it.img || it.image;
-              if(!img && it.tokenMint){
-                try{
-                  const meta = await fetchJson(\`tokens/\${it.tokenMint}\`);
-                  img = meta.img || meta.image;
-                }catch{}
-              }
-              out.push(card({
-                href:\`https://magiceden.io/item-details/\${it.tokenMint}\`,
-                img, name: it.tokenName || \`…\${(it.tokenMint||'').slice(-4)}\`,
-                price: it.price
-              }));
+              let img = it.img || it.image, name = it.tokenName || \`…\${(it.tokenMint||'').slice(-4)}\`;
+              if(!img && it.tokenMint){ try{ const m = await fetchJson(url(\`tokens/\${it.tokenMint}\`)); img = m.img || m.image; name = m.name || name; }catch{} }
+              out.push(card({ href:\`https://magiceden.io/item-details/\${it.tokenMint}\`, img, name, price: it.price }));
             }
-            $listings.innerHTML = out.join('');
-            $listings.dataset.loaded = "1";
-          }catch(e){
-            console.log('API failed, showing message to visit Magic Eden directly');
-            // Show message directing to Magic Eden
-            $listings.innerHTML = \`
-              <div class="empty" style="grid-column:1/-1">
-                <p style="margin-bottom:16px">Unable to load live listings due to API restrictions.</p>
-                <a href="https://magiceden.io/marketplace/dundies" target="_blank" rel="noopener" 
-                   style="color:hsl(var(--hot-pink));text-decoration:none;font-weight:600">
-                  → View Live Dundies on Magic Eden ←
-                </a>
-              </div>\`;
-            $listings.dataset.loaded = "1";
-          }
+            $listings.innerHTML = out.join(''); $listings.dataset.loaded = "1";
+          }catch(e){ console.error(e); $listings.innerHTML = \`<div class="empty" style="grid-column:1/-1">Failed to load listings.</div>\`; }
         }
 
-        // Activity
         async function loadActivity(){
           $activity.innerHTML = \`<div class="empty" style="grid-column:1/-1">Loading activity…</div>\`;
           try{
-            const acts = await fetchJson(\`collections/\${SYMBOL}/activities?offset=0&limit=50&type=buyNow\`);
-            const slice = (Array.isArray(acts)?acts:[]).slice(0, ACT_LIMIT);
-            if(slice.length===0){
-              throw new Error('No recent activity');
-            }
+            const acts = await fetchJson(url(\`collections/\${SYMBOL}/activities?offset=0&limit=50&type=buyNow\`));
+            const slice = (Array.isArray(acts)?acts:[]).slice(0,12);
+            if(slice.length===0){ $activity.innerHTML = \`<div class="empty" style="grid-column:1/-1">No recent buys yet.</div>\`; return; }
             const out = [];
             for(const a of slice){
               const mint = a.tokenMint || a.mint;
               let img, name;
-              try{
-                const meta = await fetchJson(\`tokens/\${mint}\`);
-                img = meta.img || meta.image; name = meta.name;
-              }catch{}
-              out.push(card({
-                href:\`https://magiceden.io/item-details/\${mint}\`,
-                img, name: name || \`…\${(mint||'').slice(-4)}\`,
-                price: a.price, sub: timeAgo(a.blockTime) + ' ago'
-              }));
+              try{ const m = await fetchJson(url(\`tokens/\${mint}\`)); img = m.img || m.image; name = m.name; }catch{}
+              out.push(card({ href:\`https://magiceden.io/item-details/\${mint}\`, img, name: name || \`…\${(mint||'').slice(-4)}\`, price: a.price, sub: a.blockTime? timeAgo(a.blockTime)+' ago':'' }));
             }
-            $activity.innerHTML = out.join('');
-            $activity.dataset.loaded = "1";
-          }catch(e){
-            console.log('API failed, showing message to visit Magic Eden directly');
-            // Show message directing to Magic Eden for activity
-            $activity.innerHTML = \`
-              <div class="empty" style="grid-column:1/-1">
-                <p style="margin-bottom:16px">Unable to load live activity due to API restrictions.</p>
-                <a href="https://magiceden.io/marketplace/dundies" target="_blank" rel="noopener" 
-                   style="color:hsl(var(--hot-pink));text-decoration:none;font-weight:600">
-                  → View Live Trading Activity on Magic Eden ←
-                </a>
-              </div>\`;
-            $activity.dataset.loaded = "1";
-          }
+            $activity.innerHTML = out.join(''); $activity.dataset.loaded = "1";
+          }catch(e){ console.error(e); $activity.innerHTML = \`<div class="empty" style="grid-column:1/-1">Failed to load activity.</div>\`; }
         }
 
         function card({href,img,name,price,sub}){
           return \`
             <a class="card" href="\${href}" target="_blank" rel="noopener">
-              <div class="media">
-                \${img ? \`<img src="\${img}" alt="\${name??''}" loading="lazy">\` : \`<span style="color:#666;font:600 12px Inter">No image</span>\`}
-              </div>
+              <div class="media">\${img ? \`<img src="\${img}" alt="\${name??''}">\` : \`<span style="color:#666;font:600 12px Inter">No image</span>\`}</div>
               <div class="body">
                 <div class="name">\${name ?? ''}</div>
                 <div class="meta"><span>\${price!=null ? price+' SOL' : '—'}</span><span>\${sub??''}</span></div>
@@ -182,46 +91,35 @@ const Marketplace = () => {
             </a>\`;
         }
 
-        // Initialize
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', () => {
-            loadStats();
-            loadListings();
-          });
-        } else {
-          loadStats();
-          loadListings();
-        }
+        loadStats();
+        loadListings(); // default tab
+        // loadActivity(); // loads when tab clicked
       })();
     `;
     document.head.appendChild(script);
 
-    // Inject styles
+    // Inject optimized styles
     const style = document.createElement('style');
     style.innerHTML = `
-      #dundies-market{background:hsl(var(--background));padding:28px;border:2px solid hsl(var(--electric-purple));border-radius:20px;box-shadow:0 0 40px hsl(var(--electric-purple) / 0.2)}
-      #dundies-market *{box-sizing:border-box}
+      #dundies-market{--pink:#FF3AAE;--purple:#9A5BFF;--blue:#00D1FF;--lime:#B6FF3B;--text:#fff;background:#000;padding:28px;border:2px solid var(--purple);border-radius:20px;box-shadow:0 0 40px #9A5BFF33}
       .dm-head{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}
-      .dm-title{font:800 22px/1.1 Fredoka, Baloo, system-ui;color:hsl(var(--foreground));letter-spacing:.3px}
-      .dm-link{font:600 14px/1 Inter,system-ui;color:hsl(var(--foreground));text-decoration:none;padding:10px 14px;border-radius:999px;border:2px solid hsl(var(--neon-blue));background:transparent;transition:all 0.3s ease}
-      .dm-link:hover{box-shadow:0 0 16px hsl(var(--neon-blue) / 0.5)}
+      .dm-title{font:800 22px/1.1 Fredoka,system-ui;color:#fff}
+      .dm-link{font:600 14px/1 Inter,system-ui;color:#fff;text-decoration:none;padding:10px 14px;border-radius:999px;border:2px solid var(--blue)}
       .dm-stats{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 18px}
-      .chip{background:linear-gradient(90deg,hsl(var(--card)),hsl(var(--muted)));border:1px solid hsl(var(--border));color:hsl(var(--foreground));padding:10px 14px;border-radius:999px;font:600 13px/1 Inter,system-ui}
-      .chip b{color:hsl(var(--acid-lime))}
+      .chip{background:#0e0e0e;border:1px solid #2a2a2a;color:#fff;padding:10px 14px;border-radius:999px;font:600 13px/1 Inter}
       .dm-tabs{display:flex;gap:8px;margin-bottom:12px}
-      .dm-tab{flex:0 0 auto;background:hsl(var(--card));color:hsl(var(--foreground));border:2px solid hsl(var(--border));padding:10px 14px;border-radius:14px;font:700 13px Inter,system-ui;cursor:pointer;transition:all 0.3s ease}
-      .dm-tab.active{border-color:hsl(var(--hot-pink));box-shadow:0 0 18px hsl(var(--hot-pink) / 0.3)}
+      .dm-tab{background:#0e0e0e;color:#fff;border:2px solid #222;padding:10px 14px;border-radius:14px;font:700 13px Inter;cursor:pointer}
+      .dm-tab.active{border-color:var(--pink);box-shadow:0 0 18px #ff3aae44}
       .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
       @media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
       @media (max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
-      .card{background:hsl(var(--card));border:2px solid hsl(var(--border));border-radius:16px;overflow:hidden;text-decoration:none;transition:all 0.3s ease}
-      .card:hover{border-color:hsl(var(--electric-purple));box-shadow:0 0 22px hsl(var(--electric-purple) / 0.3)}
-      .media{aspect-ratio:1/1;background:hsl(var(--muted));display:flex;align-items:center;justify-content:center}
+      .card{background:#0b0b0b;border:2px solid #191919;border-radius:16px;overflow:hidden;text-decoration:none}
+      .card:hover{border-color:var(--purple);box-shadow:0 0 22px #9A5BFF33}
+      .media{aspect-ratio:1/1;background:#111;display:flex;align-items:center;justify-content:center}
       .media img{width:100%;height:100%;object-fit:cover;display:block}
-      .body{padding:12px}
-      .name{color:hsl(var(--foreground));font:700 14px/1.2 Inter,system-ui;margin-bottom:6px}
-      .meta{display:flex;align-items:center;justify-content:space-between;color:hsl(var(--muted-foreground));font:600 13px/1 Inter,system-ui;opacity:.9}
-      .empty{color:hsl(var(--muted-foreground));padding:24px;border:1px dashed hsl(var(--border));border-radius:14px;text-align:center}
+      .body{padding:12px}.name{color:#fff;font:700 14px/1.2 Inter;margin-bottom:6px}
+      .meta{display:flex;align-items:center;justify-content:space-between;color:#9ef;font:600 13px/1 Inter;opacity:.9}
+      .empty{color:#aaa;padding:24px;border:1px dashed #333;border-radius:14px;text-align:center}
     `;
     document.head.appendChild(style);
 
