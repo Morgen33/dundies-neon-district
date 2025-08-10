@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Trophy, Star } from 'lucide-react';
+import DundieCharacter3D from './DundieCharacter3D';
 
 const WallOfFame = () => {
   // Placeholder data for 1% holders
@@ -63,22 +64,23 @@ const WallOfFame = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {topHolders.map((holder) => (
             <div key={holder.id} className="sticker-card space-y-4 border-2 border-acid-lime/30 hover:border-acid-lime hover:shadow-glow">
-              {/* 3D Viewer Placeholder */}
-              <div className="relative h-64 bg-gradient-to-br from-muted to-background/50 rounded-2xl border border-electric-purple/30 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center space-y-4">
-                    <div className="w-16 h-16 bg-gradient-neon rounded-full mx-auto flex items-center justify-center">
-                      <Star className="w-8 h-8 text-background" />
-                    </div>
-                    <div className="text-sm text-muted-foreground">3D Dundie Preview</div>
-                    <div className="text-lg font-semibold text-electric-purple">{holder.dundieName}</div>
+              {/* 3D Viewer */}
+              <div className="relative h-64 rounded-2xl overflow-hidden">
+                <DundieCharacter3D
+                  modelPath={holder.modelEmbedUrl ? undefined : undefined} // You can provide .glb/.gltf file paths here
+                  width={320}
+                  height={256}
+                  autoRotate={true}
+                  scale={1.2}
+                  characterName={holder.dundieName}
+                />
+                
+                {/* Character name overlay */}
+                <div className="absolute bottom-3 left-3 right-3">
+                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-2 text-center">
+                    <div className="text-sm font-semibold text-electric-purple">{holder.dundieName}</div>
                   </div>
                 </div>
-                
-                {/* Floating particles effect */}
-                <div className="absolute top-4 left-4 w-2 h-2 bg-hot-pink rounded-full animate-bounce"></div>
-                <div className="absolute top-8 right-6 w-1.5 h-1.5 bg-neon-blue rounded-full animate-bounce delay-300"></div>
-                <div className="absolute bottom-6 left-8 w-1 h-1 bg-acid-lime rounded-full animate-bounce delay-500"></div>
               </div>
 
               {/* Holder Info */}
