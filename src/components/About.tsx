@@ -8,8 +8,8 @@ const About = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl sm:text-6xl font-display font-bold mb-6">
-            <span className="text-acid-lime glow-text">Who</span>{' '}
-            <span className="text-hot-pink neon-text">We Are</span>
+            <span className="text-acid-lime glow-text">What is a</span>{' '}
+            <span className="text-hot-pink neon-text">Dundie</span>
           </h2>
         </div>
 
