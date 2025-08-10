@@ -18,6 +18,7 @@ const Navigation = () => {
   const navLinks = [
     { href: '#art', label: 'Art' },
     { href: '#collection', label: 'Collection' },
+    { href: '/marketplace', label: 'Marketplace' },
     { href: '#community', label: 'Community' },
     { href: '#wall-of-fame', label: 'Wall of Fame' },
     { href: '#roadmap', label: 'Roadmap' },
