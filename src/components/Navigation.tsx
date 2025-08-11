@@ -19,6 +19,7 @@ const Navigation = () => {
     { href: '#art', label: 'Art' },
     { href: '#collection', label: 'Collection' },
     { href: '/marketplace', label: 'Marketplace' },
+    { href: '/services', label: 'Services' },
     { href: '#community', label: 'Community' },
     { href: '#wall-of-fame', label: 'Members' },
     { href: '#about', label: 'About' },
