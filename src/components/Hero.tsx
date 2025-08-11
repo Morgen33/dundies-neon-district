@@ -66,20 +66,20 @@ const Hero = () => {
             </div>
             
             {/* Floating Bubble 2 - Baseball */}
-            <div className="absolute top-32 right-16 w-28 h-28 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-2_15s_ease-in-out_infinite_2s]">
+            <div className="absolute top-32 right-16 w-22 h-22 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-2_15s_ease-in-out_infinite_2s]">
               <img 
                 src="/lovable-uploads/1ac2bbe6-bb7b-4b3c-a75c-d81d12ba6e83.png" 
                 alt="Dundie Baseball" 
-                className="w-20 h-20 object-contain"
+                className="w-16 h-16 object-contain"
               />
             </div>
             
             {/* Floating Bubble 3 - Wizard */}
-            <div className="absolute bottom-40 left-1/4 w-32 h-32 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-3_10s_ease-in-out_infinite_1s]">
+            <div className="absolute bottom-40 left-1/4 w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-3_10s_ease-in-out_infinite_1s]">
               <img 
                 src="/lovable-uploads/11d1b86f-a592-41a1-9e61-22dbfd3d4ecc.png" 
                 alt="Dundie Wizard" 
-                className="w-24 h-24 object-contain"
+                className="w-18 h-18 object-contain"
               />
             </div>
 
@@ -93,20 +93,20 @@ const Hero = () => {
             </div>
 
             {/* Floating Bubble 5 - Pink Hair */}
-            <div className="absolute bottom-1/3 right-20 w-30 h-30 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-2_13s_ease-in-out_infinite_4s]">
+            <div className="absolute bottom-1/3 right-20 w-22 h-22 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-2_13s_ease-in-out_infinite_4s]">
               <img 
                 src="/lovable-uploads/5e4285df-993c-4b5f-89d0-bf98aa635667.png" 
                 alt="Dundie Pink Hair" 
-                className="w-22 h-22 object-contain"
+                className="w-16 h-16 object-contain"
               />
             </div>
 
             {/* Floating Bubble 6 - Thinking */}
-            <div className="absolute top-1/2 left-20 w-28 h-28 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-3_11s_ease-in-out_infinite_2.5s]">
+            <div className="absolute top-1/2 left-20 w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-3_11s_ease-in-out_infinite_2.5s]">
               <img 
                 src="/lovable-uploads/bf70ad6d-c5af-4a8c-9983-460fc8b379aa.png" 
                 alt="Dundie Thinking" 
-                className="w-20 h-20 object-contain"
+                className="w-18 h-18 object-contain"
               />
             </div>
 
