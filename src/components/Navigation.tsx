@@ -27,8 +27,10 @@ const Navigation = () => {
 
   const socialLinks = [
     { href: 'https://x.com/DundiesDistrict', label: '𝕏', external: true },
-    { href: 'https://discord.gg/vjSdsjDTZx', label: '💬', external: true },
+    { href: 'https://discord.gg/vjSdsjDTZx', label: '🎤', external: true },
     { href: 'https://instagram.com/dundiesnft', label: '📸', external: true },
+    { href: 'http://tiktok.com/@dundiesnft', label: '🎶', external: true },
+    { href: 'http://t.me/DundiesNFT', label: '💬', external: true },
   ];
 
   return (
