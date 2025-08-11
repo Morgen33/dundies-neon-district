@@ -13,7 +13,7 @@ const Collection = () => {
                 <img 
                   src="/lovable-uploads/089560bc-8471-4adb-b514-83748b2fcfa8.png"
                   alt="Dundie Character"
-                  className="w-20 h-20 object-contain"
+                  className="w-28 h-28 object-contain"
                   style={{
                     filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
                     mixBlendMode: 'multiply'
