@@ -17,23 +17,21 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-1 gap-12 items-center">
           {/* Content */}
-          <div className="text-center lg:text-left space-y-8">
+          <div className="text-center space-y-8">
             {/* Kinetic Headline */}
             <div className="space-y-4">
               <h1 className="text-6xl sm:text-7xl lg:text-8xl font-display font-bold leading-tight">
-                <span className="block neon-text animate-fade-in">DUNDIES</span>
-                <span className="block glow-text animate-fade-in delay-300">DISTRICT</span>
+                <span className="neon-text animate-fade-in">DUNDIES DISTRICT</span>
               </h1>
               <p className="text-xl sm:text-2xl text-off-white font-medium animate-fade-in delay-500">
-                Hand-drawn NFTs by Neo. <br />
                 <span className="text-lime font-bold">Loud. Bold. Unmistakable.</span>
               </p>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in delay-700">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in delay-700">
               <Button 
                 className="btn-neon magnetic"
                 onClick={() => window.open('https://www.launchmynft.io/collections/8pXL1gZGWq1Y6wA7RJTmAVXcwBhzn65XdeLL7yA8AwFb/ZMZXWPY2COXyqoohzTfK', '_blank')}
