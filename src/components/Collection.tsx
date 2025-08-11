@@ -11,7 +11,7 @@ const Collection = () => {
             <div className="flex justify-center">
               <div className="w-32 h-32 rounded-full flex items-center justify-center shadow-glow border-4 border-purple/30" style={{backgroundColor: '#E5E7EB'}}>
                 <img 
-                  src="/lovable-uploads/98a428d9-3874-436a-bc37-1bcdfdc8010c.png"
+                  src="/lovable-uploads/089560bc-8471-4adb-b514-83748b2fcfa8.png"
                   alt="Dundie Character"
                   className="w-20 h-20 object-contain"
                   style={{
