@@ -20,8 +20,7 @@ const Navigation = () => {
     { href: '#collection', label: 'Collection' },
     { href: '/marketplace', label: 'Marketplace' },
     { href: '#community', label: 'Community' },
-    { href: '#wall-of-fame', label: 'Wall of Fame' },
-    { href: '#roadmap', label: 'Roadmap' },
+    { href: '#wall-of-fame', label: 'Members' },
     { href: '#about', label: 'About' },
     { href: '#join', label: 'Join' },
   ];
