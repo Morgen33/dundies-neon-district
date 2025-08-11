@@ -6,10 +6,14 @@ const JoinBar = () => {
     <section id="join" className="py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Full-width glow strip */}
-        <div className="relative overflow-hidden bg-gradient-to-r from-hot-pink via-electric-purple to-neon-blue rounded-3xl p-8 sm:p-12">
+        <div className="relative overflow-hidden rounded-3xl p-8 sm:p-12" style={{
+          background: 'linear-gradient(135deg, #FF6AD5, #9B59B6, #8E44AD)'
+        }}>
           {/* Background effects */}
-          <div className="absolute inset-0 bg-gradient-to-r from-hot-pink/90 via-electric-purple/90 to-neon-blue/90"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+          <div className="absolute inset-0" style={{
+            background: 'linear-gradient(135deg, rgba(255, 106, 213, 0.9), rgba(155, 89, 182, 0.9), rgba(142, 68, 173, 0.9))'
+          }}></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
           
           {/* Floating shapes */}
           <div className="absolute top-4 left-8 w-8 h-8 bg-white/20 rounded-full animate-bounce"></div>
@@ -19,24 +23,24 @@ const JoinBar = () => {
           <div className="relative z-10 text-center space-y-8">
             {/* Headline */}
             <div className="space-y-4">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-background">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-black">
                 Ready to Join the
               </h2>
-              <div className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-background">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-black">
                 <span className="inline-block animate-pulse">DIGITAL</span>{' '}
                 <span className="inline-block animate-pulse delay-200">REVOLUTION</span>
                 <span className="inline-block animate-pulse delay-400">?</span>
               </div>
             </div>
 
-            <p className="text-xl text-background/90 max-w-2xl mx-auto">
+            <p className="text-xl text-black/80 max-w-2xl mx-auto">
               Don't miss out on the loudest, brightest NFT community in the space
             </p>
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
-                className="bg-background text-hot-pink hover:bg-background/90 hover:text-electric-purple px-8 py-4 text-lg font-semibold rounded-full border-2 border-background hover:border-background/80 magnetic transform hover:scale-105 transition-all duration-300 shadow-lg"
+                className="bg-black text-white hover:bg-black/90 hover:text-gray-200 px-8 py-4 text-lg font-semibold rounded-full border-2 border-black hover:border-black/80 magnetic transform hover:scale-105 transition-all duration-300 shadow-lg"
                 onClick={() => window.open('https://www.launchmynft.io/collections/8pXL1gZGWq1Y6wA7RJTmAVXcwBhzn65XdeLL7yA8AwFb/ZMZXWPY2COXyqoohzTfK', '_blank')}
               >
                 <ExternalLink className="mr-2 w-5 h-5" />
@@ -44,7 +48,7 @@ const JoinBar = () => {
               </Button>
 
               <Button 
-                className="bg-background text-neon-blue hover:bg-background/90 hover:text-electric-purple px-8 py-4 text-lg font-semibold rounded-full border-2 border-background hover:border-background/80 magnetic transform hover:scale-105 transition-all duration-300 shadow-lg"
+                className="bg-black text-white hover:bg-black/90 hover:text-gray-200 px-8 py-4 text-lg font-semibold rounded-full border-2 border-black hover:border-black/80 magnetic transform hover:scale-105 transition-all duration-300 shadow-lg"
                 onClick={() => window.open('https://x.com/DundiesDistrict', '_blank')}
               >
                 <Twitter className="mr-2 w-5 h-5" />
@@ -52,7 +56,7 @@ const JoinBar = () => {
               </Button>
 
               <Button 
-                className="bg-background text-acid-lime hover:bg-background/90 hover:text-hot-pink px-8 py-4 text-lg font-semibold rounded-full border-2 border-background hover:border-background/80 magnetic transform hover:scale-105 transition-all duration-300 shadow-lg"
+                className="bg-black text-white hover:bg-black/90 hover:text-gray-200 px-8 py-4 text-lg font-semibold rounded-full border-2 border-black hover:border-black/80 magnetic transform hover:scale-105 transition-all duration-300 shadow-lg"
                 onClick={() => window.open('https://discord.gg/vjSdsjDTZx', '_blank')}
               >
                 <MessageCircle className="mr-2 w-5 h-5" />
@@ -63,16 +67,16 @@ const JoinBar = () => {
             {/* Quick stats */}
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 pt-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-background">1,000</div>
-                <div className="text-sm text-background/80">Unique NFTs</div>
+                <div className="text-2xl font-bold text-black">1,000</div>
+                <div className="text-sm text-black/70">Unique NFTs</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-background">500+</div>
-                <div className="text-sm text-background/80">Collectors</div>
+                <div className="text-2xl font-bold text-black">500+</div>
+                <div className="text-sm text-black/70">Collectors</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-background">24/7</div>
-                <div className="text-sm text-background/80">Community</div>
+                <div className="text-2xl font-bold text-black">24/7</div>
+                <div className="text-sm text-black/70">Community</div>
               </div>
             </div>
           </div>
