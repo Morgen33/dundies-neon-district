@@ -10,7 +10,11 @@ const Collection = () => {
           <div className="space-y-6">
             <div className="flex justify-center">
               <div className="w-20 h-20 bg-gradient-neon rounded-full flex items-center justify-center shadow-glow">
-                <Sparkles className="w-10 h-10 text-background" />
+                <img 
+                  src="/lovable-uploads/98a428d9-3874-436a-bc37-1bcdfdc8010c.png"
+                  alt="Dundie Character"
+                  className="w-12 h-12 object-contain"
+                />
               </div>
             </div>
             
