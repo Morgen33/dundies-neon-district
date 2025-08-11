@@ -22,7 +22,7 @@ const Collection = () => {
             <p className="text-xl text-off-white/90 max-w-2xl mx-auto leading-relaxed">
               Join an exclusive community of collectors who appreciate 
               <span className="text-neon-blue font-semibold"> hand-drawn art</span> with 
-              <span className="text-acid-lime font-semibold"> neon attitude</span>.
+              <span className="text-acid-lime font-semibold"> bold attitude</span>.
               Each piece is a unique digital trophy for the bold.
             </p>
           </div>
@@ -103,7 +103,7 @@ const Collection = () => {
             <div className="space-y-3 text-sm">
               <div>• Hand-drawn by Neo</div>
               <div>• Chunky, rounded aesthetics</div>
-              <div>• Bold neon color palette</div>
+              <div>• Bold vibrant color palette</div>
               <div>• Sticker-style outlines</div>
               <div>• Playful personality traits</div>
             </div>

@@ -107,7 +107,7 @@ const ArtGallery = () => {
             <span className="text-electric-purple">Gallery</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Each Dundie is a unique, hand-drawn character with <span className="text-neon-blue">bold neon personality</span>
+            Each Dundie is a unique, hand-drawn character with <span className="text-neon-blue">bold digital personality</span>
           </p>
         </div>
 

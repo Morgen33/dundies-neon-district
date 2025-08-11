@@ -5,7 +5,7 @@ const JoinBar = () => {
   return (
     <section id="join" className="py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Full-width neon strip */}
+        {/* Full-width glow strip */}
         <div className="relative overflow-hidden bg-gradient-to-r from-hot-pink via-electric-purple to-neon-blue rounded-3xl p-8 sm:p-12">
           {/* Background effects */}
           <div className="absolute inset-0 bg-gradient-to-r from-hot-pink/90 via-electric-purple/90 to-neon-blue/90"></div>
@@ -23,7 +23,7 @@ const JoinBar = () => {
                 Ready to Join the
               </h2>
               <div className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-background">
-                <span className="inline-block animate-pulse">NEON</span>{' '}
+                <span className="inline-block animate-pulse">DIGITAL</span>{' '}
                 <span className="inline-block animate-pulse delay-200">REVOLUTION</span>
                 <span className="inline-block animate-pulse delay-400">?</span>
               </div>

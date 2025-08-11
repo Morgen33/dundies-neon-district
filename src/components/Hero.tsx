@@ -8,7 +8,7 @@ const Hero = () => {
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-subtle">
-        {/* Animated Neon Blobs */}
+        {/* Animated Glow Effects */}
         <div className="absolute top-20 left-10 w-96 h-96 bg-hot-pink/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-electric-purple/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-neon-blue/20 rounded-full blur-3xl animate-pulse delay-500"></div>
@@ -29,7 +29,7 @@ const Hero = () => {
               </h1>
               <p className="text-xl sm:text-2xl text-off-white/90 font-medium animate-fade-in delay-500">
                 Hand-drawn NFTs by Neo. <br />
-                <span className="text-acid-lime">Loud. Neon. Unmistakable.</span>
+                <span className="text-acid-lime">Loud. Bold. Unmistakable.</span>
               </p>
             </div>
 

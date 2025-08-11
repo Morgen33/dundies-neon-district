@@ -25,7 +25,7 @@ const About = () => {
               
               <p className="text-lg leading-relaxed text-off-white/90 mb-6">
                 Each piece captures the <span className="text-neon-blue font-semibold">playful spirit</span> of recognition and celebration, 
-                but with a bold <span className="text-acid-lime font-semibold">neon twist</span> that screams digital native.
+                but with a bold <span className="text-acid-lime font-semibold">digital twist</span> that screams modern edge.
               </p>
 
               <div className="bg-gradient-to-r from-hot-pink/10 to-electric-purple/10 rounded-xl p-4 border border-hot-pink/20">
