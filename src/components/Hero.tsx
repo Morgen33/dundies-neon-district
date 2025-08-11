@@ -50,6 +50,17 @@ const Hero = () => {
               </Button>
             </div>
 
+            {/* Character Circle */}
+            <div className="flex justify-center lg:justify-start mb-6 animate-fade-in delay-800">
+              <div className="w-24 h-24 rounded-full border-4 border-purple/50 bg-card/80 backdrop-blur-sm flex items-center justify-center shadow-glow">
+                <img 
+                  src="/lovable-uploads/98a428d9-3874-436a-bc37-1bcdfdc8010c.png"
+                  alt="Dundie Character"
+                  className="w-16 h-16 object-contain"
+                />
+              </div>
+            </div>
+
             {/* Tagline */}
             <p className="text-off-white/80 text-lg animate-fade-in delay-1000">
               Own a piece of the district. <span className="text-aqua font-semibold">Make it yours.</span>
