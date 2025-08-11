@@ -61,12 +61,6 @@ const Hero = () => {
             {/* Decorative Blobs */}
             <div className="absolute top-20 left-20 w-24 h-24 bg-lime/40 rounded-full blur-xl animate-pulse"></div>
             <div className="absolute bottom-32 right-24 w-16 h-16 bg-aqua/50 rounded-full blur-lg animate-pulse delay-500"></div>
-            
-            {/* Floating Shapes */}
-            <div className="absolute top-40 left-0 w-8 h-8 bg-hot-pink rounded-full animate-bounce"></div>
-            <div className="absolute bottom-20 right-0 w-6 h-6 bg-purple rounded-full animate-bounce delay-300"></div>
-            <div className="absolute top-60 right-10 w-4 h-4 bg-yellow rounded-full animate-bounce delay-600"></div>
-            <div className="absolute bottom-40 left-5 w-5 h-5 bg-orange rounded-full animate-bounce delay-900"></div>
           </div>
         </div>
       </div>
