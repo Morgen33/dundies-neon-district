@@ -6,15 +6,17 @@ import heroImage2 from '@/assets/dundie-hero-2.png';
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-subtle">
-        {/* Animated Glow Effects */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-hot-pink/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-electric-purple/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-neon-blue/20 rounded-full blur-3xl animate-pulse delay-500"></div>
+      {/* Bold Rainbow Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-rainbow opacity-90">
+        {/* Playful Floating Shapes */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-purple/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-aqua/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-hot-pink/30 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-40 right-20 w-48 h-48 bg-lime/25 rounded-full blur-2xl animate-pulse delay-300"></div>
+        <div className="absolute bottom-40 left-20 w-56 h-56 bg-yellow/25 rounded-full blur-2xl animate-pulse delay-700"></div>
         
-        {/* Grain Overlay */}
-        <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-transparent via-white/5 to-transparent"></div>
+        {/* Soft Overlay for Readability */}
+        <div className="absolute inset-0 bg-background/60"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,12 +26,12 @@ const Hero = () => {
             {/* Kinetic Headline */}
             <div className="space-y-4">
               <h1 className="text-6xl sm:text-7xl lg:text-8xl font-display font-bold leading-tight">
-                <span className="block text-hot-pink neon-text animate-fade-in">DUNDIES</span>
-                <span className="block text-electric-purple glow-text animate-fade-in delay-300">DISTRICT</span>
+                <span className="block neon-text animate-fade-in">DUNDIES</span>
+                <span className="block glow-text animate-fade-in delay-300">DISTRICT</span>
               </h1>
-              <p className="text-xl sm:text-2xl text-off-white/90 font-medium animate-fade-in delay-500">
+              <p className="text-xl sm:text-2xl text-off-white font-medium animate-fade-in delay-500">
                 Hand-drawn NFTs by Neo. <br />
-                <span className="text-acid-lime">Loud. Bold. Unmistakable.</span>
+                <span className="text-lime font-bold">Loud. Bold. Unmistakable.</span>
               </p>
             </div>
 
@@ -52,8 +54,8 @@ const Hero = () => {
             </div>
 
             {/* Tagline */}
-            <p className="text-muted-foreground text-lg animate-fade-in delay-1000">
-              Own a piece of the district. <span className="text-neon-blue">Make it yours.</span>
+            <p className="text-off-white/80 text-lg animate-fade-in delay-1000">
+              Own a piece of the district. <span className="text-aqua font-semibold">Make it yours.</span>
             </p>
           </div>
 
@@ -78,20 +80,22 @@ const Hero = () => {
             </div>
 
             {/* Decorative Blobs */}
-            <div className="absolute top-20 left-20 w-24 h-24 bg-acid-lime/30 rounded-full blur-xl animate-pulse"></div>
-            <div className="absolute bottom-32 right-24 w-16 h-16 bg-neon-blue/40 rounded-full blur-lg animate-pulse delay-500"></div>
+            <div className="absolute top-20 left-20 w-24 h-24 bg-lime/40 rounded-full blur-xl animate-pulse"></div>
+            <div className="absolute bottom-32 right-24 w-16 h-16 bg-aqua/50 rounded-full blur-lg animate-pulse delay-500"></div>
             
             {/* Floating Shapes */}
             <div className="absolute top-40 left-0 w-8 h-8 bg-hot-pink rounded-full animate-bounce"></div>
-            <div className="absolute bottom-20 right-0 w-6 h-6 bg-electric-purple rounded-full animate-bounce delay-300"></div>
+            <div className="absolute bottom-20 right-0 w-6 h-6 bg-purple rounded-full animate-bounce delay-300"></div>
+            <div className="absolute top-60 right-10 w-4 h-4 bg-yellow rounded-full animate-bounce delay-600"></div>
+            <div className="absolute bottom-40 left-5 w-5 h-5 bg-orange rounded-full animate-bounce delay-900"></div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-hot-pink rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-hot-pink rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-purple rounded-full flex justify-center shadow-glow">
+          <div className="w-1 h-3 bg-purple rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

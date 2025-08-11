@@ -29,11 +29,13 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				
-				/* Neon Palette */
+				/* Doodles Stoodio Palette */
+				'purple': 'hsl(var(--purple))',
+				'aqua': 'hsl(var(--aqua))',
+				'lime': 'hsl(var(--lime))',
+				'yellow': 'hsl(var(--yellow))',
+				'orange': 'hsl(var(--orange))',
 				'hot-pink': 'hsl(var(--hot-pink))',
-				'electric-purple': 'hsl(var(--electric-purple))',
-				'neon-blue': 'hsl(var(--neon-blue))',
-				'acid-lime': 'hsl(var(--acid-lime))',
 				'off-white': 'hsl(var(--off-white))',
 				
 				primary: {
@@ -76,8 +78,9 @@ export default {
 				}
 			},
 			backgroundImage: {
-				'gradient-neon': 'var(--gradient-neon)',
-				'gradient-glow': 'var(--gradient-glow)',
+				'gradient-rainbow': 'var(--gradient-rainbow)',
+				'gradient-cta': 'var(--gradient-cta)',
+				'gradient-accent': 'var(--gradient-accent)',
 				'gradient-subtle': 'var(--gradient-subtle)',
 			},
 			boxShadow: {
