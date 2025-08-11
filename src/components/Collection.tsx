@@ -14,6 +14,10 @@ const Collection = () => {
                   src="/lovable-uploads/98a428d9-3874-436a-bc37-1bcdfdc8010c.png"
                   alt="Dundie Character"
                   className="w-20 h-20 object-contain"
+                  style={{
+                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
+                    mixBlendMode: 'multiply'
+                  }}
                 />
               </div>
             </div>
