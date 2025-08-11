@@ -54,39 +54,6 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Floating Character Bubbles */}
-          <div className="absolute inset-0 pointer-events-none">
-            {/* Floating Bubble 1 - Gangster */}
-            <div className="absolute top-20 left-20 w-32 h-32 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-1_12s_ease-in-out_infinite]">
-              <img 
-                src="/lovable-uploads/a73a82a8-235e-4882-872e-ce58212a087b.png" 
-                alt="Dundie Gangster" 
-                className="w-24 h-24 object-contain"
-              />
-            </div>
-            
-            {/* Floating Bubble 2 - King */}
-            <div className="absolute top-40 right-20 w-28 h-28 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-2_15s_ease-in-out_infinite_2s]">
-              <img 
-                src="/lovable-uploads/16af89c6-585b-4618-86d7-ad34f471161d.png" 
-                alt="Dundie King" 
-                className="w-20 h-20 object-contain"
-              />
-            </div>
-            
-            {/* Floating Bubble 3 - Bubble Gum */}
-            <div className="absolute bottom-32 left-1/3 w-36 h-36 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-3_10s_ease-in-out_infinite_1s]">
-              <img 
-                src="/lovable-uploads/558bf590-22f6-4a0f-a233-aa75ff1665b0.png" 
-                alt="Dundie Bubble Gum" 
-                className="w-28 h-28 object-contain"
-              />
-            </div>
-            
-            {/* Decorative Blobs */}
-            <div className="absolute top-20 left-20 w-24 h-24 bg-lime/40 rounded-full blur-xl animate-pulse"></div>
-            <div className="absolute bottom-32 right-24 w-16 h-16 bg-aqua/50 rounded-full blur-lg animate-pulse delay-500"></div>
-          </div>
         </div>
       </div>
 
