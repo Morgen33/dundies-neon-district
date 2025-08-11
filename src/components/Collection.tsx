@@ -9,7 +9,7 @@ const Collection = () => {
         <div className="sticker-card text-center space-y-8 bg-gradient-to-br from-muted to-background/50 border-2 border-hot-pink/50 shadow-neon">
           <div className="space-y-6">
             <div className="flex justify-center">
-              <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-glow border-4 border-purple/30">
+              <div className="w-32 h-32 rounded-full flex items-center justify-center shadow-glow border-4 border-purple/30" style={{backgroundColor: '#E5E7EB'}}>
                 <img 
                   src="/lovable-uploads/98a428d9-3874-436a-bc37-1bcdfdc8010c.png"
                   alt="Dundie Character"
