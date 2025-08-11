@@ -5,7 +5,7 @@ import heroImage2 from '@/assets/dundie-hero-2.png';
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-32">
       {/* Dark Background */}
       <div className="absolute inset-0 bg-black">
         {/* Playful Floating Shapes */}
