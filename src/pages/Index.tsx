@@ -1,6 +1,5 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
-import ArtGallery from '@/components/ArtGallery';
 import Collection from '@/components/Collection';
 import Community from '@/components/Community';
 import WallOfFame from '@/components/WallOfFame';
@@ -13,7 +12,6 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       <Hero />
-      <ArtGallery />
       <Collection />
       <Community />
       <WallOfFame />

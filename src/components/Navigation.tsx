@@ -16,7 +16,6 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: '#art', label: 'Art' },
     { href: '#collection', label: 'Collection' },
     { href: '/marketplace', label: 'Marketplace' },
     { href: '/services', label: 'Services' },
