@@ -4,7 +4,6 @@ import ArtGallery from '@/components/ArtGallery';
 import Collection from '@/components/Collection';
 import Community from '@/components/Community';
 import WallOfFame from '@/components/WallOfFame';
-import Roadmap from '@/components/Roadmap';
 import About from '@/components/About';
 import JoinBar from '@/components/JoinBar';
 import Footer from '@/components/Footer';
@@ -18,7 +17,6 @@ const Index = () => {
       <Collection />
       <Community />
       <WallOfFame />
-      <Roadmap />
       <About />
       <JoinBar />
       <Footer />
