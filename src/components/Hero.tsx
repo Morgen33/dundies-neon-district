@@ -56,26 +56,8 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Parallax Collage */}
+          {/* Decorative Elements */}
           <div className="relative lg:h-[600px] h-[400px] animate-fade-in delay-500">
-            {/* Main Character */}
-            <div className="absolute top-0 right-0 w-80 h-80 lg:w-96 lg:h-96">
-              <img 
-                src={heroImage1}
-                alt="Dundie Character"
-                className="w-full h-full object-contain float hover:scale-105 transition-transform duration-500 filter drop-shadow-lg"
-              />
-            </div>
-
-            {/* Supporting Character */}
-            <div className="absolute bottom-10 left-10 w-48 h-48 lg:w-64 lg:h-64">
-              <img 
-                src={heroImage2}
-                alt="Dundie Character 2"
-                className="w-full h-full object-contain float delay-1000 hover:scale-105 transition-transform duration-500 filter drop-shadow-lg"
-              />
-            </div>
-
             {/* Decorative Blobs */}
             <div className="absolute top-20 left-20 w-24 h-24 bg-lime/40 rounded-full blur-xl animate-pulse"></div>
             <div className="absolute bottom-32 right-24 w-16 h-16 bg-aqua/50 rounded-full blur-lg animate-pulse delay-500"></div>
