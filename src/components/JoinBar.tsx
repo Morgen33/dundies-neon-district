@@ -7,11 +7,11 @@ const JoinBar = () => {
       <div className="max-w-7xl mx-auto">
         {/* Full-width glow strip */}
         <div className="relative overflow-hidden rounded-3xl p-8 sm:p-12" style={{
-          background: 'linear-gradient(135deg, #FF6AD5, #9B59B6, #8E44AD)'
+          background: 'linear-gradient(135deg, #74F0ED, #FF6AD5, #9B8CFF, #A7FF70)'
         }}>
           {/* Background effects */}
           <div className="absolute inset-0" style={{
-            background: 'linear-gradient(135deg, rgba(255, 106, 213, 0.9), rgba(155, 89, 182, 0.9), rgba(142, 68, 173, 0.9))'
+            background: 'linear-gradient(135deg, rgba(116, 240, 237, 0.9), rgba(255, 106, 213, 0.9), rgba(155, 140, 255, 0.9), rgba(167, 255, 112, 0.9))'
           }}></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
           
