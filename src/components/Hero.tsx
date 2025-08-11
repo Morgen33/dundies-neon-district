@@ -5,7 +5,7 @@ import heroImage2 from '@/assets/dundie-hero-2.png';
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-32">
+    <section className="min-h-[140vh] flex items-center justify-center relative overflow-hidden pt-32">
       {/* Dark Background */}
       <div className="absolute inset-0 bg-black">
         {/* Playful Floating Shapes */}
@@ -54,81 +54,83 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Floating Character Bubbles - Below Text */}
-          <div className="absolute inset-0 pointer-events-none">
-            {/* Floating Bubble 1 - Angel */}
-            <div className="absolute top-2/3 left-8 w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-1_12s_ease-in-out_infinite]">
+          {/* Floating Character Bubbles - Below Text, spread out */}
+          <div className="absolute left-0 right-0 top-[58%] bottom-0 pointer-events-none">
+            {/* Bubble 1 - Angel */}
+            <div className="absolute top-[6%] left-[6%] w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-4_14s_ease-in-out_infinite]">
               <img 
                 src="/lovable-uploads/7865b5fd-6bf5-4724-8359-221e16c7d1c1.png" 
-                alt="Dundie Angel" 
+                alt="Dundie Angel bubble below headline" 
                 className="w-32 h-32 object-contain"
               />
             </div>
-            
-            {/* Floating Bubble 2 - Baseball */}
-            <div className="absolute bottom-20 left-32 w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-2_15s_ease-in-out_infinite_2s]">
+
+            {/* Bubble 2 - Baseball */}
+            <div className="absolute top-[18%] left-[20%] w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-5_16s_ease-in-out_infinite_1s]">
               <img 
                 src="/lovable-uploads/1ac2bbe6-bb7b-4b3c-a75c-d81d12ba6e83.png" 
-                alt="Dundie Baseball" 
+                alt="Dundie Baseball bubble below headline" 
                 className="w-32 h-32 object-contain"
               />
             </div>
-            
-            {/* Floating Bubble 3 - Wizard */}
-            <div className="absolute top-3/4 right-20 w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-3_10s_ease-in-out_infinite_1s]">
+
+            {/* Bubble 3 - Wizard */}
+            <div className="absolute top-[10%] left-[34%] w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-6_13.5s_ease-in-out_infinite_.5s]">
               <img 
                 src="/lovable-uploads/11d1b86f-a592-41a1-9e61-22dbfd3d4ecc.png" 
-                alt="Dundie Wizard" 
+                alt="Dundie Wizard bubble below headline" 
                 className="w-32 h-32 object-contain"
               />
             </div>
 
-            {/* Floating Bubble 4 - Cowboy */}
-            <div className="absolute bottom-16 right-8 w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-1_14s_ease-in-out_infinite_3s]">
+            {/* Bubble 4 - Cowboy */}
+            <div className="absolute top-[22%] left-[48%] w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-7_15s_ease-in-out_infinite_2s]">
               <img 
                 src="/lovable-uploads/5602bd77-3bfc-4b74-9b31-37a53adc5ea0.png" 
-                alt="Dundie Cowboy" 
+                alt="Dundie Cowboy bubble below headline" 
                 className="w-32 h-32 object-contain"
               />
             </div>
 
-            {/* Floating Bubble 5 - Pink Hair */}
-            <div className="absolute bottom-24 right-1/3 w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-2_13s_ease-in-out_infinite_4s]">
+            {/* Bubble 5 - Pink Hair */}
+            <div className="absolute top-[8%] left-[62%] w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-8_17s_ease-in-out_infinite_1.8s]">
               <img 
                 src="/lovable-uploads/5e4285df-993c-4b5f-89d0-bf98aa635667.png" 
-                alt="Dundie Pink Hair" 
+                alt="Dundie Pink Hair bubble below headline" 
                 className="w-32 h-32 object-contain"
               />
             </div>
 
-            {/* Floating Bubble 6 - Thinking */}
-            <div className="absolute top-4/5 left-1/3 w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-3_11s_ease-in-out_infinite_2.5s]">
+            {/* Bubble 6 - Thinking */}
+            <div className="absolute top-[20%] left-[74%] w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-5_14.5s_ease-in-out_infinite_2.5s]">
               <img 
                 src="/lovable-uploads/bf70ad6d-c5af-4a8c-9983-460fc8b379aa.png" 
-                alt="Dundie Thinking" 
+                alt="Dundie Thinking bubble below headline" 
                 className="w-32 h-32 object-contain"
               />
             </div>
 
-            {/* Floating Bubble 7 - Cool Angel */}
-            <div className="absolute bottom-32 left-1/2 w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-1_16s_ease-in-out_infinite_1.5s]">
+            {/* Bubble 7 - Cool Angel */}
+            <div className="absolute top-[12%] left-[86%] w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-6_18s_ease-in-out_infinite_1.2s]">
               <img 
                 src="/lovable-uploads/f4e93ff4-be01-4a12-9411-13fcca414a92.png" 
-                alt="Dundie Cool Angel" 
+                alt="Dundie Cool Angel bubble below headline" 
                 className="w-32 h-32 object-contain"
               />
             </div>
 
-            {/* Floating Bubble 8 - Crown */}
-            <div className="absolute top-5/6 right-1/4 w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-2_12s_ease-in-out_infinite_5s]">
+            {/* Bubble 8 - Crown */}
+            <div className="absolute top-[24%] left-[12%] sm:left-[88%] w-40 h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-4_19s_ease-in-out_infinite_3s]">
               <img 
                 src="/lovable-uploads/859dad91-27b2-4509-8fe8-6f9c47323d55.png" 
-                alt="Dundie Crown" 
+                alt="Dundie Crown bubble below headline" 
                 className="w-32 h-32 object-contain"
               />
             </div>
-            
-            {/* Decorative Blobs */}
+          </div>
+
+          {/* Decorative Blobs (unchanged) */}
+          <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-20 left-20 w-24 h-24 bg-lime/40 rounded-full blur-xl animate-pulse"></div>
             <div className="absolute bottom-32 right-24 w-16 h-16 bg-aqua/50 rounded-full blur-lg animate-pulse delay-500"></div>
           </div>

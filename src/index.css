@@ -342,3 +342,48 @@
 .delay-1000 {
   animation-delay: 1s;
 }
+
+/* Additional varied float paths to reduce clustering */
+@keyframes float-bubble-4 {
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  20%  { transform: translate(120px, -80px) rotate(72deg); }
+  40%  { transform: translate(-90px, -60px) rotate(144deg); }
+  60%  { transform: translate(140px, -110px) rotate(216deg); }
+  80%  { transform: translate(-60px, -40px) rotate(288deg); }
+  100% { transform: translate(0px, 0px) rotate(360deg); }
+}
+
+@keyframes float-bubble-5 {
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  25%  { transform: translate(-140px, -70px) rotate(90deg); }
+  50%  { transform: translate(100px, -120px) rotate(180deg); }
+  75%  { transform: translate(-120px, -50px) rotate(270deg); }
+  100% { transform: translate(0px, 0px) rotate(360deg); }
+}
+
+@keyframes float-bubble-6 {
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  20%  { transform: translate(80px, -120px) rotate(72deg); }
+  40%  { transform: translate(-150px, -40px) rotate(144deg); }
+  60%  { transform: translate(110px, -90px) rotate(216deg); }
+  80%  { transform: translate(-100px, -110px) rotate(288deg); }
+  100% { transform: translate(0px, 0px) rotate(360deg); }
+}
+
+@keyframes float-bubble-7 {
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  16%  { transform: translate(150px, -60px) rotate(60deg); }
+  33%  { transform: translate(-100px, -120px) rotate(120deg); }
+  50%  { transform: translate(130px, -30px) rotate(180deg); }
+  66%  { transform: translate(-140px, -80px) rotate(240deg); }
+  83%  { transform: translate(90px, -100px) rotate(300deg); }
+  100% { transform: translate(0px, 0px) rotate(360deg); }
+}
+
+@keyframes float-bubble-8 {
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  25%  { transform: translate(100px, -100px) rotate(90deg); }
+  50%  { transform: translate(-120px, -60px) rotate(180deg); }
+  75%  { transform: translate(160px, -120px) rotate(270deg); }
+  100% { transform: translate(0px, 0px) rotate(360deg); }
+}
