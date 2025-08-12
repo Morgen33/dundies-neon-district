@@ -1,6 +1,6 @@
 const FloatingBubbles = () => {
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
       {/* Bubble 1 - Angel */}
       <div className="absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-4_14s_ease-in-out_infinite]">
         <img 
