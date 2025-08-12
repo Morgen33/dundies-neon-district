@@ -65,22 +65,7 @@ const FloatingBubbles = () => {
         />
       </div>
 
-      {/* Additional Bubbles for more activity */}
-      <div className="absolute w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 shadow-glow flex items-center justify-center animate-[float-bubble-9_20s_ease-in-out_infinite_4s]">
-        <img 
-          src="/lovable-uploads/98a428d9-3874-436a-bc37-1bcdfdc8010c.png" 
-          alt="Dundie floating bubble" 
-          className="w-20 h-20 sm:w-28 sm:h-28 object-contain"
-        />
-      </div>
 
-      <div className="absolute w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 shadow-glow flex items-center justify-center animate-[float-bubble-10_22s_ease-in-out_infinite_6s]">
-        <img 
-          src="/lovable-uploads/a73a82a8-235e-4882-872e-ce58212a087b.png" 
-          alt="Dundie floating bubble" 
-          className="w-20 h-20 sm:w-28 sm:h-28 object-contain"
-        />
-      </div>
     </div>
   );
 };
