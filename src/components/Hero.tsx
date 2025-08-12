@@ -54,77 +54,32 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Floating Character Bubbles - Properly spread out below text */}
-          <div className="absolute left-0 right-0 top-[60%] bottom-0 pointer-events-none">
-            {/* Bubble 1 - Angel - Far Left */}
-            <div className="absolute top-[10%] left-[2%] w-32 h-32 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 shadow-glow flex items-center justify-center animate-[float-1_12s_ease-in-out_infinite]">
+          {/* Strategic Character Bubbles - Clean and Spaced */}
+          <div className="absolute left-0 right-0 top-[65%] bottom-0 pointer-events-none">
+            {/* Left Side Bubble */}
+            <div className="absolute top-[15%] left-[8%] w-32 h-32 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-glow flex items-center justify-center animate-[float_6s_ease-in-out_infinite]">
               <img 
                 src="/lovable-uploads/7865b5fd-6bf5-4724-8359-221e16c7d1c1.png" 
-                alt="Dundie Angel bubble below headline" 
+                alt="Dundie Angel character" 
                 className="w-24 h-24 object-contain"
               />
             </div>
 
-            {/* Bubble 2 - Baseball - Left */}
-            <div className="absolute top-[25%] left-[15%] w-36 h-36 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 shadow-glow flex items-center justify-center animate-[float-2_15s_ease-in-out_infinite_1s]">
-              <img 
-                src="/lovable-uploads/1ac2bbe6-bb7b-4b3c-a75c-d81d12ba6e83.png" 
-                alt="Dundie Baseball bubble below headline" 
-                className="w-28 h-28 object-contain"
-              />
-            </div>
-
-            {/* Bubble 3 - Wizard - Center Left */}
-            <div className="absolute top-[5%] left-[30%] w-34 h-34 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 shadow-glow flex items-center justify-center animate-[float-3_18s_ease-in-out_infinite_2s]">
-              <img 
-                src="/lovable-uploads/11d1b86f-a592-41a1-9e61-22dbfd3d4ecc.png" 
-                alt="Dundie Wizard bubble below headline" 
-                className="w-26 h-26 object-contain"
-              />
-            </div>
-
-            {/* Bubble 4 - Cowboy - Center */}
-            <div className="absolute top-[20%] left-[45%] w-38 h-38 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 shadow-glow flex items-center justify-center animate-[float-4_14s_ease-in-out_infinite_0.5s]">
+            {/* Center Bubble */}
+            <div className="absolute top-[5%] left-[45%] w-36 h-36 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-glow flex items-center justify-center animate-[float_8s_ease-in-out_infinite_2s]">
               <img 
                 src="/lovable-uploads/5602bd77-3bfc-4b74-9b31-37a53adc5ea0.png" 
-                alt="Dundie Cowboy bubble below headline" 
-                className="w-30 h-30 object-contain"
+                alt="Dundie Cowboy character" 
+                className="w-28 h-28 object-contain"
               />
             </div>
 
-            {/* Bubble 5 - Pink Hair - Center Right */}
-            <div className="absolute top-[8%] left-[62%] w-35 h-35 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 shadow-glow flex items-center justify-center animate-[float-5_16s_ease-in-out_infinite_1.5s]">
+            {/* Right Side Bubble */}
+            <div className="absolute top-[20%] left-[82%] w-30 h-30 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-glow flex items-center justify-center animate-[float_7s_ease-in-out_infinite_4s]">
               <img 
                 src="/lovable-uploads/5e4285df-993c-4b5f-89d0-bf98aa635667.png" 
-                alt="Dundie Pink Hair bubble below headline" 
-                className="w-27 h-27 object-contain"
-              />
-            </div>
-
-            {/* Bubble 6 - Thinking - Right */}
-            <div className="absolute top-[22%] left-[78%] w-33 h-33 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 shadow-glow flex items-center justify-center animate-[float-6_13s_ease-in-out_infinite_3s]">
-              <img 
-                src="/lovable-uploads/bf70ad6d-c5af-4a8c-9983-460fc8b379aa.png" 
-                alt="Dundie Thinking bubble below headline" 
-                className="w-25 h-25 object-contain"
-              />
-            </div>
-
-            {/* Bubble 7 - Cool Angel - Far Right */}
-            <div className="absolute top-[12%] left-[88%] w-37 h-37 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 shadow-glow flex items-center justify-center animate-[float-7_17s_ease-in-out_infinite_2.5s]">
-              <img 
-                src="/lovable-uploads/f4e93ff4-be01-4a12-9411-13fcca414a92.png" 
-                alt="Dundie Cool Angel bubble below headline" 
-                className="w-29 h-29 object-contain"
-              />
-            </div>
-
-            {/* Bubble 8 - Crown - Bottom Left */}
-            <div className="absolute top-[35%] left-[8%] w-36 h-36 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 shadow-glow flex items-center justify-center animate-[float-8_19s_ease-in-out_infinite_4s]">
-              <img 
-                src="/lovable-uploads/859dad91-27b2-4509-8fe8-6f9c47323d55.png" 
-                alt="Dundie Crown bubble below headline" 
-                className="w-28 h-28 object-contain"
+                alt="Dundie Pink Hair character" 
+                className="w-22 h-22 object-contain"
               />
             </div>
           </div>
