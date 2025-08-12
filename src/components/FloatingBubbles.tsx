@@ -46,14 +46,6 @@ const FloatingBubbles = () => {
         />
       </div>
 
-      {/* Bubble 6 - Thinking */}
-      <div className="absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-5_14.5s_ease-in-out_infinite_2.5s]">
-        <img 
-          src="/lovable-uploads/bf70ad6d-c5af-4a8c-9983-460fc8b379aa.png" 
-          alt="Dundie Thinking floating bubble" 
-          className="w-24 h-24 sm:w-32 sm:h-32 object-contain"
-        />
-      </div>
 
       {/* Bubble 7 - Cool Angel */}
       <div className="absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center animate-[float-bubble-6_18s_ease-in-out_infinite_1.2s]">
