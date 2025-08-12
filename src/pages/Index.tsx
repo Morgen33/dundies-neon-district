@@ -6,18 +6,22 @@ import WallOfFame from '@/components/WallOfFame';
 import About from '@/components/About';
 import JoinBar from '@/components/JoinBar';
 import Footer from '@/components/Footer';
+import FloatingBubbles from '@/components/FloatingBubbles';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black text-foreground">
-      <Navigation />
-      <Hero />
-      <Collection />
-      <Community />
-      <WallOfFame />
-      <About />
-      <JoinBar />
-      <Footer />
+    <div className="min-h-screen bg-black text-foreground relative">
+      <FloatingBubbles />
+      <div className="relative z-10">
+        <Navigation />
+        <Hero />
+        <Collection />
+        <Community />
+        <WallOfFame />
+        <About />
+        <JoinBar />
+        <Footer />
+      </div>
     </div>
   );
 };

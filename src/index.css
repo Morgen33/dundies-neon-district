@@ -387,3 +387,62 @@
   75%  { transform: translate(160px, -120px) rotate(270deg); }
   100% { transform: translate(0px, 0px) rotate(360deg); }
 }
+
+/* Page-wide bubble animations for floating across entire viewport */
+@keyframes float-bubble-4 {
+  0%   { transform: translate(10vw, 20vh) rotate(0deg); }
+  25%  { transform: translate(80vw, 60vh) rotate(90deg); }
+  50%  { transform: translate(20vw, 90vh) rotate(180deg); }
+  75%  { transform: translate(70vw, 30vh) rotate(270deg); }
+  100% { transform: translate(10vw, 20vh) rotate(360deg); }
+}
+
+@keyframes float-bubble-5 {
+  0%   { transform: translate(90vw, 10vh) rotate(0deg); }
+  25%  { transform: translate(30vw, 40vh) rotate(90deg); }
+  50%  { transform: translate(85vw, 70vh) rotate(180deg); }
+  75%  { transform: translate(15vw, 85vh) rotate(270deg); }
+  100% { transform: translate(90vw, 10vh) rotate(360deg); }
+}
+
+@keyframes float-bubble-6 {
+  0%   { transform: translate(50vw, 80vh) rotate(0deg); }
+  25%  { transform: translate(10vw, 50vh) rotate(90deg); }
+  50%  { transform: translate(75vw, 15vh) rotate(180deg); }
+  75%  { transform: translate(40vw, 70vh) rotate(270deg); }
+  100% { transform: translate(50vw, 80vh) rotate(360deg); }
+}
+
+@keyframes float-bubble-7 {
+  0%   { transform: translate(25vw, 30vh) rotate(0deg); }
+  20%  { transform: translate(85vw, 80vh) rotate(72deg); }
+  40%  { transform: translate(5vw, 60vh) rotate(144deg); }
+  60%  { transform: translate(70vw, 20vh) rotate(216deg); }
+  80%  { transform: translate(45vw, 90vh) rotate(288deg); }
+  100% { transform: translate(25vw, 30vh) rotate(360deg); }
+}
+
+@keyframes float-bubble-8 {
+  0%   { transform: translate(75vw, 70vh) rotate(0deg); }
+  25%  { transform: translate(20vw, 25vh) rotate(90deg); }
+  50%  { transform: translate(90vw, 50vh) rotate(180deg); }
+  75%  { transform: translate(35vw, 80vh) rotate(270deg); }
+  100% { transform: translate(75vw, 70vh) rotate(360deg); }
+}
+
+@keyframes float-bubble-9 {
+  0%   { transform: translate(60vw, 40vh) rotate(0deg); }
+  30%  { transform: translate(15vw, 75vh) rotate(108deg); }
+  60%  { transform: translate(80vw, 35vh) rotate(216deg); }
+  90%  { transform: translate(40vw, 85vh) rotate(324deg); }
+  100% { transform: translate(60vw, 40vh) rotate(360deg); }
+}
+
+@keyframes float-bubble-10 {
+  0%   { transform: translate(30vw, 60vh) rotate(0deg); }
+  20%  { transform: translate(90vw, 25vh) rotate(72deg); }
+  40%  { transform: translate(10vw, 80vh) rotate(144deg); }
+  60%  { transform: translate(75vw, 45vh) rotate(216deg); }
+  80%  { transform: translate(50vw, 10vh) rotate(288deg); }
+  100% { transform: translate(30vw, 60vh) rotate(360deg); }
+}
