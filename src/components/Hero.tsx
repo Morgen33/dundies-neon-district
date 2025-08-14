@@ -2,10 +2,8 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Twitter } from 'lucide-react';
 import heroImage1 from '@/assets/dundie-hero-1.png';
 import heroImage2 from '@/assets/dundie-hero-2.png';
-
 const Hero = () => {
-  return (
-    <section className="min-h-[140vh] flex items-center justify-center relative overflow-hidden pt-32">
+  return <section className="min-h-[140vh] flex items-center justify-center relative overflow-hidden pt-32">
       {/* Dark Background */}
       <div className="absolute inset-0 bg-black">
         {/* Playful Floating Shapes */}
@@ -26,32 +24,24 @@ const Hero = () => {
                 <span className="neon-text animate-fade-in">DUNDIES DISTRICT</span>
               </h1>
               <p className="text-xl sm:text-2xl text-off-white font-medium animate-fade-in delay-500">
-                <span className="text-lime font-bold">Loud. Bold. Unmistakable.</span>
+                
               </p>
             </div>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in delay-700">
-              <Button 
-                className="btn-neon magnetic"
-                onClick={() => window.open('https://www.launchmynft.io/collections/8pXL1gZGWq1Y6wA7RJTmAVXcwBhzn65XdeLL7yA8AwFb/ZMZXWPY2COXyqoohzTfK', '_blank')}
-              >
+              <Button className="btn-neon magnetic" onClick={() => window.open('https://www.launchmynft.io/collections/8pXL1gZGWq1Y6wA7RJTmAVXcwBhzn65XdeLL7yA8AwFb/ZMZXWPY2COXyqoohzTfK', '_blank')}>
                 View Collection
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button 
-                className="btn-outline-neon magnetic"
-                onClick={() => window.open('https://x.com/DundiesDistrict', '_blank')}
-              >
+              <Button className="btn-outline-neon magnetic" onClick={() => window.open('https://x.com/DundiesDistrict', '_blank')}>
                 <Twitter className="mr-2 w-5 h-5" />
                 Join X
               </Button>
             </div>
 
             {/* Tagline */}
-            <p className="text-off-white/80 text-lg animate-fade-in delay-1000">
-              Own a piece of the district. <span className="text-aqua font-semibold">Make it yours.</span>
-            </p>
+            
           </div>
 
 
@@ -70,8 +60,6 @@ const Hero = () => {
           <div className="w-1 h-3 bg-purple rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
