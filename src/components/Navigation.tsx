@@ -19,6 +19,7 @@ const Navigation = () => {
     { href: '#collection', label: 'Collection' },
     { href: '/marketplace', label: 'Marketplace' },
     { href: '/services', label: 'Services' },
+    { href: 'https://ultraixclothing.com/collections/spu-x-dundies-collection', label: 'Merch', external: true },
     { href: '#community', label: 'Community' },
     { href: '#wall-of-fame', label: 'Members' },
     { href: '#about', label: 'About' },
@@ -53,6 +54,8 @@ const Navigation = () => {
                 <a
                   key={link.href}
                   href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
                   className="text-foreground hover:text-hot-pink transition-colors duration-300 font-medium relative group"
                 >
                   {link.label}
@@ -100,6 +103,8 @@ const Navigation = () => {
                 <a
                   key={link.href}
                   href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
                   className="block px-3 py-2 text-base font-medium text-foreground hover:text-hot-pink transition-colors duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
