@@ -40,6 +40,12 @@ const Community = () => {
       description: 'Main Community'
     },
     {
+      name: 'Dundie Merch',
+      icon: '👕',
+      url: 'https://ultraixclothing.com/collections/spu-x-dundies-collection',
+      description: 'Official Store'
+    },
+    {
       name: 'Bio Hub',
       icon: '📌',
       url: 'https://bio.site/dundies',
@@ -55,8 +61,8 @@ const Community = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl sm:text-6xl font-display font-bold mb-6">
-            <span className="text-electric-purple glow-text">Community</span>{' '}
-            <span className="text-hot-pink neon-text">Vibes</span>
+            <span className="text-electric-purple glow-text">Social</span>{' '}
+            <span className="text-hot-pink neon-text">Links</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Join the loudest, brightest NFT community in the metaverse
