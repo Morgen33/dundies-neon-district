@@ -111,28 +111,6 @@ const Community = () => {
           ))}
         </div>
 
-        {/* Community Stats */}
-        <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6">
-          <div className="text-center p-6 bg-gradient-to-br from-hot-pink/10 to-transparent rounded-2xl border border-hot-pink/30">
-            <div className="text-3xl font-bold text-hot-pink mb-2">2.5K+</div>
-            <div className="text-sm text-muted-foreground">Discord Members</div>
-          </div>
-          
-          <div className="text-center p-6 bg-gradient-to-br from-electric-purple/10 to-transparent rounded-2xl border border-electric-purple/30">
-            <div className="text-3xl font-bold text-electric-purple mb-2">5K+</div>
-            <div className="text-sm text-muted-foreground">X Followers</div>
-          </div>
-          
-          <div className="text-center p-6 bg-gradient-to-br from-neon-blue/10 to-transparent rounded-2xl border border-neon-blue/30">
-            <div className="text-3xl font-bold text-neon-blue mb-2">500+</div>
-            <div className="text-sm text-muted-foreground">Holders</div>
-          </div>
-          
-          <div className="text-center p-6 bg-gradient-to-br from-acid-lime/10 to-transparent rounded-2xl border border-acid-lime/30">
-            <div className="text-3xl font-bold text-acid-lime mb-2">24/7</div>
-            <div className="text-sm text-muted-foreground">Active Chat</div>
-          </div>
-        </div>
       </div>
     </section>
   );
