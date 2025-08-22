@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,14 +16,14 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: '#collection', label: 'Collection', anchor: true },
+    { href: '#collection', label: 'Collection' },
     { href: '/marketplace', label: 'Marketplace' },
     { href: '/services', label: 'Services' },
     { href: 'https://ultraixclothing.com/collections/spu-x-dundies-collection', label: 'Merch', external: true },
-    { href: '#community', label: 'Community', anchor: true },
-    { href: '#wall-of-fame', label: 'Members', anchor: true },
-    { href: '#about', label: 'About', anchor: true },
-    { href: '#join', label: 'Join', anchor: true },
+    { href: '#community', label: 'Community' },
+    { href: '#wall-of-fame', label: 'Members' },
+    { href: '#about', label: 'About' },
+    { href: '#join', label: 'Join' },
   ];
 
   const socialLinks = [
@@ -51,46 +50,18 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {navLinks.map((link) => {
-                if (link.external) {
-                  return (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-foreground hover:text-hot-pink transition-colors duration-300 font-medium relative group"
-                    >
-                      {link.label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-hot-pink transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                  );
-                }
-                
-                if (link.anchor) {
-                  return (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      className="text-foreground hover:text-hot-pink transition-colors duration-300 font-medium relative group"
-                    >
-                      {link.label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-hot-pink transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                  );
-                }
-                
-                return (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="text-foreground hover:text-hot-pink transition-colors duration-300 font-medium relative group page-turn-link"
-                  >
-                    {link.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-hot-pink transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                );
-              })}
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  className="text-foreground hover:text-hot-pink transition-colors duration-300 font-medium relative group"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-hot-pink transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              ))}
             </div>
           </div>
 
@@ -128,46 +99,18 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-hot-pink/20">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navLinks.map((link) => {
-                if (link.external) {
-                  return (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block px-3 py-2 text-base font-medium text-foreground hover:text-hot-pink transition-colors duration-300"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {link.label}
-                    </a>
-                  );
-                }
-                
-                if (link.anchor) {
-                  return (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      className="block px-3 py-2 text-base font-medium text-foreground hover:text-hot-pink transition-colors duration-300"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {link.label}
-                    </a>
-                  );
-                }
-                
-                return (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="block px-3 py-2 text-base font-medium text-foreground hover:text-hot-pink transition-colors duration-300 page-turn-link"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  className="block px-3 py-2 text-base font-medium text-foreground hover:text-hot-pink transition-colors duration-300"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
               <div className="flex items-center space-x-4 px-3 py-2">
                 {socialLinks.map((link) => (
                   <a
