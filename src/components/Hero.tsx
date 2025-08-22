@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Twitter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import heroImage1 from '@/assets/dundie-hero-1.png';
 import heroImage2 from '@/assets/dundie-hero-2.png';
 const Hero = () => {
@@ -37,6 +38,18 @@ const Hero = () => {
               <Button className="btn-outline-neon magnetic" onClick={() => window.open('https://x.com/DundiesDistrict', '_blank')}>
                 <Twitter className="mr-2 w-5 h-5" />
                 Join X
+              </Button>
+            </div>
+
+            {/* Funny Sexy Body Button */}
+            <div className="animate-fade-in delay-1000 mt-8">
+              <Button 
+                asChild 
+                className="bg-gradient-to-r from-hot-pink to-purple text-white hover:scale-110 transition-transform duration-300 text-lg px-6 py-3 rounded-full shadow-[0_0_20px_rgba(236,72,153,0.5)] hover:shadow-[0_0_30px_rgba(236,72,153,0.8)] magnetic wiggle"
+              >
+                <Link to="/sexy-body">
+                  Is it because of my sexy body? 💅✨
+                </Link>
               </Button>
             </div>
 
