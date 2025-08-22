@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { RainbowButton } from '@/components/ui/rainbow-borders-button';
-import { RainbowText } from '@/components/ui/rainbow-text';
 import { Link, useNavigate } from 'react-router-dom';
 import FloatingBubbles from '@/components/FloatingBubbles';
 
@@ -31,12 +30,9 @@ const SexyBodyPage = () => {
             <span className="text-hot-pink block animate-pulse-neon" style={{ animationDelay: '0.5s' }}>
               OF MY
             </span>
-            <RainbowText 
-              text="SEXY BODY"
-              className="glow-text block text-7xl md:text-9xl lg:text-[12rem] animate-pulse-neon"
-              baseDelay={1}
-              letterDelay={0.1}
-            />
+            <span className="glow-text block text-7xl md:text-9xl lg:text-[12rem] animate-pulse-neon" style={{ animationDelay: '1s' }}>
+              SEXY BODY
+            </span>
           </h1>
 
           {/* Confetti-like elements */}
