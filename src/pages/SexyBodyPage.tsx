@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import FloatingBubbles from '@/components/FloatingBubbles';
+import { ZoomTextUI } from '@/components/ui/hover-zoom';
 
 const SexyBodyPage = () => {
   return (
@@ -22,17 +23,19 @@ const SexyBodyPage = () => {
           <div className="absolute -bottom-10 -right-16 w-32 h-32 bg-gradient-to-r from-lime to-aqua rounded-full opacity-20 animate-bounce"></div>
           
           {/* Main text */}
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold mb-8 leading-tight">
-            <span className="neon-text block animate-pulse-neon">
-              IT IS BECAUSE
-            </span>
-            <span className="text-hot-pink block animate-pulse-neon" style={{ animationDelay: '0.5s' }}>
-              OF MY
-            </span>
-            <span className="glow-text block text-7xl md:text-9xl lg:text-[12rem] animate-pulse-neon" style={{ animationDelay: '1s' }}>
-              SEXY BODY
-            </span>
-          </h1>
+          <ZoomTextUI zoomScale={1.2} className="cursor-pointer">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold mb-8 leading-tight">
+              <span className="neon-text block animate-pulse-neon">
+                IT IS BECAUSE
+              </span>
+              <span className="text-hot-pink block animate-pulse-neon" style={{ animationDelay: '0.5s' }}>
+                OF MY
+              </span>
+              <span className="glow-text block text-7xl md:text-9xl lg:text-[12rem] animate-pulse-neon" style={{ animationDelay: '1s' }}>
+                SEXY BODY
+              </span>
+            </h1>
+          </ZoomTextUI>
 
           {/* Confetti-like elements */}
           <div className="absolute top-1/2 left-1/4 w-3 h-3 bg-hot-pink rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
