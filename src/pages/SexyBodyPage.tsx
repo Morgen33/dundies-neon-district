@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { RainbowButton } from '@/components/ui/rainbow-borders-button';
+import { Link, useNavigate } from 'react-router-dom';
 import FloatingBubbles from '@/components/FloatingBubbles';
 
 const SexyBodyPage = () => {
@@ -48,13 +49,12 @@ const SexyBodyPage = () => {
 
         {/* Action button */}
         <div className="mt-12 animate-fade-in" style={{ animationDelay: '2s' }}>
-          <Button 
-            asChild 
-            size="lg" 
-            className="btn-neon text-lg px-8 py-4 hover:scale-105 transition-transform duration-300"
+          <RainbowButton 
+            onClick={() => window.location.href = '/'}
+            className="text-lg px-8 py-4"
           >
-            <Link to="/">Damn Right! 🔥</Link>
-          </Button>
+            Damn Right! 🔥
+          </RainbowButton>
         </div>
       </div>
     </div>
