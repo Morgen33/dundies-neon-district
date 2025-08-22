@@ -2,10 +2,12 @@ import { Button } from '@/components/ui/button';
 import { RainbowButton } from '@/components/ui/rainbow-borders-button';
 import { Link, useNavigate } from 'react-router-dom';
 import FloatingBubbles from '@/components/FloatingBubbles';
+import ShaderAnimation from '@/components/ui/shader-animation';
 
 const SexyBodyPage = () => {
   return (
-    <div className="min-h-screen bg-black text-foreground relative flex items-center justify-center">
+    <div className="min-h-screen text-foreground relative flex items-center justify-center overflow-hidden">
+      <ShaderAnimation />
       <FloatingBubbles />
       
       {/* Back button */}
