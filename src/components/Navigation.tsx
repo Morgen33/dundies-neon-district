@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +36,54 @@ const Navigation = () => {
     { href: 'http://t.me/DundiesNFT', label: '💬', external: true },
   ];
 
+  const renderNavLink = (link: any, isMobile = false) => {
+    const baseClasses = isMobile 
+      ? "block px-3 py-2 text-base font-medium text-foreground hover:text-hot-pink transition-colors duration-300"
+      : "text-foreground hover:text-hot-pink transition-colors duration-300 font-medium relative group";
+
+    if (link.external) {
+      return (
+        <a
+          key={link.href}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={baseClasses}
+          onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
+        >
+          {link.label}
+          {!isMobile && <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-hot-pink transition-all duration-300 group-hover:w-full"></span>}
+        </a>
+      );
+    }
+
+    if (link.href.startsWith('#')) {
+      return (
+        <a
+          key={link.href}
+          href={link.href}
+          className={baseClasses}
+          onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
+        >
+          {link.label}
+          {!isMobile && <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-hot-pink transition-all duration-300 group-hover:w-full"></span>}
+        </a>
+      );
+    }
+
+    return (
+      <Link
+        key={link.href}
+        to={link.href}
+        className={baseClasses}
+        onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
+      >
+        {link.label}
+        {!isMobile && <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-hot-pink transition-all duration-300 group-hover:w-full"></span>}
+      </Link>
+    );
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-background/95 backdrop-blur-md border-b border-hot-pink/20' : 'bg-transparent'
@@ -42,26 +92,15 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#" className="text-2xl font-display font-bold neon-text hover:scale-105 transition-transform duration-300">
+            <Link to="/" className="text-2xl font-display font-bold neon-text hover:scale-105 transition-transform duration-300">
               DUNDIES
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target={link.external ? "_blank" : undefined}
-                  rel={link.external ? "noopener noreferrer" : undefined}
-                  className="text-foreground hover:text-hot-pink transition-colors duration-300 font-medium relative group"
-                >
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-hot-pink transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              ))}
+              {navLinks.map((link) => renderNavLink(link))}
             </div>
           </div>
 
@@ -99,18 +138,7 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-hot-pink/20">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target={link.external ? "_blank" : undefined}
-                  rel={link.external ? "noopener noreferrer" : undefined}
-                  className="block px-3 py-2 text-base font-medium text-foreground hover:text-hot-pink transition-colors duration-300"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => renderNavLink(link, true))}
               <div className="flex items-center space-x-4 px-3 py-2">
                 {socialLinks.map((link) => (
                   <a
