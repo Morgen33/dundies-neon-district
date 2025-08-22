@@ -4,9 +4,10 @@ interface RainbowButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export const RainbowButton = ({ children, onClick, className = "" }: RainbowButtonProps) => {
+export const RainbowButton = ({ children, onClick, className = "", style }: RainbowButtonProps) => {
   useEffect(() => {
     // Add the CSS to the document if it doesn't exist
     if (!document.querySelector('#rainbow-button-styles')) {
@@ -43,6 +44,7 @@ export const RainbowButton = ({ children, onClick, className = "" }: RainbowButt
   return (
     <button 
       onClick={onClick}
+      style={style}
       className={`rainbow-border relative w-auto h-12 flex items-center justify-center gap-2.5 px-6 bg-black rounded-xl border-none text-white cursor-pointer font-black transition-all duration-200 hover:scale-105 ${className}`}
     >
       {children}
