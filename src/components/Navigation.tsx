@@ -18,14 +18,14 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: '#collection', label: 'Collection' },
+    { href: '/#collection', label: 'Collection' },
     { href: '/marketplace', label: 'Marketplace' },
     { href: '/services', label: 'Services' },
     { href: 'https://ultraixclothing.com/collections/spu-x-dundies-collection', label: 'Merch', external: true },
-    { href: '#community', label: 'Community' },
-    { href: '#wall-of-fame', label: 'Members' },
-    { href: '#about', label: 'About' },
-    { href: '#join', label: 'Join' },
+    { href: '/#community', label: 'Community' },
+    { href: '/#wall-of-fame', label: 'Members' },
+    { href: '/#about', label: 'About' },
+    { href: '/#join', label: 'Join' },
   ];
 
   const socialLinks = [
@@ -57,7 +57,7 @@ const Navigation = () => {
       );
     }
 
-    if (link.href.startsWith('#')) {
+    if (link.href.startsWith('#') || link.href.startsWith('/#')) {
       return (
         <a
           key={link.href}

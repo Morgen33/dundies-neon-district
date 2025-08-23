@@ -40,7 +40,7 @@ const WallOfFame = () => {
   ];
 
   return (
-    <section id="members" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="wall-of-fame" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
