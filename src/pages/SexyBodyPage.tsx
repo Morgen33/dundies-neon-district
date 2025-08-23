@@ -47,10 +47,20 @@ const SexyBodyPage = () => {
           }}>
               OF MY
             </span>
-            <span className="glow-text block text-7xl md:text-9xl lg:text-[12rem] animate-variable-flash" style={{
+            <span className="glow-text block text-7xl md:text-9xl lg:text-[12rem]" style={{
             animationDelay: '1s'
           }}>
-              SEXY BODY
+              {"SEXY BODY".split('').map((letter, index) => (
+                <span 
+                  key={index} 
+                  className="animate-variable-flash inline-block"
+                  style={{
+                    animationDelay: `${1 + index * 0.1}s`
+                  }}
+                >
+                  {letter === ' ' ? '\u00A0' : letter}
+                </span>
+              ))}
             </span>
           </h1>
 
