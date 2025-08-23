@@ -42,10 +42,6 @@ const SexyBodyPage = () => {
           <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-aqua rounded-full animate-bounce" style={{ animationDelay: '0.6s' }}></div>
         </div>
 
-        {/* Fun subtitle */}
-        <p className="text-xl md:text-2xl text-muted-foreground mt-8 animate-fade-in" style={{ animationDelay: '1.5s' }}>
-          You know it. I know it. Everyone knows it. 💅✨
-        </p>
 
         {/* Rainbow Button positioned below */}
         <div className="mt-12 animate-fade-in" style={{ animationDelay: '2s' }}>
