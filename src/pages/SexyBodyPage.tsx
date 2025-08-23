@@ -1,8 +1,25 @@
 import { Button } from '@/components/ui/button';
 import { RainbowButton } from '@/components/ui/rainbow-borders-button';
 import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 import ShaderAnimation from '@/components/ui/shader-animation';
+
 const SexyBodyPage = () => {
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const playAudio = async () => {
+      if (audioRef.current) {
+        try {
+          await audioRef.current.play();
+        } catch (error) {
+          console.log('Autoplay prevented by browser:', error);
+        }
+      }
+    };
+    
+    playAudio();
+  }, []);
   return <div className="min-h-screen text-foreground relative flex items-center justify-center overflow-hidden">
       <ShaderAnimation />
       
@@ -62,6 +79,16 @@ const SexyBodyPage = () => {
           </RainbowButton>
         </div>
       </div>
+      
+      {/* Audio element for background music */}
+      <audio 
+        ref={audioRef}
+        loop
+        preload="auto"
+        className="hidden"
+      >
+        <source src="/lovable-uploads/Pum Pum Sexy Body.mp3" type="audio/mpeg" />
+      </audio>
     </div>;
 };
 export default SexyBodyPage;
