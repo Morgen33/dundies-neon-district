@@ -39,15 +39,15 @@ const SexyBodyPage = () => {
           
           {/* Main text */}
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold mb-8 leading-tight">
-            <span className="neon-text block animate-pulse-neon">
+            <span className="neon-text block animate-variable-flash">
               IT IS BECAUSE
             </span>
-            <span className="text-hot-pink block animate-pulse-neon" style={{
+            <span className="text-hot-pink block animate-variable-flash" style={{
             animationDelay: '0.5s'
           }}>
               OF MY
             </span>
-            <span className="glow-text block text-7xl md:text-9xl lg:text-[12rem] animate-pulse-neon" style={{
+            <span className="glow-text block text-7xl md:text-9xl lg:text-[12rem] animate-variable-flash" style={{
             animationDelay: '1s'
           }}>
               SEXY BODY

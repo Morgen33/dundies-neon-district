@@ -327,6 +327,10 @@
   animation: bounce 2s infinite;
 }
 
+.animate-variable-flash {
+  animation: variableFlash 4s ease-in-out infinite;
+}
+
 .delay-300 {
   animation-delay: 0.3s;
 }
@@ -468,4 +472,20 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+@keyframes variableFlash {
+  0%, 10% { opacity: 1; }
+  12%, 22% { opacity: 0.3; }
+  24%, 34% { opacity: 1; }
+  36%, 46% { opacity: 0.3; }
+  48%, 52% { opacity: 1; }
+  53%, 57% { opacity: 0.3; }
+  58%, 62% { opacity: 1; }
+  63%, 67% { opacity: 0.3; }
+  68%, 78% { opacity: 1; }
+  80%, 90% { opacity: 0.3; }
+  92%, 95% { opacity: 1; }
+  96%, 98% { opacity: 0.3; }
+  100% { opacity: 1; }
 }
