@@ -147,9 +147,16 @@
   }
 
   .sexy-body-text {
-    color: hsl(var(--hot-pink));
-    text-shadow: 0 0 30px hsl(var(--hot-pink) / 0.6), 0 0 60px hsl(var(--hot-pink) / 0.3);
+    color: black;
+    -webkit-text-stroke: 3px white;
+    text-stroke: 3px white;
     font-weight: 900;
+    text-shadow: 
+      0 0 0 white,
+      2px 2px 0 white,
+      -2px -2px 0 white,
+      2px -2px 0 white,
+      -2px 2px 0 white;
   }
 
   /* Animated Elements */
