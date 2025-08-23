@@ -2,16 +2,14 @@ import { Button } from '@/components/ui/button';
 import { RainbowButton } from '@/components/ui/rainbow-borders-button';
 import { Link, useNavigate } from 'react-router-dom';
 import ShaderAnimation from '@/components/ui/shader-animation';
-
 const SexyBodyPage = () => {
-  return (
-    <div className="min-h-screen text-foreground relative flex items-center justify-center overflow-hidden">
+  return <div className="min-h-screen text-foreground relative flex items-center justify-center overflow-hidden">
       <ShaderAnimation />
       
       {/* Back button */}
       <div className="absolute top-6 left-6 z-20">
         <Button asChild variant="outline" className="border-hot-pink text-hot-pink hover:bg-hot-pink hover:text-black">
-          <Link to="/">← Back to Home</Link>
+          
         </Button>
       </div>
 
@@ -27,34 +25,43 @@ const SexyBodyPage = () => {
             <span className="neon-text block animate-pulse-neon">
               IT IS BECAUSE
             </span>
-            <span className="text-hot-pink block animate-pulse-neon" style={{ animationDelay: '0.5s' }}>
+            <span className="text-hot-pink block animate-pulse-neon" style={{
+            animationDelay: '0.5s'
+          }}>
               OF MY
             </span>
-            <span className="glow-text block text-7xl md:text-9xl lg:text-[12rem] animate-pulse-neon" style={{ animationDelay: '1s' }}>
+            <span className="glow-text block text-7xl md:text-9xl lg:text-[12rem] animate-pulse-neon" style={{
+            animationDelay: '1s'
+          }}>
               SEXY BODY
             </span>
           </h1>
 
           {/* Confetti-like elements */}
-          <div className="absolute top-1/2 left-1/4 w-3 h-3 bg-hot-pink rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-          <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-lime rounded-full animate-bounce" style={{ animationDelay: '0.8s' }}></div>
-          <div className="absolute bottom-1/4 left-1/3 w-4 h-4 bg-electric-blue rounded-full animate-bounce" style={{ animationDelay: '1.2s' }}></div>
-          <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-aqua rounded-full animate-bounce" style={{ animationDelay: '0.6s' }}></div>
+          <div className="absolute top-1/2 left-1/4 w-3 h-3 bg-hot-pink rounded-full animate-bounce" style={{
+          animationDelay: '0.2s'
+        }}></div>
+          <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-lime rounded-full animate-bounce" style={{
+          animationDelay: '0.8s'
+        }}></div>
+          <div className="absolute bottom-1/4 left-1/3 w-4 h-4 bg-electric-blue rounded-full animate-bounce" style={{
+          animationDelay: '1.2s'
+        }}></div>
+          <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-aqua rounded-full animate-bounce" style={{
+          animationDelay: '0.6s'
+        }}></div>
         </div>
 
 
         {/* Rainbow Button positioned below */}
-        <div className="mt-12 animate-fade-in" style={{ animationDelay: '2s' }}>
-          <RainbowButton 
-            onClick={() => window.location.href = '/'}
-            className="text-lg px-8 py-4"
-          >
+        <div className="mt-12 animate-fade-in" style={{
+        animationDelay: '2s'
+      }}>
+          <RainbowButton onClick={() => window.location.href = '/'} className="text-lg px-8 py-4">
             Damn Right! 🔥
           </RainbowButton>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default SexyBodyPage;
