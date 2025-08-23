@@ -17,7 +17,7 @@ const SexyBodyPage = () => {
       <div className="relative z-10 text-center px-4 flex flex-col items-center justify-center min-h-[80vh]">
         <div className="relative">
           {/* Animated background shapes */}
-          <div className="absolute -top-20 -left-20 w-40 h-40 bg-gradient-to-r from-hot-pink to-electric-blue rounded-full opacity-20 animate-pulse"></div>
+          
           <div className="absolute -bottom-10 -right-16 w-32 h-32 bg-gradient-to-r from-lime to-aqua rounded-full opacity-20 animate-bounce"></div>
           
           {/* Main text */}
