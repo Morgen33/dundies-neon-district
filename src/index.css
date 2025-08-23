@@ -146,6 +146,12 @@
     text-shadow: 0 0 20px hsl(var(--purple) / 0.4);
   }
 
+  .sexy-body-text {
+    color: hsl(var(--hot-pink));
+    text-shadow: 0 0 30px hsl(var(--hot-pink) / 0.6), 0 0 60px hsl(var(--hot-pink) / 0.3);
+    font-weight: 900;
+  }
+
   /* Animated Elements */
   .wiggle {
     animation: wiggle 0.5s ease-in-out;

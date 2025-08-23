@@ -47,7 +47,7 @@ const SexyBodyPage = () => {
           }}>
               OF MY
             </span>
-            <span className="glow-text block text-7xl md:text-9xl lg:text-[12rem]" style={{
+            <span className="sexy-body-text block text-7xl md:text-9xl lg:text-[12rem]" style={{
             animationDelay: '1s'
           }}>
               {"SEXY BODY".split('').map((letter, index) => (
