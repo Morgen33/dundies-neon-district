@@ -10,7 +10,7 @@ const Marketplace = () => {
     const script = document.createElement('script');
     script.innerHTML = `
       (function(){
-        const SYMBOL = "dundies";
+        const SYMBOL = "5DJBKxbYj8wD2D56K6BGhFPUSwspESL6LkT9Kn8zwkAz";
         const DIRECT = "https://api-mainnet.magiceden.dev/v2";
         // If preview blocks CORS, put your Cloudflare Worker URL here:
         const WORKER = ""; // e.g. "https://me-proxy-yourname.workers.dev"
@@ -150,7 +150,7 @@ const Marketplace = () => {
               className="bg-gradient-to-r from-hot-pink to-electric-purple hover:scale-105 transition-transform duration-300"
             >
               <a 
-                href="https://magiceden.io/marketplace/dundies" 
+                href="https://magiceden.io/marketplace/5DJBKxbYj8wD2D56K6BGhFPUSwspESL6LkT9Kn8zwkAz"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
@@ -196,7 +196,7 @@ const Marketplace = () => {
           <div id="dundies-market">
             <div className="dm-head">
               <div className="dm-title">Dundies — Live Market</div>
-              <a className="dm-link" target="_blank" rel="noopener" href="https://magiceden.io/marketplace/dundies">
+              <a className="dm-link" target="_blank" rel="noopener" href="https://magiceden.io/marketplace/5DJBKxbYj8wD2D56K6BGhFPUSwspESL6LkT9Kn8zwkAz">
                 Open in Magic Eden
               </a>
             </div>
