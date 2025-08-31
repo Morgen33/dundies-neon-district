@@ -18,8 +18,8 @@ const FloatingBubbles = () => {
     <div className="fixed inset-0 z-50 overflow-hidden">
       {/* Bubble 1 - Angel */}
       <div 
-        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] transition-all duration-300 ${
-          poppedBubbles.includes(1) ? 'animate-bubble-pop' : 'animate-[float-bubble-4_28s_ease-in-out_infinite]'
+        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] hover:animate-none transition-all duration-300 ${
+          poppedBubbles.includes(1) ? 'animate-bubble-pop' : 'animate-[float-bubble-4_60s_ease-in-out_infinite]'
         }`}
         onClick={() => handleBubblePop(1)}
       >
@@ -32,8 +32,8 @@ const FloatingBubbles = () => {
 
       {/* Bubble 2 - Baseball */}
       <div 
-        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] transition-all duration-300 ${
-          poppedBubbles.includes(2) ? 'animate-bubble-pop' : 'animate-[float-bubble-5_32s_ease-in-out_infinite_1s]'
+        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] hover:animate-none transition-all duration-300 ${
+          poppedBubbles.includes(2) ? 'animate-bubble-pop' : 'animate-[float-bubble-5_70s_ease-in-out_infinite_2s]'
         }`}
         onClick={() => handleBubblePop(2)}
       >
@@ -46,8 +46,8 @@ const FloatingBubbles = () => {
 
       {/* Bubble 3 - Wizard */}
       <div 
-        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] transition-all duration-300 ${
-          poppedBubbles.includes(3) ? 'animate-bubble-pop' : 'animate-[float-bubble-6_27s_ease-in-out_infinite_.5s]'
+        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] hover:animate-none transition-all duration-300 ${
+          poppedBubbles.includes(3) ? 'animate-bubble-pop' : 'animate-[float-bubble-6_65s_ease-in-out_infinite_1s]'
         }`}
         onClick={() => handleBubblePop(3)}
       >
@@ -60,8 +60,8 @@ const FloatingBubbles = () => {
 
       {/* Bubble 4 - Cowboy */}
       <div 
-        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] transition-all duration-300 ${
-          poppedBubbles.includes(4) ? 'animate-bubble-pop' : 'animate-[float-bubble-7_30s_ease-in-out_infinite_2s]'
+        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] hover:animate-none transition-all duration-300 ${
+          poppedBubbles.includes(4) ? 'animate-bubble-pop' : 'animate-[float-bubble-7_75s_ease-in-out_infinite_3s]'
         }`}
         onClick={() => handleBubblePop(4)}
       >
@@ -74,8 +74,8 @@ const FloatingBubbles = () => {
 
       {/* Bubble 5 - Pink Hair */}
       <div 
-        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] transition-all duration-300 ${
-          poppedBubbles.includes(5) ? 'animate-bubble-pop' : 'animate-[float-bubble-8_34s_ease-in-out_infinite_1.8s]'
+        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] hover:animate-none transition-all duration-300 ${
+          poppedBubbles.includes(5) ? 'animate-bubble-pop' : 'animate-[float-bubble-8_80s_ease-in-out_infinite_4s]'
         }`}
         onClick={() => handleBubblePop(5)}
       >
@@ -89,8 +89,8 @@ const FloatingBubbles = () => {
 
       {/* Bubble 7 - Cool Angel */}
       <div 
-        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] transition-all duration-300 ${
-          poppedBubbles.includes(7) ? 'animate-bubble-pop' : 'animate-[float-bubble-6_36s_ease-in-out_infinite_1.2s]'
+        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] hover:animate-none transition-all duration-300 ${
+          poppedBubbles.includes(7) ? 'animate-bubble-pop' : 'animate-[float-bubble-6_85s_ease-in-out_infinite_2.5s]'
         }`}
         onClick={() => handleBubblePop(7)}
       >
@@ -103,8 +103,8 @@ const FloatingBubbles = () => {
 
       {/* Bubble 8 - Crown */}
       <div 
-        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] transition-all duration-300 ${
-          poppedBubbles.includes(8) ? 'animate-bubble-pop' : 'animate-[float-bubble-4_38s_ease-in-out_infinite_3s]'
+        className={`absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-glow flex items-center justify-center cursor-pointer hover:scale-110 hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.6)] hover:animate-none transition-all duration-300 ${
+          poppedBubbles.includes(8) ? 'animate-bubble-pop' : 'animate-[float-bubble-4_90s_ease-in-out_infinite_5s]'
         }`}
         onClick={() => handleBubblePop(8)}
       >
