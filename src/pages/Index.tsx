@@ -3,7 +3,6 @@ import Hero from '@/components/Hero';
 import Collection from '@/components/Collection';
 import Community from '@/components/Community';
 import SpotifyPlaylist from '@/components/SpotifyPlaylist';
-import WallOfFame from '@/components/WallOfFame';
 import About from '@/components/About';
 import JoinBar from '@/components/JoinBar';
 import Footer from '@/components/Footer';
@@ -19,7 +18,6 @@ const Index = () => {
         <Collection />
         <Community />
         <SpotifyPlaylist />
-        <WallOfFame />
         <About />
         <JoinBar />
         <Footer />
