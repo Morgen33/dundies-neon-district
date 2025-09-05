@@ -37,7 +37,7 @@ const Collection = () => {
               <div className="text-muted-foreground">Total Supply</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-electric-purple">500+</div>
+              <div className="text-3xl font-bold text-electric-purple">200+</div>
               <div className="text-muted-foreground">Unique Traits</div>
             </div>
             <div className="space-y-2">
