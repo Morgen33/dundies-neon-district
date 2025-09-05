@@ -56,10 +56,7 @@ const Footer = () => {
             <p className="text-xs text-muted-foreground">
               © 2024 Dundies District
             </p>
-            <p className="text-xs text-muted-foreground max-w-xs md:ml-auto">
-              Independent fan-inspired art project.<br />
-              Not affiliated with NBCUniversal or <em>The Office</em>.
-            </p>
+            
           </div>
         </div>
 
