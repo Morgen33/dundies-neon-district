@@ -61,9 +61,7 @@ const Collection = () => {
 
           {/* Disclaimer */}
           <div className="pt-6 border-t border-hot-pink/20">
-            <p className="text-sm text-muted-foreground">
-              Built on Solana • Fully on-chain • Zero royalties
-            </p>
+            
           </div>
         </div>
 
