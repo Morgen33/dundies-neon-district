@@ -1,24 +1,19 @@
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Users, Sparkles } from 'lucide-react';
-
 const Collection = () => {
-  return (
-    <section id="collection" className="py-20 px-4 sm:px-6 lg:px-8">
+  return <section id="collection" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Main Card */}
         <div className="sticker-card text-center space-y-8 bg-gradient-to-br from-muted to-background/50 border-2 border-hot-pink/50 shadow-neon">
           <div className="space-y-6">
             <div className="flex justify-center">
-              <div className="w-32 h-32 rounded-full flex items-center justify-center shadow-glow border-4 border-purple/30" style={{backgroundColor: '#E5E7EB'}}>
-                <img 
-                  src="/lovable-uploads/089560bc-8471-4adb-b514-83748b2fcfa8.png"
-                  alt="Dundie Character"
-                  className="w-28 h-28 object-contain"
-                  style={{
-                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
-                    mixBlendMode: 'multiply'
-                  }}
-                />
+              <div className="w-32 h-32 rounded-full flex items-center justify-center shadow-glow border-4 border-purple/30" style={{
+              backgroundColor: '#E5E7EB'
+            }}>
+                <img src="/lovable-uploads/089560bc-8471-4adb-b514-83748b2fcfa8.png" alt="Dundie Character" className="w-28 h-28 object-contain" style={{
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
+                mixBlendMode: 'multiply'
+              }} />
               </div>
             </div>
             
@@ -53,18 +48,12 @@ const Collection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              className="btn-neon magnetic text-lg px-8 py-4"
-              onClick={() => window.open('https://www.launchmynft.io/collections/8pXL1gZGWq1Y6wA7RJTmAVXcwBhzn65XdeLL7yA8AwFb/ZMZXWPY2COXyqoohzTfK', '_blank')}
-            >
+            <Button className="btn-neon magnetic text-lg px-8 py-4" onClick={() => window.open('https://www.launchmynft.io/collections/8pXL1gZGWq1Y6wA7RJTmAVXcwBhzn65XdeLL7yA8AwFb/ZMZXWPY2COXyqoohzTfK', '_blank')}>
               <ExternalLink className="mr-2 w-5 h-5" />
               View on LaunchMyNFT
             </Button>
             
-            <Button 
-              className="btn-glow magnetic text-lg px-8 py-4"
-              onClick={() => window.open('https://discord.gg/vjSdsjDTZx', '_blank')}
-            >
+            <Button className="btn-glow magnetic text-lg px-8 py-4" onClick={() => window.open('https://discord.gg/vjSdsjDTZx', '_blank')}>
               <Users className="mr-2 w-5 h-5" />
               Join Discord
             </Button>
@@ -79,47 +68,8 @@ const Collection = () => {
         </div>
 
         {/* Secondary Info Cards */}
-        <div className="grid md:grid-cols-2 gap-6 mt-12">
-          <div className="bg-gradient-to-br from-electric-purple/10 to-transparent border border-electric-purple/30 rounded-2xl p-6">
-            <h3 className="text-xl font-semibold text-electric-purple mb-3">💎 Rarity Tiers</h3>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span>Common</span>
-                <span className="text-muted-foreground">60%</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Rare</span>
-                <span className="text-neon-blue">25%</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Epic</span>
-                <span className="text-electric-purple">10%</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Legendary</span>
-                <span className="text-hot-pink">4%</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Mythic</span>
-                <span className="text-acid-lime">1%</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-neon-blue/10 to-transparent border border-neon-blue/30 rounded-2xl p-6">
-            <h3 className="text-xl font-semibold text-neon-blue mb-3">🎨 Art Style</h3>
-            <div className="space-y-3 text-sm">
-              <div>• Hand-drawn by Neo</div>
-              <div>• Chunky, rounded aesthetics</div>
-              <div>• Bold vibrant color palette</div>
-              <div>• Sticker-style outlines</div>
-              <div>• Playful personality traits</div>
-            </div>
-          </div>
-        </div>
+        
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Collection;
