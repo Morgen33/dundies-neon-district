@@ -38,7 +38,7 @@ const Collection = () => {
           {/* Stats Row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 py-8">
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-hot-pink">1,000</div>
+              <div className="text-3xl font-bold text-hot-pink">888</div>
               <div className="text-muted-foreground">Total Supply</div>
             </div>
             <div className="space-y-2">
