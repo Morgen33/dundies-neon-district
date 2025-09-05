@@ -1,16 +1,34 @@
 const Footer = () => {
-  const socialLinks = [
-    { icon: '🌐', url: 'http://dundies.xyz', label: 'Website' },
-    { icon: '🐦', url: 'https://x.com/DundiesDistrict', label: 'X/Twitter' },
-    { icon: '🎶', url: 'http://tiktok.com/@dundiesnft', label: 'TikTok' },
-    { icon: '📸', url: 'https://instagram.com/dundiesnft', label: 'Instagram' },
-    { icon: '💬', url: 'http://t.me/DundiesNFT', label: 'Telegram' },
-    { icon: '🎤', url: 'https://discord.gg/vjSdsjDTZx', label: 'Discord' },
-    { icon: '📌', url: 'https://bio.site/dundies', label: 'Bio Hub' }
-  ];
-
-  return (
-    <footer className="border-t border-hot-pink/20 bg-gradient-subtle py-12 px-4 sm:px-6 lg:px-8">
+  const socialLinks = [{
+    icon: '🌐',
+    url: 'http://dundies.xyz',
+    label: 'Website'
+  }, {
+    icon: '🐦',
+    url: 'https://x.com/DundiesDistrict',
+    label: 'X/Twitter'
+  }, {
+    icon: '🎶',
+    url: 'http://tiktok.com/@dundiesnft',
+    label: 'TikTok'
+  }, {
+    icon: '📸',
+    url: 'https://instagram.com/dundiesnft',
+    label: 'Instagram'
+  }, {
+    icon: '💬',
+    url: 'http://t.me/DundiesNFT',
+    label: 'Telegram'
+  }, {
+    icon: '🎤',
+    url: 'https://discord.gg/vjSdsjDTZx',
+    label: 'Discord'
+  }, {
+    icon: '📌',
+    url: 'https://bio.site/dundies',
+    label: 'Bio Hub'
+  }];
+  return <footer className="border-t border-hot-pink/20 bg-gradient-subtle py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           {/* Logo & Tagline */}
@@ -27,18 +45,9 @@ const Footer = () => {
           {/* Social Icons */}
           <div className="flex justify-center">
             <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center text-lg hover:scale-110 transition-transform duration-300 hover:text-hot-pink"
-                  title={social.label}
-                >
+              {socialLinks.map(social => <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center text-lg hover:scale-110 transition-transform duration-300 hover:text-hot-pink" title={social.label}>
                   {social.icon}
-                </a>
-              ))}
+                </a>)}
             </div>
           </div>
 
@@ -62,18 +71,16 @@ const Footer = () => {
               <span>•</span>
               <span>Fully On-Chain</span>
               <span>•</span>
-              <span>Zero Royalties</span>
+              
             </div>
             
             <div className="flex items-center space-x-2 text-xs text-muted-foreground">
               <span className="w-2 h-2 bg-acid-lime rounded-full animate-pulse"></span>
-              <span>Made with 💜 by Neo</span>
+              
             </div>
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
