@@ -9,15 +9,12 @@ const Services = () => {
   const dundieServices = [
     {
       id: 1,
-      name: "CyberDundie",
+      name: "Neo",
       avatar: "/src/assets/dundie-wizard.png",
       title: "NFT Strategy & Web3 Consulting",
       location: "Global (Remote)",
-      rating: 4.9,
-      reviews: 47,
-      hourlyRate: "0.5-1.5 SOL/hr",
       specialties: ["NFT Strategy", "Web3 Marketing", "Community Building", "Token Economics"],
-      description: "Helping projects launch successful NFT collections with proven strategies. 3+ years in Web3 space with multiple successful launches.",
+      description: "Creator/Artist/founder of The Dundies",
       services: [
         "NFT Collection Strategy",
         "Whitelist & Marketing Strategy", 
@@ -25,7 +22,8 @@ const Services = () => {
         "Web3 Consulting Calls"
       ],
       availability: "Available",
-      responseTime: "< 2 hours"
+      responseTime: "< 2 hours",
+      contactUrl: "https://x.com/theonlyoneNeo"
     },
     {
       id: 2,
@@ -185,13 +183,15 @@ const Services = () => {
                         <CardDescription className="text-muted-foreground">{dundie.title}</CardDescription>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <div className="flex items-center space-x-1 text-yellow-400">
-                        <Star className="w-4 h-4 fill-current" />
-                        <span className="font-semibold">{dundie.rating}</span>
+                    {dundie.rating && (
+                      <div className="text-right">
+                        <div className="flex items-center space-x-1 text-yellow-400">
+                          <Star className="w-4 h-4 fill-current" />
+                          <span className="font-semibold">{dundie.rating}</span>
+                        </div>
+                        <p className="text-xs text-muted-foreground">({dundie.reviews} reviews)</p>
                       </div>
-                      <p className="text-xs text-muted-foreground">({dundie.reviews} reviews)</p>
-                    </div>
+                    )}
                   </div>
 
                   <div className="flex items-center justify-between text-sm">
@@ -199,9 +199,11 @@ const Services = () => {
                       <MapPin className="w-4 h-4" />
                       <span>{dundie.location}</span>
                     </div>
-                    <div className="text-neon-blue font-semibold">
-                      {dundie.hourlyRate}
-                    </div>
+                    {dundie.hourlyRate && (
+                      <div className="text-neon-blue font-semibold">
+                        {dundie.hourlyRate}
+                      </div>
+                    )}
                   </div>
 
                   <div className="flex flex-wrap gap-2">
@@ -248,7 +250,7 @@ const Services = () => {
                   <div className="flex space-x-2 pt-2">
                     <Button 
                       className="flex-1 btn-neon magnetic text-sm"
-                      onClick={() => window.open('https://discord.gg/vjSdsjDTZx', '_blank')}
+                      onClick={() => window.open(dundie.contactUrl || 'https://discord.gg/vjSdsjDTZx', '_blank')}
                     >
                       <MessageCircle className="w-4 h-4 mr-2" />
                       Contact
