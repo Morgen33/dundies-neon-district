@@ -36,6 +36,7 @@ export default {
 				'yellow': 'hsl(var(--yellow))',
 				'orange': 'hsl(var(--orange))',
 				'hot-pink': 'hsl(var(--hot-pink))',
+				'bright-blue': 'hsl(var(--bright-blue))',
 				'off-white': 'hsl(var(--off-white))',
 				
 				primary: {
@@ -84,7 +85,7 @@ export default {
 				'gradient-subtle': 'var(--gradient-subtle)',
 			},
 			boxShadow: {
-				'neon': 'var(--shadow-neon)',
+				'bright': 'var(--shadow-bright)',
 				'glow': 'var(--shadow-glow)',
 				'card': 'var(--shadow-card)',
 			},

@@ -103,11 +103,11 @@ const ArtGallery = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl sm:text-6xl font-display font-bold mb-6">
-            <span className="text-hot-pink neon-text">Art</span>{' '}
+            <span className="text-hot-pink bright-text">Art</span>{' '}
             <span className="text-electric-purple">Gallery</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Each Dundie is a unique, hand-drawn character with <span className="text-neon-blue">bold digital personality</span>
+            Each Dundie is a unique, hand-drawn character with <span className="text-bright-blue">bold digital personality</span>
           </p>
         </div>
 
@@ -119,7 +119,7 @@ const ArtGallery = () => {
               onClick={() => setActiveFilter(filter)}
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
                 activeFilter === filter
-                  ? 'bg-hot-pink text-background shadow-neon'
+                  ? 'bg-hot-pink text-background shadow-glow'
                   : 'bg-muted text-muted-foreground hover:bg-hot-pink/20 hover:text-hot-pink border border-hot-pink/30'
               }`}
             >
@@ -165,7 +165,7 @@ const ArtGallery = () => {
                     piece.rarity === 'Mythic' ? 'text-acid-lime' :
                     piece.rarity === 'Legendary' ? 'text-hot-pink' :
                     piece.rarity === 'Epic' ? 'text-electric-purple' :
-                    'text-neon-blue'
+                    'text-bright-blue'
                   }`}>
                     {piece.rarity}
                   </span>
@@ -199,7 +199,7 @@ const ArtGallery = () => {
                   </div>
                   
                   <div className="space-y-6">
-                    <h3 className="text-3xl font-display font-bold text-hot-pink neon-text">
+                    <h3 className="text-3xl font-display font-bold text-hot-pink bright-text">
                       {selectedImage.title}
                     </h3>
                     
@@ -210,7 +210,7 @@ const ArtGallery = () => {
                           {selectedImage.traits.map((trait: string) => (
                             <span
                               key={trait}
-                              className="px-4 py-2 rounded-full bg-neon-blue/20 text-neon-blue border border-neon-blue/30"
+                              className="px-4 py-2 rounded-full bg-bright-blue/20 text-bright-blue border border-bright-blue/30"
                             >
                               {trait}
                             </span>
@@ -224,7 +224,7 @@ const ArtGallery = () => {
                           selectedImage.rarity === 'Mythic' ? 'text-acid-lime' :
                           selectedImage.rarity === 'Legendary' ? 'text-hot-pink' :
                           selectedImage.rarity === 'Epic' ? 'text-electric-purple' :
-                          'text-neon-blue'
+                          'text-bright-blue'
                         }`}>
                           {selectedImage.rarity}
                         </span>
@@ -232,7 +232,7 @@ const ArtGallery = () => {
                     </div>
                     
                     <Button 
-                      className="btn-neon w-full"
+                      className="btn-glow w-full"
                       onClick={() => window.open('https://www.launchmynft.io/collections/8pXL1gZGWq1Y6wA7RJTmAVXcwBhzn65XdeLL7yA8AwFb/ZMZXWPY2COXyqoohzTfK', '_blank')}
                     >
                       View on LaunchMyNFT

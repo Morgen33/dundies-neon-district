@@ -142,7 +142,7 @@ const Services = () => {
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl sm:text-6xl font-display font-bold mb-6">
             <span className="text-hot-pink glow-text">Dundie</span>
-            <span className="text-neon-blue neon-text"> Services</span>
+            <span className="text-bright-blue bright-text"> Services</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Connect with talented Dundies offering professional services in Web3, design, development, and more.
@@ -151,7 +151,7 @@ const Services = () => {
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <Badge variant="outline" className="text-hot-pink border-hot-pink/50">NFT Strategy</Badge>
             <Badge variant="outline" className="text-electric-purple border-electric-purple/50">Digital Art</Badge>
-            <Badge variant="outline" className="text-neon-blue border-neon-blue/50">Development</Badge>
+            <Badge variant="outline" className="text-bright-blue border-bright-blue/50">Development</Badge>
             <Badge variant="outline" className="text-acid-lime border-acid-lime/50">Marketing</Badge>
             <Badge variant="outline" className="text-hot-pink border-hot-pink/50">Consulting</Badge>
           </div>
@@ -165,7 +165,7 @@ const Services = () => {
             {dundieServices.map((dundie, index) => (
               <Card 
                 key={dundie.id}
-                className="sticker-card border-2 border-electric-purple/30 hover:border-electric-purple hover:shadow-neon transition-all duration-300 animate-fade-in"
+                className="sticker-card border-2 border-electric-purple/30 hover:border-electric-purple hover:shadow-glow transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <CardHeader className="space-y-4">
@@ -200,7 +200,7 @@ const Services = () => {
                       <span>{dundie.location}</span>
                     </div>
                     {dundie.hourlyRate && (
-                      <div className="text-neon-blue font-semibold">
+                      <div className="text-bright-blue font-semibold">
                         {dundie.hourlyRate}
                       </div>
                     )}
@@ -249,7 +249,7 @@ const Services = () => {
 
                   <div className="flex space-x-2 pt-2">
                     <Button 
-                      className="flex-1 btn-neon magnetic text-sm"
+                      className="flex-1 btn-glow magnetic text-sm"
                       onClick={() => window.open(dundie.contactUrl || 'https://discord.gg/vjSdsjDTZx', '_blank')}
                     >
                       <MessageCircle className="w-4 h-4 mr-2" />
@@ -272,7 +272,7 @@ const Services = () => {
 
       {/* Call to Action */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-hot-pink/10 via-electric-purple/10 to-neon-blue/10 rounded-3xl border border-hot-pink/30 p-8">
+        <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-hot-pink/10 via-electric-purple/10 to-bright-blue/10 rounded-3xl border border-hot-pink/30 p-8">
           <h3 className="text-3xl font-display font-bold text-foreground mb-4">
             Want to offer your services?
           </h3>
@@ -280,7 +280,7 @@ const Services = () => {
             Join the Dundies community and showcase your talents to fellow members
           </p>
           <Button 
-            className="btn-neon magnetic mr-4"
+            className="btn-glow magnetic mr-4"
             onClick={() => window.open('https://discord.gg/vjSdsjDTZx', '_blank')}
           >
             Join Our Discord

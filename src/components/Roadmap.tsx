@@ -33,7 +33,7 @@ const Roadmap = () => {
       phase: 'Soon',
       icon: Star,
       title: 'Innovation Phase',
-      color: 'neon-blue',
+      color: 'bright-blue',
       items: [
         'Interactive mini-game ecosystem',
         'Profile quest & achievement system',
@@ -49,11 +49,11 @@ const Roadmap = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl sm:text-6xl font-display font-bold mb-6">
-            <span className="text-neon-blue glow-text">Road</span>
-            <span className="text-acid-lime neon-text">map</span>
+            <span className="text-bright-blue glow-text">Road</span>
+            <span className="text-acid-lime bright-text">map</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            The journey ahead is <span className="text-hot-pink font-semibold">bright</span> and full of <span className="text-electric-purple font-semibold">neon possibilities</span>
+            The journey ahead is <span className="text-hot-pink font-semibold">bright</span> and full of <span className="text-electric-purple font-semibold">digital possibilities</span>
           </p>
         </div>
 
@@ -63,9 +63,9 @@ const Roadmap = () => {
             <div 
               key={item.id}
               className={`sticker-card space-y-6 border-2 transition-all duration-500 ${
-                item.color === 'hot-pink' ? 'border-hot-pink/50 hover:border-hot-pink hover:shadow-neon' :
-                item.color === 'electric-purple' ? 'border-electric-purple/50 hover:border-electric-purple hover:shadow-neon' :
-                'border-neon-blue/50 hover:border-neon-blue hover:shadow-neon'
+                item.color === 'hot-pink' ? 'border-hot-pink/50 hover:border-hot-pink hover:shadow-glow' :
+                item.color === 'electric-purple' ? 'border-electric-purple/50 hover:border-electric-purple hover:shadow-glow' :
+                'border-bright-blue/50 hover:border-bright-blue hover:shadow-glow'
               } animate-fade-in`}
               style={{ animationDelay: `${index * 200}ms` }}
             >
@@ -73,8 +73,8 @@ const Roadmap = () => {
               <div className="flex items-center space-x-4">
                 <div className={`w-16 h-16 rounded-full flex items-center justify-center ${
                   item.color === 'hot-pink' ? 'bg-gradient-to-br from-hot-pink to-electric-purple' :
-                  item.color === 'electric-purple' ? 'bg-gradient-to-br from-electric-purple to-neon-blue' :
-                  'bg-gradient-to-br from-neon-blue to-acid-lime'
+                  item.color === 'electric-purple' ? 'bg-gradient-to-br from-electric-purple to-bright-blue' :
+                  'bg-gradient-to-br from-bright-blue to-acid-lime'
                 } shadow-glow`}>
                   <item.icon className="w-8 h-8 text-background" />
                 </div>
@@ -83,7 +83,7 @@ const Roadmap = () => {
                   <div className={`text-sm font-semibold uppercase tracking-wider ${
                     item.color === 'hot-pink' ? 'text-hot-pink' :
                     item.color === 'electric-purple' ? 'text-electric-purple' :
-                    'text-neon-blue'
+                    'text-bright-blue'
                   }`}>
                     {item.phase}
                   </div>
@@ -101,9 +101,9 @@ const Roadmap = () => {
                     className="flex items-start space-x-3 group"
                   >
                     <div className={`w-2 h-2 rounded-full mt-2 transition-all duration-300 ${
-                      item.color === 'hot-pink' ? 'bg-hot-pink group-hover:shadow-neon' :
-                      item.color === 'electric-purple' ? 'bg-electric-purple group-hover:shadow-neon' :
-                      'bg-neon-blue group-hover:shadow-glow'
+                      item.color === 'hot-pink' ? 'bg-hot-pink group-hover:shadow-glow' :
+                      item.color === 'electric-purple' ? 'bg-electric-purple group-hover:shadow-glow' :
+                      'bg-bright-blue group-hover:shadow-glow'
                     }`}></div>
                     <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                       {feature}
@@ -119,7 +119,7 @@ const Roadmap = () => {
                   <span className={`font-semibold ${
                     item.phase === 'Now' ? 'text-acid-lime' :
                     item.phase === 'Next' ? 'text-electric-purple' :
-                    'text-neon-blue'
+                    'text-bright-blue'
                   }`}>
                     {item.phase === 'Now' ? '75%' : item.phase === 'Next' ? '25%' : '0%'}
                   </span>
@@ -128,8 +128,8 @@ const Roadmap = () => {
                   <div 
                     className={`h-full transition-all duration-1000 ${
                       item.color === 'hot-pink' ? 'bg-gradient-to-r from-hot-pink to-electric-purple' :
-                      item.color === 'electric-purple' ? 'bg-gradient-to-r from-electric-purple to-neon-blue' :
-                      'bg-gradient-to-r from-neon-blue to-acid-lime'
+                      item.color === 'electric-purple' ? 'bg-gradient-to-r from-electric-purple to-bright-blue' :
+                      'bg-gradient-to-r from-bright-blue to-acid-lime'
                     }`}
                     style={{ 
                       width: item.phase === 'Now' ? '75%' : item.phase === 'Next' ? '25%' : '0%'
@@ -142,7 +142,7 @@ const Roadmap = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center bg-gradient-to-br from-hot-pink/10 via-electric-purple/10 to-neon-blue/10 rounded-3xl border border-hot-pink/30 p-8">
+        <div className="mt-16 text-center bg-gradient-to-br from-hot-pink/10 via-electric-purple/10 to-bright-blue/10 rounded-3xl border border-hot-pink/30 p-8">
           <h3 className="text-2xl font-display font-bold text-foreground mb-4">
             Want to help shape the roadmap?
           </h3>
@@ -150,7 +150,7 @@ const Roadmap = () => {
             Join our Discord community and share your ideas for the future of Dundies District
           </p>
           <button 
-            className="btn-neon magnetic"
+            className="btn-glow magnetic"
             onClick={() => window.open('https://discord.gg/vjSdsjDTZx', '_blank')}
           >
             Join the Discussion

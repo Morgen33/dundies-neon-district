@@ -7,7 +7,7 @@ const About = () => {
         <div className="text-center mb-16">
           <h2 className="text-5xl sm:text-6xl font-display font-bold mb-6">
             <span className="text-acid-lime glow-text">What is a</span>{' '}
-            <span className="text-hot-pink neon-text">Dundie</span>
+            <span className="text-hot-pink bright-text">Dundie</span>
           </h2>
         </div>
 
@@ -15,14 +15,14 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Story */}
           <div className="space-y-6">
-            <div className="sticker-card border-2 border-hot-pink/30 hover:border-hot-pink hover:shadow-neon transition-all duration-300">
+            <div className="sticker-card border-2 border-hot-pink/30 hover:border-hot-pink hover:shadow-glow transition-all duration-300">
               <p className="text-lg leading-relaxed text-off-white/90 mb-6">
                 Dundies are hand-drawn by our founder, <span className="text-hot-pink font-semibold">Neo</span>. 
                 Inspired by the iconic energy of <span className="text-electric-purple font-semibold">The Office's</span> Dundie awards—reimagined for crypto culture.
               </p>
               
               <p className="text-lg leading-relaxed text-off-white/90 mb-6">
-                Each piece captures the <span className="text-neon-blue font-semibold">playful spirit</span> of recognition and celebration, 
+                Each piece captures the <span className="text-bright-blue font-semibold">playful spirit</span> of recognition and celebration, 
                 but with a bold <span className="text-acid-lime font-semibold">digital twist</span> that screams modern edge.
               </p>
 
@@ -58,12 +58,12 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4 p-6 bg-gradient-to-br from-neon-blue/10 to-transparent rounded-2xl border border-neon-blue/30">
-                <div className="w-12 h-12 bg-neon-blue/20 rounded-full flex items-center justify-center">
-                  <Users className="w-6 h-6 text-neon-blue" />
+              <div className="flex items-start space-x-4 p-6 bg-gradient-to-br from-bright-blue/10 to-transparent rounded-2xl border border-bright-blue/30">
+                <div className="w-12 h-12 bg-bright-blue/20 rounded-full flex items-center justify-center">
+                  <Users className="w-6 h-6 text-bright-blue" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-neon-blue mb-2">Community-First</h3>
+                  <h3 className="text-lg font-semibold text-bright-blue mb-2">Community-First</h3>
                   <p className="text-muted-foreground">Built by collectors, for collectors who appreciate authentic art</p>
                 </div>
               </div>

@@ -10,7 +10,7 @@ const WallOfFame = () => {
       holderName: 'CryptoWizard',
       profileUrl: '#',
       modelEmbedUrl: 'https://my.spline.design/untitled-3d',
-      dundieName: 'Neon Sage',
+      dundieName: 'Bright Sage',
       holdingSince: '2024'
     },
     {
@@ -31,7 +31,7 @@ const WallOfFame = () => {
     },
     {
       id: 4,
-      holderName: 'NeonCollector',
+      holderName: 'BrightCollector',
       profileUrl: '#',
       modelEmbedUrl: 'https://my.spline.design/untitled-3d',
       dundieName: 'Glow Guardian',
@@ -90,7 +90,7 @@ const WallOfFame = () => {
                 </div>
 
                 <Button 
-                  className="btn-outline-neon w-full"
+                  className="btn-outline-bright w-full"
                   onClick={() => window.open(holder.profileUrl, '_blank')}
                 >
                   <ExternalLink className="mr-2 w-4 h-4" />
@@ -127,7 +127,7 @@ const WallOfFame = () => {
               <input placeholder="Twitter/Website" className="p-3 bg-background border border-border rounded-lg" />
               <input placeholder="3D Model URL" className="p-3 bg-background border border-border rounded-lg" />
             </div>
-            <Button className="mt-4 btn-neon">Add Member</Button>
+            <Button className="mt-4 btn-glow">Add Member</Button>
           </div>
         </div>
       </div>

@@ -16,7 +16,7 @@
     --popover: 248 56% 14%; /* #151226 */
     --popover-foreground: 225 25% 97%; /* #F5F7FF */
 
-    /* Playful Neon Pastel System */
+    /* Playful Bright Pastel System */
     --purple: 251 100% 78%; /* #9B8CFF */
     --aqua: 179 96% 70%; /* #74F0ED */
     --lime: 95 100% 71%; /* #A7FF70 */
@@ -24,6 +24,7 @@
     --orange: 29 100% 71%; /* #FFB86B */
     --hot-pink: 312 100% 71%; /* #FF6AD5 */
     --off-white: 225 25% 97%; /* #F5F7FF */
+    --bright-blue: 200 100% 70%; /* #52D4FF */
 
     /* Theme Mappings */
     --primary: var(--purple);
@@ -52,7 +53,7 @@
     --gradient-subtle: linear-gradient(180deg, hsl(243 43% 9%), hsl(248 56% 14%));
 
     /* Soft Glow Effects */
-    --shadow-neon: 0 0 30px hsl(var(--purple) / 0.4), 0 0 60px hsl(var(--purple) / 0.2);
+    --shadow-bright: 0 0 30px hsl(var(--purple) / 0.4), 0 0 60px hsl(var(--purple) / 0.2);
     --shadow-glow: 0 0 25px hsl(var(--aqua) / 0.4), 0 0 50px hsl(var(--aqua) / 0.2);
     --shadow-card: 0 8px 32px hsl(243 43% 5% / 0.8), 0 0 20px hsl(var(--purple) / 0.1);
 
@@ -96,25 +97,25 @@
 
 @layer components {
   /* Playful Pastel Button Variants */
-  .btn-neon {
+  .btn-glow {
     @apply px-8 py-4 rounded-full font-semibold transition-all duration-300;
     background: var(--gradient-cta);
-    @apply text-background shadow-glow hover:shadow-neon;
+    @apply text-background shadow-glow hover:shadow-bright;
     @apply hover:scale-105 active:scale-95;
     box-shadow: 0 0 25px hsl(var(--purple) / 0.4), 0 0 50px hsl(var(--aqua) / 0.2);
   }
 
-  .btn-outline-neon {
+  .btn-outline-bright {
     @apply px-8 py-4 rounded-full font-semibold transition-all duration-300;
     @apply border-2 border-purple bg-transparent text-purple;
     @apply hover:bg-purple hover:text-background hover:shadow-glow;
     @apply hover:scale-105 active:scale-95;
   }
 
-  .btn-glow {
+  .btn-accent {
     @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
     background: var(--gradient-accent);
-    @apply text-background hover:shadow-neon;
+    @apply text-background hover:shadow-bright;
     @apply hover:scale-105 active:scale-95;
     box-shadow: 0 0 20px hsl(var(--hot-pink) / 0.4), 0 0 40px hsl(var(--orange) / 0.2);
   }
@@ -129,7 +130,7 @@
   }
 
   /* Gradient Text Effects */
-  .neon-text {
+  .bright-text {
     background: var(--gradient-rainbow);
     background-clip: text;
     -webkit-background-clip: text;
@@ -168,8 +169,8 @@
     animation: float 3s ease-in-out infinite;
   }
 
-  .pulse-neon {
-    animation: pulse-neon 2s ease-in-out infinite;
+  .pulse-bright {
+    animation: pulse-bright 2s ease-in-out infinite;
   }
 
   /* Magnetic Effect */
@@ -191,6 +192,7 @@
   .text-orange { color: hsl(var(--orange)); }
   .text-hot-pink { color: hsl(var(--hot-pink)); }
   .text-off-white { color: hsl(var(--off-white)); }
+  .text-bright-blue { color: hsl(var(--bright-blue)); }
 
   .bg-purple { background-color: hsl(var(--purple)); }
   .bg-aqua { background-color: hsl(var(--aqua)); }
@@ -198,6 +200,7 @@
   .bg-yellow { background-color: hsl(var(--yellow)); }
   .bg-orange { background-color: hsl(var(--orange)); }
   .bg-hot-pink { background-color: hsl(var(--hot-pink)); }
+  .bg-bright-blue { background-color: hsl(var(--bright-blue)); }
 
   .border-purple { border-color: hsl(var(--purple)); }
   .border-aqua { border-color: hsl(var(--aqua)); }
@@ -205,6 +208,7 @@
   .border-yellow { border-color: hsl(var(--yellow)); }
   .border-orange { border-color: hsl(var(--orange)); }
   .border-hot-pink { border-color: hsl(var(--hot-pink)); }
+  .border-bright-blue { border-color: hsl(var(--bright-blue)); }
 
   /* Signature Gradient Utilities */
   .bg-gradient-rainbow { background: var(--gradient-rainbow); }
@@ -225,7 +229,7 @@
   50% { transform: translateY(-10px); }
 }
 
-@keyframes pulse-neon {
+@keyframes pulse-bright {
   0%, 100% { 
     box-shadow: 0 0 20px hsl(var(--purple) / 0.6), 0 0 40px hsl(var(--purple) / 0.4);
   }

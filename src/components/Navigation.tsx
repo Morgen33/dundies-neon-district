@@ -91,7 +91,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="text-2xl font-display font-bold neon-text hover:scale-105 transition-transform duration-300">
+            <Link to="/" className="text-2xl font-display font-bold bright-text hover:scale-105 transition-transform duration-300">
               DUNDIES
             </Link>
           </div>

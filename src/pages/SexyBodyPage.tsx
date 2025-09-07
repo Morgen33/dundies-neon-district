@@ -39,7 +39,7 @@ const SexyBodyPage = () => {
           
           {/* Main text */}
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold mb-8 leading-tight">
-            <span className="neon-text block animate-variable-flash">
+            <span className="bright-text block animate-variable-flash">
               IT IS BECAUSE
             </span>
             <span className="text-hot-pink block animate-variable-flash" style={{

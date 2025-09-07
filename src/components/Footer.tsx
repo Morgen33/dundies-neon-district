@@ -33,12 +33,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           {/* Logo & Tagline */}
           <div className="text-center md:text-left">
-            <h3 className="text-2xl font-display font-bold neon-text text-hot-pink mb-2">
+            <h3 className="text-2xl font-display font-bold bright-text text-hot-pink mb-2">
               DUNDIES DISTRICT
             </h3>
             <p className="text-sm text-muted-foreground">
               Hand-drawn NFTs by Neo.<br />
-              <span className="text-neon-blue">Loud. Bold. Unmistakable.</span>
+              <span className="text-bright-blue">Loud. Bold. Unmistakable.</span>
             </p>
           </div>
 

@@ -137,11 +137,11 @@ const Marketplace = () => {
       {/* Hero Section */}
       <section className="pt-20 pb-12 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-display font-bold neon-text mb-6">
+          <h1 className="text-4xl md:text-6xl font-display font-bold bright-text mb-6">
             Dundies Marketplace
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Trade unique Dundies NFTs on Magic Eden. Discover rare traits, find your perfect character, and join the neon revolution.
+            Trade unique Dundies NFTs on Magic Eden. Discover rare traits, find your perfect character, and join the digital revolution.
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -179,9 +179,9 @@ const Marketplace = () => {
               <p className="text-muted-foreground">Fast and secure NFT trading on Solana</p>
             </div>
             
-            <div className="bg-card border border-neon-blue/20 rounded-lg p-6 hover:border-neon-blue/40 transition-colors">
+            <div className="bg-card border border-bright-blue/20 rounded-lg p-6 hover:border-bright-blue/40 transition-colors">
               <div className="flex items-center justify-center mb-4">
-                <Activity className="text-neon-blue" size={32} />
+                <Activity className="text-bright-blue" size={32} />
               </div>
               <h3 className="text-lg font-semibold mb-2">Market Activity</h3>
               <p className="text-muted-foreground">Track recent sales and market trends</p>
