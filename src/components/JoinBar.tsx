@@ -27,9 +27,7 @@ const JoinBar = () => {
               </div>
             </div>
 
-            <p className="text-xl text-black/80 max-w-2xl mx-auto">
-              Don't miss out on the loudest, brightest NFT community in the space
-            </p>
+            <p className="text-xl text-black/80 max-w-2xl mx-auto">Don't miss out on the loudest  NFT community in the space</p>
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
