@@ -10,7 +10,7 @@ const Services = () => {
     {
       id: 1,
       name: "Neo",
-      avatar: "/src/assets/dundie-wizard.png",
+      avatar: "/lovable-uploads/8594643e-a647-4faa-a98d-92f6fd89e778.png",
       title: "NFT Strategy & Web3 Consulting",
       location: "Global (Remote)",
       specialties: ["NFT Strategy", "Web3 Marketing", "Community Building", "Token Economics"],
