@@ -23,7 +23,7 @@ const Navigation = () => {
     { href: '/services', label: 'Services' },
     { href: 'https://ultraixclothing.com/collections/spu-x-dundies-collection', label: 'Merch', external: true },
     { href: '/#community', label: 'Community' },
-    { href: '/#wall-of-fame', label: 'Members' },
+    { href: '/#wall-of-fame', label: 'Members/Services' },
     { href: '/#about', label: 'About' },
     { href: '/#join', label: 'Join' },
   ];
