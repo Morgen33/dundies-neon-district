@@ -20,7 +20,7 @@ const Navigation = () => {
   const navLinks = [
     { href: '/#collection', label: 'Collection' },
     { href: '/marketplace', label: 'Marketplace' },
-    { href: '/services', label: 'Services' },
+    
     { href: 'https://ultraixclothing.com/collections/spu-x-dundies-collection', label: 'Merch', external: true },
     { href: '/#community', label: 'Community' },
     { href: '/#wall-of-fame', label: 'Members/Services' },
