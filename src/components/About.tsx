@@ -1,9 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Heart, Palette, Users } from 'lucide-react';
-
 const About = () => {
-  return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
+  return <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -74,41 +72,13 @@ const About = () => {
         </div>
 
         {/* Meet Neo Section */}
-        <div className="sticker-card border-2 border-acid-lime/30 hover:border-acid-lime hover:shadow-glow transition-all duration-300 text-center">
-          <div className="space-y-6">
-            <div className="w-20 h-20 bg-gradient-glow rounded-full mx-auto flex items-center justify-center shadow-glow">
-              <Palette className="w-10 h-10 text-background" />
-            </div>
-            
-            <div>
-              <h3 className="text-2xl font-display font-bold text-acid-lime mb-3">Meet Neo</h3>
-              <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                The creative mind behind every Dundie. Neo combines traditional hand-drawing techniques 
-                with bold digital aesthetics to create characters that feel both nostalgic and futuristic.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                className="btn-outline-neon"
-                onClick={() => window.open('https://x.com/DundiesDistrict', '_blank')}
-              >
-                Follow Neo's Journey
-              </Button>
-            </div>
-          </div>
-        </div>
+        
 
         {/* Badge */}
         <div className="mt-12 text-center">
-          <div className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-muted to-background rounded-full border border-acid-lime/30">
-            <span className="w-2 h-2 bg-acid-lime rounded-full animate-pulse"></span>
-            <span className="text-sm font-medium text-acid-lime">Made by humans, smudges included.</span>
-          </div>
+          
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
