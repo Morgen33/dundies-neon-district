@@ -183,15 +183,6 @@ const Services = () => {
                         <CardDescription className="text-muted-foreground">{dundie.title}</CardDescription>
                       </div>
                     </div>
-                    {dundie.rating && (
-                      <div className="text-right">
-                        <div className="flex items-center space-x-1 text-yellow-400">
-                          <Star className="w-4 h-4 fill-current" />
-                          <span className="font-semibold">{dundie.rating}</span>
-                        </div>
-                        <p className="text-xs text-muted-foreground">({dundie.reviews} reviews)</p>
-                      </div>
-                    )}
                   </div>
 
                   <div className="flex items-center justify-between text-sm">
