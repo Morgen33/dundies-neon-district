@@ -3,11 +3,13 @@ import { ExternalLink, Twitter, MessageCircle } from 'lucide-react';
 const JoinBar = () => {
   return <section id="join" className="py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Full-width glow strip */}
-        <div className="relative overflow-hidden bg-gradient-rainbow rounded-3xl p-8 sm:p-12">
-          {/* Background effects */}
-          <div className="absolute inset-0 bg-gradient-rainbow opacity-90"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+        {/* Full-width glow strip with pencil texture */}
+        <div className="relative overflow-hidden crayon-texture rounded-3xl p-8 sm:p-12">
+          {/* Organic texture layers */}
+          <div className="absolute inset-0 crayon-base opacity-80"></div>
+          <div className="absolute inset-0 crayon-overlay opacity-60"></div>
+          <div className="absolute inset-0 crayon-streaks opacity-40"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent"></div>
           
           {/* Floating shapes */}
           <div className="absolute top-4 left-8 w-8 h-8 bg-white/20 rounded-full animate-bounce"></div>

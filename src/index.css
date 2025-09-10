@@ -181,6 +181,58 @@
   .magnetic:hover {
     transform: scale(1.05) translateY(-2px);
   }
+
+  /* Crayon/Pencil Drawing Texture Classes */
+  .crayon-texture {
+    position: relative;
+    background: linear-gradient(45deg, #ff6b9d, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff);
+    background-size: 400% 400%;
+    animation: crayon-shift 8s ease-in-out infinite;
+  }
+
+  .crayon-base {
+    background: radial-gradient(ellipse at 20% 30%, #ff6b9d 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, #4ecdc4 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 80%, #45b7d1 0%, transparent 50%),
+                radial-gradient(ellipse at 60% 20%, #96ceb4 0%, transparent 50%),
+                linear-gradient(135deg, #feca57, #ff9ff3, #54a0ff);
+    background-size: 300% 300%, 250% 250%, 400% 400%, 350% 350%, 200% 200%;
+    background-position: 0% 0%, 100% 100%, 50% 50%, 0% 100%, 50% 50%;
+    mix-blend-mode: multiply;
+    filter: blur(1px);
+    animation: crayon-drift 12s ease-in-out infinite;
+  }
+
+  .crayon-overlay {
+    background: 
+      linear-gradient(60deg, transparent 30%, rgba(255, 107, 157, 0.4) 35%, transparent 40%),
+      linear-gradient(120deg, transparent 25%, rgba(78, 205, 196, 0.4) 30%, transparent 35%),
+      linear-gradient(30deg, transparent 40%, rgba(69, 183, 209, 0.4) 45%, transparent 50%),
+      linear-gradient(150deg, transparent 20%, rgba(150, 206, 180, 0.4) 25%, transparent 30%);
+    background-size: 80px 120px, 120px 80px, 100px 150px, 90px 110px;
+    mix-blend-mode: overlay;
+    animation: crayon-streaks 15s linear infinite;
+  }
+
+  .crayon-streaks {
+    background-image: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 3px,
+        rgba(255, 255, 255, 0.1) 3px,
+        rgba(255, 255, 255, 0.1) 4px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 4px,
+        rgba(0, 0, 0, 0.05) 4px,
+        rgba(0, 0, 0, 0.05) 5px
+      );
+    background-size: 20px 20px, 25px 25px;
+    mix-blend-mode: soft-light;
+  }
 }
 
 @layer utilities {
@@ -505,4 +557,32 @@
   92%, 95% { opacity: 1; }
   96%, 98% { opacity: 0.3; }
   100% { opacity: 1; }
+}
+
+/* Crayon texture animations */
+@keyframes crayon-shift {
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 50% 100%; }
+  75% { background-position: 100% 0%; }
+}
+
+@keyframes crayon-drift {
+  0%, 100% { 
+    background-position: 0% 0%, 100% 100%, 50% 50%, 0% 100%, 50% 50%;
+    filter: blur(1px) hue-rotate(0deg);
+  }
+  33% { 
+    background-position: 50% 30%, 20% 70%, 80% 20%, 70% 30%, 30% 80%;
+    filter: blur(1.5px) hue-rotate(5deg);
+  }
+  66% { 
+    background-position: 80% 60%, 40% 10%, 10% 90%, 90% 60%, 60% 10%;
+    filter: blur(1px) hue-rotate(-3deg);
+  }
+}
+
+@keyframes crayon-streaks {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 40px 60px, -50px -70px; }
 }
