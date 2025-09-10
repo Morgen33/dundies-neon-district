@@ -17,23 +17,26 @@ const About = () => {
           <div className="space-y-6">
             <div className="sticker-card border-2 border-hot-pink/30 hover:border-hot-pink hover:shadow-glow transition-all duration-300">
               <p className="text-lg leading-relaxed text-off-white/90 mb-6">
-                If you ask a Dundie what being a Dundie means to them, the first word you'll hear is <span className="text-hot-pink font-semibold">family</span>. 
-                Dundies are a tight family.
+                If you ask a Dundie what being a Dundie means, the first word you'll hear is <span className="text-hot-pink font-semibold">family</span>. 
+                Dundies are family, plain and simple.
               </p>
               
               <p className="text-lg leading-relaxed text-off-white/90 mb-6">
-                We have fun together, we get loud together, we sing, we play music, we trade, we talk traits, and we stick together. 
-                We work together and we play together. We <span className="text-electric-purple font-semibold">grind hard</span> together.
+                We have fun together. We get loud, we sing, we play music, we trade, we talk traits, and we stick together. 
+                We <span className="text-electric-purple font-semibold">grind hard</span>, we <span className="text-bright-blue font-semibold">roll hard</span>, 
+                and we've always got each other's backs.
               </p>
 
-              <p className="text-xl font-bold text-center text-bright-blue mb-6">
-                🔥 DUNDIES IS A VIBE!! 🔥
+              <p className="text-xl font-bold text-center text-acid-lime mb-6">
+                DUNDIES IS A VIBE.
               </p>
 
               <p className="text-lg leading-relaxed text-off-white/90 mb-6">
-                We roll hard and we support each other. What you see here you won't see everywhere. 
-                You know who we are and we attract like <span className="text-acid-lime font-semibold">fire draws fire</span>. 
-                We are Dundie and we will always be.
+                What you see here, you won't find everywhere. We attract like <span className="text-hot-pink font-semibold">magnets</span>—pulling in the real ones who belong.
+              </p>
+
+              <p className="text-lg leading-relaxed text-off-white/90 mb-6">
+                We are Dundie. And we always will be.
               </p>
 
               <div className="bg-gradient-to-r from-hot-pink/10 to-electric-purple/10 rounded-xl p-4 border border-hot-pink/20">
