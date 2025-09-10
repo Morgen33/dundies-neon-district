@@ -17,13 +17,23 @@ const About = () => {
           <div className="space-y-6">
             <div className="sticker-card border-2 border-hot-pink/30 hover:border-hot-pink hover:shadow-glow transition-all duration-300">
               <p className="text-lg leading-relaxed text-off-white/90 mb-6">
-                Dundies are hand-drawn by our founder, <span className="text-hot-pink font-semibold">Neo</span>. 
-                Inspired by the iconic energy of <span className="text-electric-purple font-semibold">The Office's</span> Dundie awards—reimagined for crypto culture.
+                If you ask a Dundie what being a Dundie means to them, the first word you'll hear is <span className="text-hot-pink font-semibold">family</span>. 
+                Dundies are a tight family.
               </p>
               
               <p className="text-lg leading-relaxed text-off-white/90 mb-6">
-                Each piece captures the <span className="text-bright-blue font-semibold">playful spirit</span> of recognition and celebration, 
-                but with a bold <span className="text-acid-lime font-semibold">digital twist</span> that screams modern edge.
+                We have fun together, we get loud together, we sing, we play music, we trade, we talk traits, and we stick together. 
+                We work together and we play together. We <span className="text-electric-purple font-semibold">grind hard</span> together.
+              </p>
+
+              <p className="text-xl font-bold text-center text-bright-blue mb-6">
+                🔥 DUNDIES IS A VIBE!! 🔥
+              </p>
+
+              <p className="text-lg leading-relaxed text-off-white/90 mb-6">
+                We roll hard and we support each other. What you see here you won't see everywhere. 
+                You know who we are and we attract like <span className="text-acid-lime font-semibold">fire draws fire</span>. 
+                We are Dundie and we will always be.
               </p>
 
               <div className="bg-gradient-to-r from-hot-pink/10 to-electric-purple/10 rounded-xl p-4 border border-hot-pink/20">
