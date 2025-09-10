@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Star, MapPin, Clock, ExternalLink, MessageCircle } from 'lucide-react';
+import { Star, MapPin, ExternalLink, MessageCircle } from 'lucide-react';
 
 const Services = () => {
   const dundieServices = [
@@ -127,11 +127,6 @@ const Services = () => {
     }
   ];
 
-  const getAvailabilityColor = (availability: string) => {
-    if (availability.includes("Available")) return "text-green-400";
-    if (availability.includes("Limited")) return "text-yellow-400";
-    return "text-orange-400";
-  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -228,15 +223,6 @@ const Services = () => {
                     </ul>
                   </div>
 
-                  <div className="flex items-center justify-between text-sm pt-4 border-t border-border">
-                    <div className="space-y-1">
-                      <div className={`flex items-center space-x-1 ${getAvailabilityColor(dundie.availability)}`}>
-                        <Clock className="w-4 h-4" />
-                        <span className="font-medium">{dundie.availability}</span>
-                      </div>
-                      <p className="text-muted-foreground">Responds in {dundie.responseTime}</p>
-                    </div>
-                  </div>
 
                   <div className="flex space-x-2 pt-2">
                     <Button 
