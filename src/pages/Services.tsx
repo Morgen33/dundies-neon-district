@@ -4,8 +4,13 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Star, MapPin, ExternalLink, MessageCircle } from 'lucide-react';
+import { useState } from 'react';
 
 const Services = () => {
+  const [activeFilter, setActiveFilter] = useState('All');
+  
+  const categories = ['All', 'NFT Strategy', 'Digital Art', 'Development', 'Marketing', 'Consulting'];
+  
   const dundieServices = [
     {
       id: 1,
@@ -127,6 +132,27 @@ const Services = () => {
     }
   ];
 
+  const getFilteredServices = () => {
+    if (activeFilter === 'All') return dundieServices;
+    
+    return dundieServices.filter(dundie => 
+      dundie.specialties.some(specialty => {
+        if (activeFilter === 'Development') {
+          return specialty.includes('Development') || specialty.includes('Smart Contracts') || specialty.includes('DApp') || specialty.includes('Solana');
+        }
+        if (activeFilter === 'Marketing') {
+          return specialty.includes('Marketing') || specialty.includes('Content') || specialty.includes('Social Media');
+        }
+        if (activeFilter === 'Consulting') {
+          return specialty.includes('Consulting') || specialty.includes('Strategy') || specialty.includes('Business');
+        }
+        return specialty.includes(activeFilter);
+      })
+    );
+  };
+
+  const filteredServices = getFilteredServices();
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -144,11 +170,20 @@ const Services = () => {
             <span className="text-electric-purple font-semibold"> Real expertise, Dundie quality.</span>
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <Badge variant="outline" className="text-hot-pink border-hot-pink/50">NFT Strategy</Badge>
-            <Badge variant="outline" className="text-electric-purple border-electric-purple/50">Digital Art</Badge>
-            <Badge variant="outline" className="text-bright-blue border-bright-blue/50">Development</Badge>
-            <Badge variant="outline" className="text-acid-lime border-acid-lime/50">Marketing</Badge>
-            <Badge variant="outline" className="text-hot-pink border-hot-pink/50">Consulting</Badge>
+            {categories.map((category) => (
+              <Badge 
+                key={category}
+                variant={activeFilter === category ? "default" : "outline"} 
+                className={`cursor-pointer transition-all duration-200 ${
+                  activeFilter === category 
+                    ? 'bg-hot-pink text-white border-hot-pink shadow-glow' 
+                    : 'text-hot-pink border-hot-pink/50 hover:border-hot-pink hover:bg-hot-pink/10'
+                }`}
+                onClick={() => setActiveFilter(category)}
+              >
+                {category}
+              </Badge>
+            ))}
           </div>
         </div>
       </section>
@@ -157,7 +192,7 @@ const Services = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-            {dundieServices.map((dundie, index) => (
+            {filteredServices.map((dundie, index) => (
               <Card 
                 key={dundie.id}
                 className="sticker-card border-2 border-electric-purple/30 hover:border-electric-purple hover:shadow-glow transition-all duration-300 animate-fade-in"
