@@ -12,8 +12,9 @@ const Marketplace = () => {
     script.innerHTML = `
       (function(){
         const SYMBOL = "dundies";
-        // Use the Vite proxy instead of direct API calls
-        const url = (p) => \`/api/magiceden/\${p}\`;
+        // Use edge function for production, Vite proxy for dev
+        const isDev = window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1');
+        const url = (p) => isDev ? \`/api/magiceden/\${p}\` : \`${window.location.origin}/functions/v1/magiceden-proxy/\${p}\`;
 
         const $stats = document.getElementById('dm-stats');
 
