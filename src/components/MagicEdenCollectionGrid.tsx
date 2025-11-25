@@ -40,8 +40,11 @@ export const MagicEdenCollectionGrid: React.FC = () => {
         setLoading(true);
         setError("");
 
+        const isDev = window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1');
+        const baseUrl = isDev ? '/api/magiceden' : `${window.location.origin}/functions/v1/magiceden-proxy`;
+        
         const res = await fetch(
-            `/api/magiceden/${COLLECTION_SYMBOL}/listings?limit=100&offset=0`
+            `${baseUrl}/${COLLECTION_SYMBOL}/listings?limit=100&offset=0`
         );
 
         if (!res.ok) {
