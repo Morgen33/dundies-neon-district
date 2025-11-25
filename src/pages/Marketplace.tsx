@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Zap, TrendingUp, Activity } from 'lucide-react';
+import { MagicEdenCollectionGrid } from '@/components/MagicEdenCollectionGrid';
 
 const Marketplace = () => {
   useEffect(() => {
@@ -212,9 +213,8 @@ const Marketplace = () => {
               <button className="dm-tab active" data-tab="listings">Listings</button>
               <button className="dm-tab" data-tab="activity">Recent Buys</button>
             </div>
+            <MagicEdenCollectionGrid />
 
-            <div id="dm-listings" className="grid" aria-live="polite"></div>
-            <div id="dm-activity" className="grid" style={{display: 'none'}} aria-live="polite"></div>
           </div>
         </div>
       </section>
