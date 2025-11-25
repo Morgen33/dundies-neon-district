@@ -18,19 +18,6 @@ const Marketplace = () => {
         const url = (p) => WORKER ? \`\${WORKER}?u=\${encodeURIComponent(\`\${DIRECT}/\${p}\`)}\` : \`\${DIRECT}/\${p}\`;
 
         const $stats = document.getElementById('dm-stats');
-        const $listings = document.getElementById('dm-listings');
-        const $activity = document.getElementById('dm-activity');
-        const tabs = document.querySelectorAll('.dm-tab');
-
-        tabs.forEach(btn=>{
-          btn.addEventListener('click', () => {
-            tabs.forEach(b=>b.classList.remove('active'));
-            btn.classList.add('active');
-            const tab = btn.dataset.tab;
-            if(tab==='listings'){ $activity.style.display='none'; $listings.style.display=''; if(!$listings.dataset.loaded) loadListings(); }
-            else { $listings.style.display='none'; $activity.style.display=''; if(!$activity.dataset.loaded) loadActivity(); }
-          });
-        });
 
         const toSOL = (x) => (x && x > 1e7) ? x/1e9 : x;
         const f = (n,d=2)=> n==null ? '—' : Number(n).toFixed(d);
@@ -64,23 +51,6 @@ const Marketplace = () => {
           }catch(e){ console.error(e); $listings.innerHTML = \`<div class="empty" style="grid-column:1/-1">Failed to load listings.</div>\`; }
         }
 
-        async function loadActivity(){
-          $activity.innerHTML = \`<div class="empty" style="grid-column:1/-1">Loading activity…</div>\`;
-          try{
-            const acts = await fetchJson(url(\`collections/\${SYMBOL}/activities?offset=0&limit=50&type=buyNow\`));
-            const slice = (Array.isArray(acts)?acts:[]).slice(0,12);
-            if(slice.length===0){ $activity.innerHTML = \`<div class="empty" style="grid-column:1/-1">No recent buys yet.</div>\`; return; }
-            const out = [];
-            for(const a of slice){
-              const mint = a.tokenMint || a.mint;
-              let img, name;
-              try{ const m = await fetchJson(url(\`tokens/\${mint}\`)); img = m.img || m.image; name = m.name; }catch{}
-              out.push(card({ href:\`https://magiceden.io/item-details/\${mint}\`, img, name: name || \`…\${(mint||'').slice(-4)}\`, price: a.price, sub: a.blockTime? timeAgo(a.blockTime)+' ago':'' }));
-            }
-            $activity.innerHTML = out.join(''); $activity.dataset.loaded = "1";
-          }catch(e){ console.error(e); $activity.innerHTML = \`<div class="empty" style="grid-column:1/-1">Failed to load activity.</div>\`; }
-        }
-
         function card({href,img,name,price,sub}){
           return \`
             <a class="card" href="\${href}" target="_blank" rel="noopener">
@@ -93,8 +63,6 @@ const Marketplace = () => {
         }
 
         loadStats();
-        loadListings(); // default tab
-        // loadActivity(); // loads when tab clicked
       })();
     `;
     document.head.appendChild(script);
@@ -209,10 +177,6 @@ const Marketplace = () => {
               <div className="chip">All-time Vol: <b>—</b></div>
             </div>
 
-            <div className="dm-tabs">
-              <button className="dm-tab active" data-tab="listings">Listings</button>
-              <button className="dm-tab" data-tab="activity">Recent Buys</button>
-            </div>
             <MagicEdenCollectionGrid />
 
           </div>
