@@ -11,11 +11,9 @@ const Marketplace = () => {
     const script = document.createElement('script');
     script.innerHTML = `
       (function(){
-        const SYMBOL = "5DJBKxbYj8wD2D56K6BGhFPUSwspESL6LkT9Kn8zwkAz";
-        const DIRECT = "https://api-mainnet.magiceden.dev/v2";
-        // If preview blocks CORS, put your Cloudflare Worker URL here:
-        const WORKER = ""; // e.g. "https://me-proxy-yourname.workers.dev"
-        const url = (p) => WORKER ? \`\${WORKER}?u=\${encodeURIComponent(\`\${DIRECT}/\${p}\`)}\` : \`\${DIRECT}/\${p}\`;
+        const SYMBOL = "dundies";
+        // Use the Vite proxy instead of direct API calls
+        const url = (p) => \`/api/magiceden/\${p}\`;
 
         const $stats = document.getElementById('dm-stats');
 
@@ -26,7 +24,7 @@ const Marketplace = () => {
 
         async function loadStats(){
           try{
-            const d = await fetchJson(url(\`collections/\${SYMBOL}/stats\`));
+            const d = await fetchJson(url(\`\${SYMBOL}/stats\`));
             $stats.innerHTML = \`
               <div class="chip">Floor: <b>\${f(toSOL(d.floorPrice),2)}</b> SOL</div>
               <div class="chip">Listed: <b>\${d.listedCount ?? '—'}</b></div>
