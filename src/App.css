@@ -40,3 +40,66 @@
 .read-the-docs {
   color: #888;
 }
+
+.me-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.me-card {
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #050711;
+  background: radial-gradient(circle at top, #141b32, #050711);
+  display: block;
+  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out,
+    border-color 0.12s ease-out;
+}
+
+.me-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.me-card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.me-card-img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.me-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.me-card-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.me-card-price {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #f5d36b;
+}
+
+.me-card-src {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  color: #d0d3ff;
+}

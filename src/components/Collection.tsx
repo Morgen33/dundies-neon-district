@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Users, Sparkles } from 'lucide-react';
+import { MagicEdenCollectionGrid } from './MagicEdenCollectionGrid';
 const Collection = () => {
   return <section id="collection" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
