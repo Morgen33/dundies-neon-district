@@ -46,50 +46,6 @@ const Marketplace = () => {
             console.error(e);
           }
         }
-
-        async function loadListings(){
-          if (!$listings) return;
-          $listings.innerHTML = \`<div class="empty" style="grid-column:1/-1">Loading listings…</div>\`;
-          try{
-            // Uses the same proxy/edge function as stats
-            const list = await fetchJson(
-              url(\`collections/\${SYMBOL}/listings?offset=0&limit=24\`)
-            );
-
-            if(!Array.isArray(list) || list.length===0){
-              $listings.innerHTML =
-                \`<div class="empty" style="grid-column:1/-1">No listings found.</div>\`;
-              return;
-            }
-
-            const out = [];
-            for(const it of list){
-              let img = it.img || it.image;
-              let name = it.tokenName || \`…\${(it.tokenMint||'').slice(-4)}\`;
-
-              if(!img && it.tokenMint){
-                try{
-                  const m = await fetchJson(url(\`tokens/\${it.tokenMint}\`));
-                  img = m.img || m.image;
-                  name = m.name || name;
-                }catch(_e){}
-              }
-
-              out.push(card({
-                href: \`https://magiceden.io/item-details/\${it.tokenMint}\`,
-                img,
-                name,
-                price: it.price
-              }));
-            }
-
-            $listings.innerHTML = out.join('');
-            $listings.dataset.loaded = "1";
-          }catch(e){
-            console.error(e);
-            $listings.innerHTML =
-              \`<div class="empty" style="grid-column:1/-1">Failed to load listings.</div>\`;
-          }
         }
 
         function card({href,img,name,price,sub}){
