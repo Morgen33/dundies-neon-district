@@ -64,9 +64,8 @@ const Marketplace = () => {
         }
 
         loadStats();
-        loadListings();
       })();
-    `;
+    
     document.head.appendChild(script);
 
     // Inject optimized styles
@@ -190,9 +189,6 @@ const Marketplace = () => {
                 All-time Vol: <b>—</b>
               </div>
             </div>
-
-            {/* Grid body for inline widget (used by injected script) */}
-            <div id="dm-listings" className="grid"></div>
 
             {/* React-based grid component that also uses the edge function */}
             <MagicEdenCollectionGrid />
