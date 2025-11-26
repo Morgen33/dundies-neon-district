@@ -26,7 +26,6 @@ const Marketplace = () => {
             : \`\${supabaseBase}/\${p}\`;
 
         const $stats = document.getElementById('dm-stats');
-        const $listings = document.getElementById('dm-listings');
 
         const toSOL = (x) => (x && x > 1e7) ? x/1e9 : x;
         const f = (n,d=2)=> n==null ? '—' : Number(n).toFixed(d);
