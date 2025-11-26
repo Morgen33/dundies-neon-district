@@ -7,60 +7,50 @@ import { MagicEdenCollectionGrid } from "@/components/MagicEdenCollectionGrid";
 
 const Marketplace = () => {
   useEffect(() => {
-    // Inject the optimized Magic Eden marketplace widget
     const script = document.createElement("script");
     script.innerHTML = `
-      (function(){
+      (function () {
         const SYMBOL = "dundies";
-        // Use edge function for production, Vite proxy for dev
-        const isDev =
-          window.location.hostname.includes('localhost') ||
-          window.location.hostname.includes('127.0.0.1');
 
-        // Supabase Edge Function base
-        const supabaseBase = "https://fcjlqwecxnfuhizzumkv.supabase.co/functions/v1/magiceden-proxy";
+        const isDev =
+          window.location.hostname.includes("localhost") ||
+          window.location.hostname.includes("127.0.0.1");
+
+        // Supabase Edge Function base (same origin you used in the grid)
+        const supabaseBase =
+          "https://fcjlqwecxnfuhizzumkv.supabase.co/functions/v1/magiceden-proxy";
 
         const url = (p) =>
-          isDev
-            ? \`/api/magiceden/\${p}\`
-            : \`\${supabaseBase}/\${p}\`;
+          isDev ? \`/api/magiceden/\${p}\` : \`\${supabaseBase}/\${p}\`;
 
-        const $stats = document.getElementById('dm-stats');
+        const $stats = document.getElementById("dm-stats");
+        if (!$stats) return;
 
-        const toSOL = (x) => (x && x > 1e7) ? x/1e9 : x;
-        const f = (n,d=2)=> n==null ? '—' : Number(n).toFixed(d);
-        const timeAgo = (u)=>{const d=(Date.now()/1000-u);const a=[[31536000,'y'],[2592000,'mo'],[604800,'w'],[86400,'d'],[3600,'h'],[60,'m']];for(const[s,l]of a){if(d>=s)return Math.floor(d/s)+l}return Math.max(1,Math.floor(d))+'s'};
-        const fetchJson = (u)=> fetch(u).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()});
+        const toSOL = (x) => (x && x > 1e7 ? x / 1e9 : x);
+        const f = (n, d = 2) => (n == null ? "—" : Number(n).toFixed(d));
+        const fetchJson = (u) =>
+          fetch(u).then((r) => {
+            if (!r.ok) throw new Error("HTTP " + r.status);
+            return r.json();
+          });
 
-        async function loadStats(){
-          try{
+        async function loadStats() {
+          try {
+            // This hits:
+            //  dev:  /api/magiceden/dundies/stats
+            //  prod: https://...supabase.co/functions/v1/magiceden-proxy/dundies/stats
             const d = await fetchJson(url(\`\${SYMBOL}/stats\`));
-            $stats.innerHTML = \`
-              <div class="chip">Floor: <b>\${f(toSOL(d.floorPrice),2)}</b> SOL</div>
-              <div class="chip">Listed: <b>\${d.listedCount ?? '—'}</b></div>
-              <div class="chip">24h Vol: <b>\${f(toSOL(d.avgPrice24hr),2)}</b></div>
-              <div class="chip">All-time Vol: <b>\${f(toSOL(d.volumeAll),0)}</b></div>\`;
-          }catch(e){
-            $stats.innerHTML = \`<div class="chip">Stats unavailable</div>\`;
-            console.error(e);
-          }
-        }
-        }
 
-        function card({href,img,name,price,sub}){
-          return \`
-            <a class="card" href="\${href}" target="_blank" rel="noopener">
-              <div class="media">\${img
-                ? \`<img src="\${img}" alt="\${name??''}">\`
-                : \`<span style="color:#666;font:600 12px Inter">No image</span>\`}</div>
-              <div class="body">
-                <div class="name">\${name ?? ''}</div>
-                <div class="meta">
-                  <span>\${price!=null ? price+' SOL' : '—'}</span>
-                  <span>\${sub??''}</span>
-                </div>
-              </div>
-            </a>\`;
+            $stats.innerHTML = \`
+              <div class="chip">Floor: <b>\${f(toSOL(d.floorPrice), 2)}</b> SOL</div>
+              <div class="chip">Listed: <b>\${d.listedCount ?? "—"}</b></div>
+              <div class="chip">24h Vol: <b>\${f(toSOL(d.avgPrice24hr), 2)}</b></div>
+              <div class="chip">All-time Vol: <b>\${f(toSOL(d.volumeAll), 0)}</b></div>
+            \`;
+          } catch (e) {
+            console.error("loadStats error", e);
+            $stats.innerHTML = '<div class="chip">Stats unavailable</div>';
+          }
         }
 
         loadStats();
@@ -68,7 +58,6 @@ const Marketplace = () => {
     `;
     document.head.appendChild(script);
 
-    // Inject optimized styles
     const style = document.createElement("style");
     style.innerHTML = `
       #dundies-market{--pink:#FF3AAE;--purple:#9A5BFF;--blue:#00D1FF;--lime:#B6FF3B;--text:#fff;background:#000;padding:28px;border:2px solid var(--purple);border-radius:20px;box-shadow:0 0 40px #9A5BFF33}
@@ -77,9 +66,6 @@ const Marketplace = () => {
       .dm-link{font:600 14px/1 Inter,system-ui;color:#fff;text-decoration:none;padding:10px 14px;border-radius:999px;border:2px solid var(--blue)}
       .dm-stats{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 18px}
       .chip{background:#0e0e0e;border:1px solid #2a2a2a;color:#fff;padding:10px 14px;border-radius:999px;font:600 13px/1 Inter}
-      .dm-tabs{display:flex;gap:8px;margin-bottom:12px}
-      .dm-tab{background:#0e0e0e;color:#fff;border:2px solid #222;padding:10px 14px;border-radius:14px;font:700 13px Inter;cursor:pointer}
-      .dm-tab.active{border-color:var(--pink);box-shadow:0 0 18px #ff3aae44}
       .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
       @media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
       @media (max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
@@ -94,7 +80,6 @@ const Marketplace = () => {
     document.head.appendChild(style);
 
     return () => {
-      // Cleanup
       document.head.removeChild(script);
       document.head.removeChild(style);
     };
@@ -130,7 +115,7 @@ const Marketplace = () => {
             </Button>
           </div>
 
-          {/* Quick Stats */}
+          {/* Quick Stats cards (static descriptions) */}
           <div className="flex flex-wrap justify-center gap-6 mb-12">
             <div className="bg-card border border-electric-purple/20 rounded-lg p-6 hover:border-electric-purple/40 transition-colors w-full md:w-80">
               <div className="flex items-center justify-center mb-4">
@@ -190,7 +175,7 @@ const Marketplace = () => {
               </div>
             </div>
 
-            {/* React-based grid component that also uses the edge function */}
+            {/* React-based grid component that uses the edge function */}
             <MagicEdenCollectionGrid />
           </div>
         </div>
