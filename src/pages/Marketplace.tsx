@@ -9,6 +9,133 @@ const Marketplace = () => {
   useEffect(() => {
     // Inject the optimized Magic Eden marketplace widget
     const script = document.createElement("script");
+    script.innerHTML = `
+      (function(){
+        const SYMBOL = "dundies";
+        // Use edge function for production, Vite proxy for dev
+        const isDev =
+          window.location.hostname.includes('localhost') ||
+          window.location.hostname.includes('127.0.0.1');
+
+        // Supabase Edge Function base
+        const supabaseBase = "https://fcjlqwecxnfuhizzumkv.supabase.co/functions/v1/magiceden-proxy";
+
+        const url = (p) =>
+          isDev
+            ? \`/api/magiceden/\${p}\`
+            : \`\${supabaseBase}/\${p}\`;
+
+        const $stats = document.getElementById('dm-stats');
+        const $listings = document.getElementById('dm-listings');
+
+        const toSOL = (x) => (x && x > 1e7) ? x/1e9 : x;
+        const f = (n,d=2)=> n==null ? '—' : Number(n).toFixed(d);
+        const timeAgo = (u)=>{const d=(Date.now()/1000-u);const a=[[31536000,'y'],[2592000,'mo'],[604800,'w'],[86400,'d'],[3600,'h'],[60,'m']];for(const[s,l]of a){if(d>=s)return Math.floor(d/s)+l}return Math.max(1,Math.floor(d))+'s'};
+        const fetchJson = (u)=> fetch(u).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()});
+
+        async function loadStats(){
+          try{
+            const d = await fetchJson(url(\`\${SYMBOL}/stats\`));
+            $stats.innerHTML = \`
+              <div class="chip">Floor: <b>\${f(toSOL(d.floorPrice),2)}</b> SOL</div>
+              <div class="chip">Listed: <b>\${d.listedCount ?? '—'}</b></div>
+              <div class="chip">24h Vol: <b>\${f(toSOL(d.avgPrice24hr),2)}</b></div>
+              <div class="chip">All-time Vol: <b>\${f(toSOL(d.volumeAll),0)}</b></div>\`;
+          }catch(e){
+            $stats.innerHTML = \`<div class="chip">Stats unavailable</div>\`;
+            console.error(e);
+          }
+        }
+
+        async function loadListings(){
+          if (!$listings) return;
+          $listings.innerHTML = \`<div class="empty" style="grid-column:1/-1">Loading listings…</div>\`;
+          try{
+            // Uses the same proxy/edge function as stats
+            const list = await fetchJson(
+              url(\`collections/\${SYMBOL}/listings?offset=0&limit=24\`)
+            );
+
+            if(!Array.isArray(list) || list.length===0){
+              $listings.innerHTML =
+                \`<div class="empty" style="grid-column:1/-1">No listings found.</div>\`;
+              return;
+            }
+
+            const out = [];
+            for(const it of list){
+              let img = it.img || it.image;
+              let name = it.tokenName || \`…\${(it.tokenMint||'').slice(-4)}\`;
+
+              if(!img && it.tokenMint){
+                try{
+                  const m = await fetchJson(url(\`tokens/\${it.tokenMint}\`));
+                  img = m.img || m.image;
+                  name = m.name || name;
+                }catch(_e){}
+              }
+
+              out.push(card({
+                href: \`https://magiceden.io/item-details/\${it.tokenMint}\`,
+                img,
+                name,
+                price: it.price
+              }));
+            }
+
+            $listings.innerHTML = out.join('');
+            $listings.dataset.loaded = "1";
+          }catch(e){
+            console.error(e);
+          }
+        }
+
+        function card({href,img,name,price,sub}){
+          return \`
+            <a class="card" href="\${href}" target="_blank" rel="noopener">
+              <div class="media">\${img
+                ? \`<img src="\${img}" alt="\${name??''}">\`
+                : \`<span style="color:#666;font:600 12px Inter">No image</span>\`}</div>
+              <div class="body">
+                <div class="name">\${name ?? ''}</div>
+                <div class="meta">
+                  <span>\${price!=null ? price+' SOL' : '—'}</span>
+                  <span>\${sub??''}</span>
+                </div>
+              </div>
+            </a>\`;
+        }
+
+        loadStats();
+        loadListings();
+      })();
+    `;
+    document.head.appendChild(script);
+
+    // Inject optimized styles
+    const style = document.createElement("style");
+    style.innerHTML = `
+      #dundies-market{--pink:#FF3AAE;--purple:#9A5BFF;--blue:#00D1FF;--lime:#B6FF3B;--text:#fff;background:#000;padding:28px;border:2px solid var(--purple);border-radius:20px;box-shadow:0 0 40px #9A5BFF33}
+      .dm-head{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}
+      .dm-title{font:800 22px/1.1 Fredoka,system-ui;color:#fff}
+      .dm-link{font:600 14px/1 Inter,system-ui;color:#fff;text-decoration:none;padding:10px 14px;border-radius:999px;border:2px solid var(--blue)}
+      .dm-stats{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 18px}
+      .chip{background:#0e0e0e;border:1px solid #2a2a2a;color:#fff;padding:10px 14px;border-radius:999px;font:600 13px/1 Inter}
+      .dm-tabs{display:flex;gap:8px;margin-bottom:12px}
+      .dm-tab{background:#0e0e0e;color:#fff;border:2px solid #222;padding:10px 14px;border-radius:14px;font:700 13px Inter;cursor:pointer}
+      .dm-tab.active{border-color:var(--pink);box-shadow:0 0 18px #ff3aae44}
+      .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+      @media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+      @media (max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+      .card{background:#0b0b0b;border:2px solid #191919;border-radius:16px;overflow:hidden;text-decoration:none}
+      .card:hover{border-color:var(--purple);box-shadow:0 0 22px #9A5BFF33}
+      .media{aspect-ratio:1/1;background:#111;display:flex;align-items:center;justify-content:center}
+      .media img{width:100%;height:100%;object-fit:cover;display:block}
+      .body{padding:12px}.name{color:#fff;font:700 14px/1.2 Inter;margin-bottom:6px}
+      .meta{display:flex;align-items:center;justify-content:space-between;color:#9ef;font:600 13px/1 Inter;opacity:.9}
+      .empty{color:#aaa;padding:24px;border:1px dashed #333;border-radius:14px;text-align:center}
+    `;
+    document.head.appendChild(style);
 
     return () => {
       // Cleanup
@@ -106,9 +233,6 @@ const Marketplace = () => {
                 All-time Vol: <b>—</b>
               </div>
             </div>
-
-            {/* Grid body for inline widget (used by injected script) */}
-            <div id="dm-listings" className="grid"></div>
 
             {/* React-based grid component that also uses the edge function */}
             <MagicEdenCollectionGrid />
