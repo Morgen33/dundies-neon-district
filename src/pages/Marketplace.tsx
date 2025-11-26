@@ -65,7 +65,7 @@ const Marketplace = () => {
 
         loadStats();
       })();
-    
+    `;
     document.head.appendChild(script);
 
     // Inject optimized styles
