@@ -41,9 +41,18 @@ export const MagicEdenCollectionGrid: React.FC = () => {
         setError("");
 
         const isDev = window.location.hostname.includes("localhost") || window.location.hostname.includes("127.0.0.1");
-        const baseUrl = isDev ? "/api/magiceden" : "/magiceden-proxy";
 
-        const res = await fetch(`${baseUrl}/${COLLECTION_SYMBOL}/listings?limit=100&offset=0`);
+        const baseUrl = isDev
+          ? "http://127.0.0.1:54321/functions/v1/magiceden-proxy"
+          : "https://fcjlqwecxnfuhizzumkv.supabase.co/functions/v1/magiceden-proxy";
+
+        const res = await fetch(`${baseUrl}/${COLLECTION_SYMBOL}/listings?limit=100&offset=0`, {
+          headers: {
+            // These should come from env vars in a real app
+            apikey: import.meta.env.VITE_SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          },
+        });
 
         if (!res.ok) {
           throw new Error(`Magic Eden API error: ${res.status}`);
