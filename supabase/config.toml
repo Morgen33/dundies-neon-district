@@ -1,1 +1,4 @@
 project_id = "fcjlqwecxnfuhizzumkv"
+
+[functions.magiceden-proxy]
+verify_jwt = false
