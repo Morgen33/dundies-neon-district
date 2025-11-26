@@ -1,22 +1,32 @@
-import { useEffect } from 'react';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
-import { ExternalLink, Zap, TrendingUp, Activity } from 'lucide-react';
-import { MagicEdenCollectionGrid } from '@/components/MagicEdenCollectionGrid';
+import { useEffect } from "react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Zap, TrendingUp, Activity } from "lucide-react";
+import { MagicEdenCollectionGrid } from "@/components/MagicEdenCollectionGrid";
 
 const Marketplace = () => {
   useEffect(() => {
     // Inject the optimized Magic Eden marketplace widget
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.innerHTML = `
       (function(){
         const SYMBOL = "dundies";
         // Use edge function for production, Vite proxy for dev
-        const isDev = window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1');
-        const url = (p) => isDev ? \`/api/magiceden/\${p}\` : \`${window.location.origin}/functions/v1/magiceden-proxy/\${p}\`;
+        const isDev =
+          window.location.hostname.includes('localhost') ||
+          window.location.hostname.includes('127.0.0.1');
+
+        // Supabase Edge Function base
+        const supabaseBase = "https://fcjlqwecxnfuhizzumkv.supabase.co/functions/v1/magiceden-proxy";
+
+        const url = (p) =>
+          isDev
+            ? \`/api/magiceden/\${p}\`
+            : \`\${supabaseBase}/\${p}\`;
 
         const $stats = document.getElementById('dm-stats');
+        const $listings = document.getElementById('dm-listings');
 
         const toSOL = (x) => (x && x > 1e7) ? x/1e9 : x;
         const f = (n,d=2)=> n==null ? '—' : Number(n).toFixed(d);
@@ -31,43 +41,81 @@ const Marketplace = () => {
               <div class="chip">Listed: <b>\${d.listedCount ?? '—'}</b></div>
               <div class="chip">24h Vol: <b>\${f(toSOL(d.avgPrice24hr),2)}</b></div>
               <div class="chip">All-time Vol: <b>\${f(toSOL(d.volumeAll),0)}</b></div>\`;
-          }catch(e){ $stats.innerHTML = \`<div class="chip">Stats unavailable</div>\`; console.error(e); }
+          }catch(e){
+            $stats.innerHTML = \`<div class="chip">Stats unavailable</div>\`;
+            console.error(e);
+          }
         }
 
         async function loadListings(){
+          if (!$listings) return;
           $listings.innerHTML = \`<div class="empty" style="grid-column:1/-1">Loading listings…</div>\`;
           try{
-            // NOTE: no acceptedPayment param here (fixes your 400 error)
-            const list = await fetchJson(url(\`collections/\${SYMBOL}/listings?offset=0&limit=24\`));
-            if(!Array.isArray(list) || list.length===0){ $listings.innerHTML = \`<div class="empty" style="grid-column:1/-1">No listings found.</div>\`; return; }
+            // Uses the same proxy/edge function as stats
+            const list = await fetchJson(
+              url(\`collections/\${SYMBOL}/listings?offset=0&limit=24\`)
+            );
+
+            if(!Array.isArray(list) || list.length===0){
+              $listings.innerHTML =
+                \`<div class="empty" style="grid-column:1/-1">No listings found.</div>\`;
+              return;
+            }
+
             const out = [];
             for(const it of list){
-              let img = it.img || it.image, name = it.tokenName || \`…\${(it.tokenMint||'').slice(-4)}\`;
-              if(!img && it.tokenMint){ try{ const m = await fetchJson(url(\`tokens/\${it.tokenMint}\`)); img = m.img || m.image; name = m.name || name; }catch{} }
-              out.push(card({ href:\`https://magiceden.io/item-details/\${it.tokenMint}\`, img, name, price: it.price }));
+              let img = it.img || it.image;
+              let name = it.tokenName || \`…\${(it.tokenMint||'').slice(-4)}\`;
+
+              if(!img && it.tokenMint){
+                try{
+                  const m = await fetchJson(url(\`tokens/\${it.tokenMint}\`));
+                  img = m.img || m.image;
+                  name = m.name || name;
+                }catch(_e){}
+              }
+
+              out.push(card({
+                href: \`https://magiceden.io/item-details/\${it.tokenMint}\`,
+                img,
+                name,
+                price: it.price
+              }));
             }
-            $listings.innerHTML = out.join(''); $listings.dataset.loaded = "1";
-          }catch(e){ console.error(e); $listings.innerHTML = \`<div class="empty" style="grid-column:1/-1">Failed to load listings.</div>\`; }
+
+            $listings.innerHTML = out.join('');
+            $listings.dataset.loaded = "1";
+          }catch(e){
+            console.error(e);
+            $listings.innerHTML =
+              \`<div class="empty" style="grid-column:1/-1">Failed to load listings.</div>\`;
+          }
         }
 
         function card({href,img,name,price,sub}){
           return \`
             <a class="card" href="\${href}" target="_blank" rel="noopener">
-              <div class="media">\${img ? \`<img src="\${img}" alt="\${name??''}">\` : \`<span style="color:#666;font:600 12px Inter">No image</span>\`}</div>
+              <div class="media">\${img
+                ? \`<img src="\${img}" alt="\${name??''}">\`
+                : \`<span style="color:#666;font:600 12px Inter">No image</span>\`}</div>
               <div class="body">
                 <div class="name">\${name ?? ''}</div>
-                <div class="meta"><span>\${price!=null ? price+' SOL' : '—'}</span><span>\${sub??''}</span></div>
+                <div class="meta">
+                  <span>\${price!=null ? price+' SOL' : '—'}</span>
+                  <span>\${sub??''}</span>
+                </div>
               </div>
             </a>\`;
         }
 
         loadStats();
+        loadListings();
       })();
     `;
     document.head.appendChild(script);
 
     // Inject optimized styles
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.innerHTML = `
       #dundies-market{--pink:#FF3AAE;--purple:#9A5BFF;--blue:#00D1FF;--lime:#B6FF3B;--text:#fff;background:#000;padding:28px;border:2px solid var(--purple);border-radius:20px;box-shadow:0 0 40px #9A5BFF33}
       .dm-head{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}
@@ -101,25 +149,24 @@ const Marketplace = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="pt-20 pb-12 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-display font-bold bright-text mb-6">
-            Dundies Marketplace
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-display font-bold bright-text mb-6">Dundies Marketplace</h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Trade unique Dundies NFTs on Magic Eden. Discover rare traits, find your perfect character, and join the digital revolution.
+            Trade unique Dundies NFTs on Magic Eden. Discover rare traits, find your perfect character, and join the
+            digital revolution.
           </p>
-          
+
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <Button 
+            <Button
               asChild
               className="bg-gradient-to-r from-hot-pink to-electric-purple hover:scale-105 transition-transform duration-300"
             >
-              <a 
+              <a
                 href="https://magiceden.io/marketplace/5DJBKxbYj8wD2D56K6BGhFPUSwspESL6LkT9Kn8zwkAz"
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
               >
@@ -138,7 +185,7 @@ const Marketplace = () => {
               <h3 className="text-lg font-semibold mb-2">Live Trading</h3>
               <p className="text-muted-foreground">Real-time marketplace data from Magic Eden</p>
             </div>
-            
+
             <div className="bg-card border border-hot-pink/20 rounded-lg p-6 hover:border-hot-pink/40 transition-colors">
               <div className="flex items-center justify-center mb-4">
                 <Zap className="text-hot-pink" size={32} />
@@ -146,7 +193,7 @@ const Marketplace = () => {
               <h3 className="text-lg font-semibold mb-2">Instant Transactions</h3>
               <p className="text-muted-foreground">Fast and secure NFT trading on Solana</p>
             </div>
-            
+
             <div className="bg-card border border-bright-blue/20 rounded-lg p-6 hover:border-bright-blue/40 transition-colors">
               <div className="flex items-center justify-center mb-4">
                 <Activity className="text-bright-blue" size={32} />
@@ -164,20 +211,36 @@ const Marketplace = () => {
           <div id="dundies-market">
             <div className="dm-head">
               <div className="dm-title">Dundies — Live Market</div>
-              <a className="dm-link" target="_blank" rel="noopener" href="https://magiceden.io/marketplace/5DJBKxbYj8wD2D56K6BGhFPUSwspESL6LkT9Kn8zwkAz">
+              <a
+                className="dm-link"
+                target="_blank"
+                rel="noopener"
+                href="https://magiceden.io/marketplace/5DJBKxbYj8wD2D56K6BGhFPUSwspESL6LkT9Kn8zwkAz"
+              >
                 Open in Magic Eden
               </a>
             </div>
 
             <div id="dm-stats" className="dm-stats">
-              <div className="chip">Floor: <b>—</b> SOL</div>
-              <div className="chip">Listed: <b>—</b></div>
-              <div className="chip">24h Vol: <b>—</b></div>
-              <div className="chip">All-time Vol: <b>—</b></div>
+              <div className="chip">
+                Floor: <b>—</b> SOL
+              </div>
+              <div className="chip">
+                Listed: <b>—</b>
+              </div>
+              <div className="chip">
+                24h Vol: <b>—</b>
+              </div>
+              <div className="chip">
+                All-time Vol: <b>—</b>
+              </div>
             </div>
 
-            <MagicEdenCollectionGrid />
+            {/* Grid body for inline widget (used by injected script) */}
+            <div id="dm-listings" className="grid"></div>
 
+            {/* React-based grid component that also uses the edge function */}
+            <MagicEdenCollectionGrid />
           </div>
         </div>
       </section>
