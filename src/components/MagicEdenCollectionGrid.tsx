@@ -40,12 +40,10 @@ export const MagicEdenCollectionGrid: React.FC = () => {
         setLoading(true);
         setError("");
 
-        const isDev = window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1');
-        const baseUrl = isDev ? '/api/magiceden' : `${window.location.origin}/functions/v1/magiceden-proxy`;
-        
-        const res = await fetch(
-            `${baseUrl}/${COLLECTION_SYMBOL}/listings?limit=100&offset=0`
-        );
+        const isDev = window.location.hostname.includes("localhost") || window.location.hostname.includes("127.0.0.1");
+        const baseUrl = isDev ? "/api/magiceden" : "/magiceden-proxy";
+
+        const res = await fetch(`${baseUrl}/${COLLECTION_SYMBOL}/listings?limit=100&offset=0`);
 
         if (!res.ok) {
           throw new Error(`Magic Eden API error: ${res.status}`);
@@ -76,27 +74,13 @@ export const MagicEdenCollectionGrid: React.FC = () => {
   return (
     <div className="me-grid">
       {listings.map((listing, idx) => {
-        const tokenMint =
-          listing.tokenMint || listing.mintAddress || `idx-${idx}`;
+        const tokenMint = listing.tokenMint || listing.mintAddress || `idx-${idx}`;
 
-        const price =
-          listing.price ??
-          listing.priceSol ??
-          listing.priceAmount ??
-          listing.priceLamports;
+        const price = listing.price ?? listing.priceSol ?? listing.priceAmount ?? listing.priceLamports;
 
-        const name =
-          listing.title ||
-          listing.tokenName ||
-          listing.token?.name ||
-          `Item #${idx + 1}`;
+        const name = listing.title || listing.tokenName || listing.token?.name || `Item #${idx + 1}`;
 
-        const img =
-          listing.extra?.img ||
-          listing.image ||
-          listing.token?.image ||
-          listing.token?.img ||
-          "";
+        const img = listing.extra?.img || listing.image || listing.token?.image || listing.token?.img || "";
 
         return (
           <a
@@ -107,19 +91,10 @@ export const MagicEdenCollectionGrid: React.FC = () => {
             className="me-card"
           >
             <div className="me-card-inner">
-              {img && (
-                <img
-                  className="me-card-img"
-                  src={img}
-                  alt={name}
-                  loading="lazy"
-                />
-              )}
+              {img && <img className="me-card-img" src={img} alt={name} loading="lazy" />}
               <div className="me-card-body">
                 <div className="me-card-name">{name}</div>
-                <div className="me-card-price">
-                  {price !== undefined ? `${price} SOL` : "—"}
-                </div>
+                <div className="me-card-price">{price !== undefined ? `${price} SOL` : "—"}</div>
                 <div className="me-card-src">View on Magic Eden</div>
               </div>
             </div>
