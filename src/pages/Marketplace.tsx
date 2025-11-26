@@ -87,8 +87,6 @@ const Marketplace = () => {
             $listings.dataset.loaded = "1";
           }catch(e){
             console.error(e);
-            $listings.innerHTML =
-              \`<div class="empty" style="grid-column:1/-1">Failed to load listings.</div>\`;
           }
         }
 
