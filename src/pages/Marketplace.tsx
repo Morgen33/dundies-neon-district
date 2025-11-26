@@ -131,8 +131,8 @@ const Marketplace = () => {
           </div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-card border border-electric-purple/20 rounded-lg p-6 hover:border-electric-purple/40 transition-colors">
+          <div className="flex flex-wrap justify-center gap-6 mb-12">
+            <div className="bg-card border border-electric-purple/20 rounded-lg p-6 hover:border-electric-purple/40 transition-colors w-full md:w-80">
               <div className="flex items-center justify-center mb-4">
                 <TrendingUp className="text-acid-lime" size={32} />
               </div>
@@ -140,7 +140,7 @@ const Marketplace = () => {
               <p className="text-muted-foreground">Real-time marketplace data from Magic Eden</p>
             </div>
 
-            <div className="bg-card border border-hot-pink/20 rounded-lg p-6 hover:border-hot-pink/40 transition-colors">
+            <div className="bg-card border border-hot-pink/20 rounded-lg p-6 hover:border-hot-pink/40 transition-colors w-full md:w-80">
               <div className="flex items-center justify-center mb-4">
                 <Zap className="text-hot-pink" size={32} />
               </div>
@@ -148,7 +148,7 @@ const Marketplace = () => {
               <p className="text-muted-foreground">Fast and secure NFT trading on Solana</p>
             </div>
 
-            <div className="bg-card border border-bright-blue/20 rounded-lg p-6 hover:border-bright-blue/40 transition-colors">
+            <div className="bg-card border border-bright-blue/20 rounded-lg p-6 hover:border-bright-blue/40 transition-colors w-full md:w-80">
               <div className="flex items-center justify-center mb-4">
                 <Activity className="text-bright-blue" size={32} />
               </div>
