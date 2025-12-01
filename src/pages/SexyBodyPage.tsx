@@ -9,17 +9,24 @@ const SexyBodyPage = () => {
   const [audioStarted, setAudioStarted] = useState(false);
 
   const handlePlayAudio = async () => {
-    if (audioRef.current && !audioStarted) {
+    console.log('handlePlayAudio called, audioStarted:', audioStarted);
+    console.log('audioRef.current:', audioRef.current);
+    
+    if (audioRef.current) {
       try {
+        console.log('Attempting to play audio...');
+        audioRef.current.load(); // Force reload
         await audioRef.current.play();
         setAudioStarted(true);
+        console.log('Audio started successfully!');
       } catch (error) {
-        console.log('Error playing audio:', error);
+        console.error('Error playing audio:', error);
       }
     }
   };
 
   useEffect(() => {
+    console.log('Component mounted, audio element:', audioRef.current);
     // Try autoplay on mount
     handlePlayAudio();
   }, []);
