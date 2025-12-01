@@ -1,32 +1,35 @@
 import { Button } from '@/components/ui/button';
 import { RainbowButton } from '@/components/ui/rainbow-borders-button';
 import { Link, useNavigate } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ShaderAnimation from '@/components/ui/shader-animation';
 
 const SexyBodyPage = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [audioStarted, setAudioStarted] = useState(false);
+
+  const handlePlayAudio = async () => {
+    if (audioRef.current && !audioStarted) {
+      try {
+        await audioRef.current.play();
+        setAudioStarted(true);
+      } catch (error) {
+        console.log('Error playing audio:', error);
+      }
+    }
+  };
 
   useEffect(() => {
-    const playAudio = async () => {
-      if (audioRef.current) {
-        try {
-          await audioRef.current.play();
-        } catch (error) {
-          console.log('Autoplay prevented by browser:', error);
-        }
-      }
-    };
-    
-    playAudio();
+    // Try autoplay on mount
+    handlePlayAudio();
   }, []);
-  return <div className="min-h-screen text-foreground relative flex items-center justify-center overflow-hidden">
+  return <div className="min-h-screen text-foreground relative flex items-center justify-center overflow-hidden" onClick={handlePlayAudio}>
       <ShaderAnimation />
       
       {/* Back button */}
       <div className="absolute top-6 left-6 z-20">
         <Button asChild variant="outline" className="border-hot-pink text-hot-pink hover:bg-hot-pink hover:text-black">
-          
+          <Link to="/">← Back</Link>
         </Button>
       </div>
 
@@ -84,10 +87,17 @@ const SexyBodyPage = () => {
         <div className="mt-12 animate-fade-in" style={{
         animationDelay: '2s'
       }}>
-          <RainbowButton onClick={() => window.location.href = '/'} className="text-lg px-8 py-4">
+          <RainbowButton onClick={() => { handlePlayAudio(); window.location.href = '/'; }} className="text-lg px-8 py-4">
             Damn Right! 🔥
           </RainbowButton>
         </div>
+        
+        {/* Play music prompt if audio hasn't started */}
+        {!audioStarted && (
+          <div className="mt-8 text-center animate-bounce">
+            <p className="text-hot-pink text-sm">🎵 Click anywhere to start the music! 🎵</p>
+          </div>
+        )}
       </div>
       
       {/* Audio element for background music */}
