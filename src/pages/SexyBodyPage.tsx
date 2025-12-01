@@ -62,34 +62,32 @@ const SexyBodyPage = () => {
     if (!audio) return;
 
     const updateTime = () => setCurrentTime(audio.currentTime);
-    const updateDuration = () => setDuration(audio.duration);
+    const updateDuration = () => setDuration(audio.duration || 0);
     const handleEnded = () => setIsPlaying(false);
+    const handleError = () => {
+      console.error('Audio error event fired', {
+        src: audio.currentSrc,
+        networkState: audio.networkState,
+        readyState: audio.readyState,
+      });
+    };
 
     audio.addEventListener('timeupdate', updateTime);
     audio.addEventListener('loadedmetadata', updateDuration);
     audio.addEventListener('ended', handleEnded);
+    audio.addEventListener('error', handleError);
 
-    // Set initial volume
+    // Set initial volume only; do NOT autoplay to respect browser policies
     audio.volume = volume;
-
-    // Try autoplay
-    const tryAutoplay = async () => {
-      try {
-        await audio.play();
-        setIsPlaying(true);
-        setAudioStarted(true);
-      } catch (error) {
-        console.log('Autoplay prevented:', error);
-      }
-    };
-    tryAutoplay();
+    console.log('Audio element initialized', { src: audio.currentSrc });
 
     return () => {
       audio.removeEventListener('timeupdate', updateTime);
       audio.removeEventListener('loadedmetadata', updateDuration);
       audio.removeEventListener('ended', handleEnded);
+      audio.removeEventListener('error', handleError);
     };
-  }, []);
+  }, [volume]);
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
@@ -213,14 +211,18 @@ const SexyBodyPage = () => {
         </div>
       </div>
       
-      {/* Audio element for background music */}
+      {/* Audio element for background music (visible for debugging) */}
       <audio 
         ref={audioRef}
         loop
         preload="auto"
-        className="hidden"
+        controls
+        className="mt-4 max-w-md w-full"
       >
+        {/* Try both encoded and unencoded paths */}
         <source src="/lovable-uploads/Pum%20Pum%20Sexy%20Body.mp3" type="audio/mpeg" />
+        <source src="/lovable-uploads/Pum Pum Sexy Body.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
       </audio>
     </div>;
 };
