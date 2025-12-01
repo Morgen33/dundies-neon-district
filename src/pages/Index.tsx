@@ -7,10 +7,12 @@ import About from '@/components/About';
 import JoinBar from '@/components/JoinBar';
 import Footer from '@/components/Footer';
 import FloatingBubbles from '@/components/FloatingBubbles';
+import AnnouncementModal from '@/components/AnnouncementModal';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-black text-foreground relative">
+      <AnnouncementModal />
       <FloatingBubbles />
       <div className="relative z-10">
         <Navigation />
