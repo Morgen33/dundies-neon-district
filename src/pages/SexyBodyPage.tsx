@@ -220,7 +220,7 @@ const SexyBodyPage = () => {
         preload="auto"
         className="hidden"
       >
-        <source src="/lovable-uploads/Pum Pum Sexy Body.mp3" type="audio/mpeg" />
+        <source src="/lovable-uploads/Pum%20Pum%20Sexy%20Body.mp3" type="audio/mpeg" />
       </audio>
     </div>;
 };
