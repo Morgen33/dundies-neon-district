@@ -3,34 +3,100 @@ import { RainbowButton } from '@/components/ui/rainbow-borders-button';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import ShaderAnimation from '@/components/ui/shader-animation';
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { Slider } from '@/components/ui/slider';
 
 const SexyBodyPage = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [audioStarted, setAudioStarted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(0.7);
+  const [isMuted, setIsMuted] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
 
-  const handlePlayAudio = async () => {
-    console.log('handlePlayAudio called, audioStarted:', audioStarted);
-    console.log('audioRef.current:', audioRef.current);
-    
+  const handlePlayPause = async () => {
     if (audioRef.current) {
       try {
-        console.log('Attempting to play audio...');
-        audioRef.current.load(); // Force reload
-        await audioRef.current.play();
-        setAudioStarted(true);
-        console.log('Audio started successfully!');
+        if (isPlaying) {
+          audioRef.current.pause();
+          setIsPlaying(false);
+        } else {
+          await audioRef.current.play();
+          setIsPlaying(true);
+          setAudioStarted(true);
+        }
       } catch (error) {
-        console.error('Error playing audio:', error);
+        console.error('Error toggling audio:', error);
+      }
+    }
+  };
+
+  const handleVolumeChange = (value: number[]) => {
+    const newVolume = value[0];
+    setVolume(newVolume);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume;
+    }
+    if (newVolume === 0) {
+      setIsMuted(true);
+    } else {
+      setIsMuted(false);
+    }
+  };
+
+  const toggleMute = () => {
+    if (audioRef.current) {
+      if (isMuted) {
+        audioRef.current.volume = volume;
+        setIsMuted(false);
+      } else {
+        audioRef.current.volume = 0;
+        setIsMuted(true);
       }
     }
   };
 
   useEffect(() => {
-    console.log('Component mounted, audio element:', audioRef.current);
-    // Try autoplay on mount
-    handlePlayAudio();
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const updateTime = () => setCurrentTime(audio.currentTime);
+    const updateDuration = () => setDuration(audio.duration);
+    const handleEnded = () => setIsPlaying(false);
+
+    audio.addEventListener('timeupdate', updateTime);
+    audio.addEventListener('loadedmetadata', updateDuration);
+    audio.addEventListener('ended', handleEnded);
+
+    // Set initial volume
+    audio.volume = volume;
+
+    // Try autoplay
+    const tryAutoplay = async () => {
+      try {
+        await audio.play();
+        setIsPlaying(true);
+        setAudioStarted(true);
+      } catch (error) {
+        console.log('Autoplay prevented:', error);
+      }
+    };
+    tryAutoplay();
+
+    return () => {
+      audio.removeEventListener('timeupdate', updateTime);
+      audio.removeEventListener('loadedmetadata', updateDuration);
+      audio.removeEventListener('ended', handleEnded);
+    };
   }, []);
-  return <div className="min-h-screen text-foreground relative flex items-center justify-center overflow-hidden" onClick={handlePlayAudio}>
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  return <div className="min-h-screen text-foreground relative flex items-center justify-center overflow-hidden">
       <ShaderAnimation />
       
       {/* Back button */}
@@ -90,21 +156,61 @@ const SexyBodyPage = () => {
         </div>
 
 
+        {/* Audio Player */}
+        <div className="mt-12 w-full max-w-md bg-black/40 backdrop-blur-md border-2 border-hot-pink/30 rounded-2xl p-6 shadow-2xl animate-fade-in" style={{ animationDelay: '1.5s' }}>
+          <div className="flex items-center gap-4 mb-4">
+            <button
+              onClick={handlePlayPause}
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-r from-hot-pink to-electric-purple hover:scale-110 transition-transform duration-300 shadow-lg"
+            >
+              {isPlaying ? (
+                <Pause className="w-6 h-6 text-white" fill="white" />
+              ) : (
+                <Play className="w-6 h-6 text-white ml-1" fill="white" />
+              )}
+            </button>
+            
+            <div className="flex-1">
+              <h3 className="text-white font-bold text-sm mb-1">Pum Pum Sexy Body 💃</h3>
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <span>{formatTime(currentTime)}</span>
+                <div className="flex-1 h-1 bg-white/20 rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-hot-pink to-electric-purple transition-all duration-100"
+                    style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
+                  />
+                </div>
+                <span>{formatTime(duration)}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            <button onClick={toggleMute} className="text-white hover:text-hot-pink transition-colors">
+              {isMuted || volume === 0 ? (
+                <VolumeX className="w-5 h-5" />
+              ) : (
+                <Volume2 className="w-5 h-5" />
+              )}
+            </button>
+            <Slider
+              value={[isMuted ? 0 : volume]}
+              onValueChange={handleVolumeChange}
+              max={1}
+              step={0.01}
+              className="flex-1"
+            />
+          </div>
+        </div>
+
         {/* Rainbow Button positioned below */}
-        <div className="mt-12 animate-fade-in" style={{
+        <div className="mt-8 animate-fade-in" style={{
         animationDelay: '2s'
       }}>
-          <RainbowButton onClick={() => { handlePlayAudio(); window.location.href = '/'; }} className="text-lg px-8 py-4">
+          <RainbowButton onClick={() => window.location.href = '/'} className="text-lg px-8 py-4">
             Damn Right! 🔥
           </RainbowButton>
         </div>
-        
-        {/* Play music prompt if audio hasn't started */}
-        {!audioStarted && (
-          <div className="mt-8 text-center animate-bounce">
-            <p className="text-hot-pink text-sm">🎵 Click anywhere to start the music! 🎵</p>
-          </div>
-        )}
       </div>
       
       {/* Audio element for background music */}
