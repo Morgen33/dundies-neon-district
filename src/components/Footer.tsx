@@ -72,8 +72,15 @@ const Footer = () => {
             </div>
             
             <div className="flex items-center space-x-2 text-xs text-muted-foreground">
-              <span className="w-2 h-2 bg-acid-lime rounded-full animate-pulse"></span>
-              
+              <span>Made by</span>
+              <a 
+                href="https://builtbycmh.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-hot-pink hover:text-electric-purple transition-colors"
+              >
+                CMH Marketing
+              </a>
             </div>
           </div>
         </div>
