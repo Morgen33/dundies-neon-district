@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Star, MapPin, ExternalLink, MessageCircle } from 'lucide-react';
+import morgenAvatar from '@/assets/morgen-avatar.jpeg';
 import { useState } from 'react';
 
 const Services = () => {
@@ -33,7 +34,7 @@ const Services = () => {
     {
       id: 2,
       name: "Morgen Victoria",
-      avatar: "/src/assets/dundie-pink-hair.png",
+      avatar: morgenAvatar,
       title: "Web Design & Digital Marketing",
       location: "NJ (Remote)",
       specialties: ["Web Design", "Social Media", "Copywriting", "Community Building", "AI"],
