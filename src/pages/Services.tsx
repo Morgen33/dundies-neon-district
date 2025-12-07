@@ -209,19 +209,13 @@ const Services = () => {
             Want to offer your services?
           </h3>
           <p className="text-muted-foreground mb-6 text-lg">
-            Join the Dundies community and showcase your talents to fellow members
+            Reach out to Morgen on Twitter to get listed!
           </p>
           <Button 
-            className="btn-glow magnetic mr-4"
-            onClick={() => window.open('https://discord.gg/vjSdsjDTZx', '_blank')}
+            className="btn-glow magnetic"
+            onClick={() => window.open('https://x.com/AiArsenals', '_blank')}
           >
-            Join Our Discord
-          </Button>
-          <Button 
-            variant="outline"
-            className="border-electric-purple/50 hover:border-electric-purple"
-          >
-            Learn More
+            Contact Morgen on Twitter
           </Button>
         </div>
       </section>
