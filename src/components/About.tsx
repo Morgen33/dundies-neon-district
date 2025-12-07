@@ -32,7 +32,7 @@ const About = () => {
               </p>
 
               <p className="text-xl font-bold text-center text-bright-blue mb-6">
-                DUNDIES ARE A VIBE.
+                DUNDIES ARE A VIBE!
               </p>
 
               <p className="text-lg leading-relaxed text-off-white/90 mb-6">
