@@ -38,7 +38,7 @@ const Footer = () => {
             </h3>
             <p className="text-sm text-muted-foreground">
               Hand-drawn NFTs by Neo.<br />
-              <span className="text-bright-blue">Loud. Bold. Unmistakable.</span>
+              <span className="text-bright-blue font-bold">DUNDIES DO SHIT!</span>
             </p>
           </div>
 
