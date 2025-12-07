@@ -10,10 +10,18 @@ import { Button } from '@/components/ui/button';
 import { Sparkles, ExternalLink } from 'lucide-react';
 
 const AnnouncementModal = () => {
-  const [open, setOpen] = useState(true);
+  const hasSeenModal = sessionStorage.getItem('hasSeenAnnouncement');
+  const [open, setOpen] = useState(!hasSeenModal);
+
+  const handleClose = (isOpen: boolean) => {
+    if (!isOpen) {
+      sessionStorage.setItem('hasSeenAnnouncement', 'true');
+    }
+    setOpen(isOpen);
+  };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="max-w-2xl border-2 border-electric-purple bg-gradient-to-br from-background via-background to-electric-purple/10 p-8 shadow-2xl">
         <DialogHeader className="space-y-6">
           <div className="flex justify-center mb-4">
