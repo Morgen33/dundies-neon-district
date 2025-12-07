@@ -19,7 +19,7 @@ const Services = () => {
       avatar: "/lovable-uploads/8594643e-a647-4faa-a98d-92f6fd89e778.png",
       title: "NFT Strategy & Web3 Consulting",
       location: "Global (Remote)",
-      specialties: ["NFT Strategy", "Web3 Marketing", "Community Building", "Token Economics"],
+      specialties: ["NFT Strategy", "Web3 Marketing", "Community Building", "Game Development"],
       description: "Creator/Artist/founder of The Dundies",
       services: [
         "NFT Collection Strategy",
