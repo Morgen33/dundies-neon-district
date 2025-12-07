@@ -27,7 +27,6 @@ const Collection = () => {
               Join an exclusive community of collectors who appreciate 
               <span className="text-bright-blue font-semibold"> hand-drawn art</span> with 
               <span className="text-acid-lime font-semibold"> bold attitude</span>.
-              Each piece is a unique digital trophy for the bold.
             </p>
           </div>
 
