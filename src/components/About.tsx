@@ -16,6 +16,10 @@ const About = () => {
           {/* Story */}
           <div className="space-y-6">
             <div className="sticker-card border-2 border-hot-pink/30 hover:border-hot-pink hover:shadow-glow transition-all duration-300">
+              <p className="text-2xl font-bold text-center text-hot-pink mb-6">
+                DUNDIES DO SHIT!
+              </p>
+              
               <p className="text-lg leading-relaxed text-off-white/90 mb-6">
                 If you ask a Dundie what being a Dundie means, the first word you'll hear is <span className="text-hot-pink font-semibold">family</span>. 
                 Dundies are family, plain and simple.
