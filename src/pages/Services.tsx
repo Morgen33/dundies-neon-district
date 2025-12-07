@@ -10,7 +10,7 @@ import { useState } from 'react';
 const Services = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   
-  const categories = ['All', 'NFT Strategy', 'Digital Art', 'Development', 'Marketing', 'Consulting'];
+  const categories = ['All', 'NFT Strategy', 'Web3 Marketing', 'Community Building', 'Web Design', 'Social Media', 'Copywriting', 'AI'];
   
   const dundieServices = [
     {
