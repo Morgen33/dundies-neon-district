@@ -32,103 +32,21 @@ const Services = () => {
     },
     {
       id: 2,
-      name: "ArtisticDundie",
+      name: "A Morgen Victoria",
       avatar: "/src/assets/dundie-pink-hair.png",
-      title: "Digital Art & NFT Creation",
-      location: "Los Angeles, CA",
-      rating: 5.0,
-      reviews: 92,
-      hourlyRate: "1-3 SOL/hr",
-      specialties: ["Digital Art", "NFT Design", "Character Design", "Animation"],
-      description: "Professional digital artist specializing in NFT artwork and character design. Featured in multiple blue-chip collections.",
+      title: "Web Design & Digital Marketing",
+      location: "NJ (Remote)",
+      specialties: ["Web Design", "Social Media", "Copywriting", "Community Building", "AI"],
+      description: "Full-service digital creative specializing in web design, social media strategy, and AI-powered solutions.",
       services: [
-        "Custom NFT Artwork",
-        "Character Design & Concepts",
-        "Collection Art Direction",
-        "Animated NFT Creation"
-      ],
-      availability: "Booking 2 weeks out",
-      responseTime: "< 4 hours"
-    },
-    {
-      id: 3,
-      name: "TechDundie",
-      avatar: "/src/assets/dundie-crown.png",
-      title: "Smart Contract Development",
-      location: "Austin, TX",
-      rating: 4.8,
-      reviews: 34,
-      hourlyRate: "2-5 SOL/hr",
-      specialties: ["Solana Development", "Smart Contracts", "DApp Development", "Auditing"],
-      description: "Senior blockchain developer with expertise in Solana ecosystem. Built contracts for 50+ NFT projects.",
-      services: [
-        "Smart Contract Development",
-        "Solana Program Building",
-        "Security Audits",
-        "DApp Frontend Development"
-      ],
-      availability: "Available",
-      responseTime: "< 1 hour"
-    },
-    {
-      id: 4,
-      name: "BusinessDundie", 
-      avatar: "/src/assets/dundie-cowboy.png",
-      title: "Business Strategy & Operations",
-      location: "New York, NY",
-      rating: 4.7,
-      reviews: 28,
-      hourlyRate: "1-2 SOL/hr",
-      specialties: ["Business Strategy", "Operations", "Project Management", "Partnerships"],
-      description: "Former Fortune 500 executive now helping Web3 projects scale and optimize their operations.",
-      services: [
-        "Business Strategy Consulting",
-        "Operational Optimization",
-        "Partnership Development",
-        "Team Building & Management"
-      ],
-      availability: "Limited availability",
-      responseTime: "< 6 hours"
-    },
-    {
-      id: 5,
-      name: "ContentDundie",
-      avatar: "/src/assets/dundie-fishing.png", 
-      title: "Content Creation & Social Media",
-      location: "Miami, FL",
-      rating: 4.9,
-      reviews: 67,
-      hourlyRate: "0.3-1 SOL/hr",
-      specialties: ["Content Creation", "Social Media", "Video Editing", "Copywriting"],
-      description: "Content creator with 100k+ followers across platforms. Specializing in Web3 and NFT content that converts.",
-      services: [
+        "Web Design",
         "Social Media Management",
-        "Video Content Creation",
-        "Copywriting & Scripts",
-        "Influencer Outreach"
+        "Copywriting",
+        "Community Building",
+        "Artificial Intelligence"
       ],
       availability: "Available",
-      responseTime: "< 30 minutes"
-    },
-    {
-      id: 6,
-      name: "MusicDundie",
-      avatar: "/src/assets/dundie-baseball.png",
-      title: "Music Production & Audio NFTs",
-      location: "Nashville, TN", 
-      rating: 5.0,
-      reviews: 15,
-      hourlyRate: "1-4 SOL/hr",
-      specialties: ["Music Production", "Audio NFTs", "Sound Design", "Mixing & Mastering"],
-      description: "Grammy-nominated producer creating exclusive music NFTs and audio experiences for Web3 projects.",
-      services: [
-        "Custom Music Production",
-        "Audio NFT Creation", 
-        "Sound Design for Projects",
-        "Mixing & Mastering"
-      ],
-      availability: "Booking 1 month out",
-      responseTime: "< 24 hours"
+      responseTime: "< 4 hours"
     }
   ];
 
@@ -220,9 +138,9 @@ const Services = () => {
                       <MapPin className="w-4 h-4" />
                       <span>{dundie.location}</span>
                     </div>
-                    {dundie.hourlyRate && (
+                    {'hourlyRate' in dundie && dundie.hourlyRate && (
                       <div className="text-bright-blue font-semibold">
-                        {dundie.hourlyRate}
+                        {String(dundie.hourlyRate)}
                       </div>
                     )}
                   </div>
