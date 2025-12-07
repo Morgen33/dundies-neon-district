@@ -32,12 +32,7 @@ const Community = () => {
     url: 'https://discord.gg/vjSdsjDTZx',
     description: 'Main Community'
   }, {
-    name: 'Dundie Merch',
-    icon: '👕',
-    url: 'https://ultraixclothing.com/collections/spu-x-dundies-collection',
-    description: 'Official Store'
-  }, {
-    name: 'Bio Hub',
+    name: 'Dundie Linktree',
     icon: '📌',
     url: 'https://bio.site/dundies',
     description: 'All Links'
