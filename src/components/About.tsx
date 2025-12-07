@@ -31,8 +31,8 @@ const About = () => {
                 and we've always got each other's backs.
               </p>
 
-              <p className="text-xl font-bold text-center text-acid-lime mb-6">
-                DUNDIES IS A VIBE.
+              <p className="text-xl font-bold text-center text-bright-blue mb-6">
+                DUNDIES ARE A VIBE.
               </p>
 
               <p className="text-lg leading-relaxed text-off-white/90 mb-6">
