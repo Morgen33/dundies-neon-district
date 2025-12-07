@@ -38,7 +38,7 @@ const Collection = () => {
             </div>
             <div className="space-y-2">
               <div className="text-3xl font-bold text-electric-purple">200+</div>
-              <div className="text-muted-foreground">Unique Traits</div>
+              <div className="text-muted-foreground">Collectors</div>
             </div>
             <div className="space-y-2">
               <div className="text-3xl font-bold text-bright-blue">100%</div>
