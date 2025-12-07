@@ -209,7 +209,7 @@ const Services = () => {
             Want to offer your services?
           </h3>
           <p className="text-muted-foreground mb-6 text-lg">
-            Reach out to Morgen on Twitter to get listed!
+            You must hold a V1 or V2 Dundie to be listed. Reach out to Morgen on Twitter to get started!
           </p>
           <Button 
             className="btn-glow magnetic"
