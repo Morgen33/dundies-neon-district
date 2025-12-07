@@ -32,7 +32,7 @@ const Services = () => {
     },
     {
       id: 2,
-      name: "A Morgen Victoria",
+      name: "Morgen Victoria",
       avatar: "/src/assets/dundie-pink-hair.png",
       title: "Web Design & Digital Marketing",
       location: "NJ (Remote)",
@@ -46,7 +46,8 @@ const Services = () => {
         "Artificial Intelligence"
       ],
       availability: "Available",
-      responseTime: "< 4 hours"
+      responseTime: "< 4 hours",
+      contactUrl: "https://x.com/AiArsenals"
     }
   ];
 
