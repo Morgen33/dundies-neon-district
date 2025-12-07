@@ -20,13 +20,10 @@ const JoinBar = () => {
             {/* Headline */}
             <div className="space-y-4">
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-black">
-                Ready to Join the
+                <span className="inline-block animate-pulse">DUNDIES</span>{' '}
+                <span className="inline-block animate-pulse delay-200">DO</span>{' '}
+                <span className="inline-block animate-pulse delay-400">SHIT!!!</span>
               </h2>
-              <div className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-black">
-                <span className="inline-block animate-pulse">DIGITAL</span>{' '}
-                <span className="inline-block animate-pulse delay-200">REVOLUTION</span>
-                <span className="inline-block animate-pulse delay-400">?</span>
-              </div>
             </div>
 
             <p className="text-xl text-black/80 max-w-2xl mx-auto">Don't miss out on the loudest  NFT community in the space</p>
