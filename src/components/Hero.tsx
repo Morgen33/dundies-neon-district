@@ -31,8 +31,12 @@ const Hero = () => {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in delay-700">
-              <Button className="btn-glow magnetic" onClick={() => window.open('https://www.launchmynft.io/collections/8pXL1gZGWq1Y6wA7RJTmAVXcwBhzn65XdeLL7yA8AwFb/ZMZXWPY2COXyqoohzTfK', '_blank')}>
-                View Collection
+              <Button className="btn-glow magnetic" onClick={() => window.open('https://magiceden.us/marketplace/Ema2R3UWX5Axthmen64wUfJaG5bcoah8id2ffsbBrgeo?gr', '_blank')}>
+                V1
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button className="btn-glow magnetic" onClick={() => window.open('https://www.launchmynft.io/collections/CNanpoKLE1Qn9koxzbMvV6phQ6YkVsbYgBsYALbWJib6/Q7lGmfhBy2WEQLIbR3nq', '_blank')}>
+                V2
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button className="btn-outline-bright magnetic" onClick={() => window.open('https://x.com/DundiesDistrict', '_blank')}>
