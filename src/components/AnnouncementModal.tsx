@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   Dialog,
   DialogContent,
@@ -11,28 +11,6 @@ import { Sparkles, ExternalLink } from 'lucide-react';
 
 const AnnouncementModal = () => {
   const [open, setOpen] = useState(true);
-  const [timeLeft, setTimeLeft] = useState({
-    hours: 8,
-    minutes: 15,
-    seconds: 0,
-  });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        }
-        return prev;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -46,38 +24,12 @@ const AnnouncementModal = () => {
           </div>
           
           <DialogTitle className="text-4xl md:text-5xl font-display font-bold text-center bg-gradient-to-r from-hot-pink via-electric-purple to-bright-blue bg-clip-text text-transparent leading-tight">
-            V2 is LIVE For Dundie Holders! 🎉
+            V2 is NOW LIVE! 🎉
           </DialogTitle>
           
           <DialogDescription className="text-2xl text-center text-foreground font-semibold">
-            Public is coming soon
+            Public mint is open for everyone!
           </DialogDescription>
-
-          <div className="bg-black/40 backdrop-blur-sm border-2 border-bright-blue/30 rounded-2xl p-6 space-y-4">
-            <p className="text-center text-muted-foreground text-lg font-medium">
-              Public Launch Countdown
-            </p>
-            <div className="flex justify-center gap-4">
-              <div className="bg-gradient-to-br from-hot-pink to-electric-purple rounded-xl p-4 min-w-[90px] shadow-lg">
-                <div className="text-4xl font-bold text-white text-center">
-                  {String(timeLeft.hours).padStart(2, '0')}
-                </div>
-                <div className="text-sm text-white/80 text-center mt-1">Hours</div>
-              </div>
-              <div className="bg-gradient-to-br from-electric-purple to-bright-blue rounded-xl p-4 min-w-[90px] shadow-lg">
-                <div className="text-4xl font-bold text-white text-center">
-                  {String(timeLeft.minutes).padStart(2, '0')}
-                </div>
-                <div className="text-sm text-white/80 text-center mt-1">Minutes</div>
-              </div>
-              <div className="bg-gradient-to-br from-bright-blue to-acid-lime rounded-xl p-4 min-w-[90px] shadow-lg">
-                <div className="text-4xl font-bold text-white text-center">
-                  {String(timeLeft.seconds).padStart(2, '0')}
-                </div>
-                <div className="text-sm text-white/80 text-center mt-1">Seconds</div>
-              </div>
-            </div>
-          </div>
 
           <Button
             asChild
