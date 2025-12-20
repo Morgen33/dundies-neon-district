@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Marketplace from "./pages/Marketplace";
 import Services from "./pages/Services";
 import SexyBodyPage from "./pages/SexyBodyPage";
+import CryptoFightClub from "./pages/CryptoFightClub";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/services" element={<Services />} />
           <Route path="/sexy-body" element={<SexyBodyPage />} />
+          <Route path="/crypto-fight-club" element={<CryptoFightClub />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

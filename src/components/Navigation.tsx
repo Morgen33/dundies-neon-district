@@ -21,6 +21,7 @@ const Navigation = () => {
     { href: '/#collection', label: 'Home' },
     { href: '/marketplace', label: 'Marketplace' },
     { href: '/services', label: 'Services' },
+    { href: '/crypto-fight-club', label: 'Meme Tool' },
     { href: '/#community', label: 'Community' },
     { href: '/#about', label: 'About' },
     { href: '/#join', label: 'Join' },
