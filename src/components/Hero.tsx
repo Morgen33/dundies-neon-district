@@ -5,6 +5,18 @@ import heroImage1 from '@/assets/dundie-hero-1.png';
 import heroImage2 from '@/assets/dundie-hero-2.png';
 const Hero = () => {
   return <section className="min-h-[140vh] flex items-center justify-center relative overflow-hidden pt-32">
+      {/* V2 LIVE Banner */}
+      <a 
+        href="https://launchmynft.io/collections/CNanpoKLE1Qn9koxzbMvV6phQ6YkVsbYgBsYALbWJib6/Q7lGmfhBy2WEQLIbR3nq"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed top-16 left-0 right-0 z-40 bg-gradient-to-r from-hot-pink via-purple to-hot-pink bg-[length:200%_100%] animate-gradient-x py-3 text-center cursor-pointer hover:opacity-90 transition-opacity"
+      >
+        <span className="text-white font-display font-bold text-lg sm:text-xl tracking-wide animate-pulse">
+          🎉 DUNDIES V2 IS LIVE! MINT NOW 🎉
+        </span>
+      </a>
+
       {/* Dark Background */}
       <div className="absolute inset-0 bg-black">
         {/* Playful Floating Shapes */}
