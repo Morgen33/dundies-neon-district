@@ -6,15 +6,9 @@ import heroImage2 from '@/assets/dundie-hero-2.png';
 const Hero = () => {
   return <section className="min-h-[140vh] flex items-center justify-center relative overflow-hidden pt-32">
       {/* V2 LIVE Banner */}
-      <a 
-        href="https://launchmynft.io/collections/CNanpoKLE1Qn9koxzbMvV6phQ6YkVsbYgBsYALbWJib6/Q7lGmfhBy2WEQLIbR3nq"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed top-16 left-0 right-0 z-40 bg-gradient-to-r from-hot-pink via-purple to-hot-pink bg-[length:200%_100%] animate-gradient-x py-3 text-center cursor-pointer hover:opacity-90 transition-opacity"
-      >
-        <span className="text-white font-display font-bold text-lg sm:text-xl tracking-wide animate-pulse">
-          🎉 DUNDIES V2 IS LIVE! MINT NOW 🎉
-        </span>
+      <a href="https://launchmynft.io/collections/CNanpoKLE1Qn9koxzbMvV6phQ6YkVsbYgBsYALbWJib6/Q7lGmfhBy2WEQLIbR3nq" target="_blank" rel="noopener noreferrer" className="fixed top-16 left-0 right-0 z-40 bg-gradient-to-r from-hot-pink via-purple to-hot-pink bg-[length:200%_100%] animate-gradient-x py-3 text-center cursor-pointer hover:opacity-90 transition-opacity">
+        <span className="text-white font-display font-bold text-lg sm:text-xl tracking-wide animate-pulse">🎉 DUNDIES V2 IS LIVE! MINT NOW! CLIC
+K HERE 🎉</span>
       </a>
 
       {/* Dark Background */}
@@ -59,10 +53,7 @@ const Hero = () => {
 
             {/* Funny Sexy Body Button */}
             <div className="animate-fade-in delay-1000 mt-8">
-              <Button 
-                asChild 
-                className="bg-gradient-to-r from-hot-pink to-purple text-white hover:scale-110 transition-transform duration-300 text-lg px-6 py-3 rounded-full shadow-[0_0_20px_rgba(236,72,153,0.5)] hover:shadow-[0_0_30px_rgba(236,72,153,0.8)] magnetic wiggle"
-              >
+              <Button asChild className="bg-gradient-to-r from-hot-pink to-purple text-white hover:scale-110 transition-transform duration-300 text-lg px-6 py-3 rounded-full shadow-[0_0_20px_rgba(236,72,153,0.5)] hover:shadow-[0_0_30px_rgba(236,72,153,0.8)] magnetic wiggle">
                 <Link to="/sexy-body">
                   Is it because of my sexy body? 💅✨
                 </Link>
