@@ -8,7 +8,7 @@ const Hero = () => {
       {/* V2 LIVE Banner */}
       <div className="fixed top-16 left-0 right-0 z-40 flex justify-center px-4 sm:px-6 lg:px-8">
         <a href="https://launchmynft.io/collections/CNanpoKLE1Qn9koxzbMvV6phQ6YkVsbYgBsYALbWJib6/Q7lGmfhBy2WEQLIbR3nq" target="_blank" rel="noopener noreferrer" className="w-full max-w-7xl bg-gradient-to-r from-hot-pink via-purple to-hot-pink bg-[length:200%_100%] animate-gradient-x py-3 text-center cursor-pointer hover:opacity-90 transition-opacity rounded-lg">
-          <span className="text-white font-display font-bold text-lg sm:text-xl tracking-wide animate-pulse">🎉 DUNDIES V2 IS LIVE! MINT NOW! CLICK HERE 🎉</span>
+          <span className="text-white font-display font-bold text-lg sm:text-xl tracking-wide animate-pulse">🎉 DUNDIES DISTRICT IS LIVE! MINT NOW! CLICK HERE 🎉</span>
         </a>
       </div>
 
