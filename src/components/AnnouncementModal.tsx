@@ -51,7 +51,7 @@ const AnnouncementModal = () => {
               className="flex items-center gap-2"
             >
               <Sparkles className="w-5 h-5" />
-              Launch Dundies District Now
+              Mint Dundies District Now
               <ExternalLink className="w-5 h-5" />
             </a>
           </Button>
