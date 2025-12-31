@@ -32,7 +32,7 @@ const AnnouncementModal = () => {
           </div>
           
           <DialogTitle className="text-4xl md:text-5xl font-display font-bold text-center bg-gradient-to-r from-hot-pink via-electric-purple to-bright-blue bg-clip-text text-transparent leading-tight">
-            V2 is NOW LIVE! 🎉
+            Dundies District is NOW LIVE! 🎉
           </DialogTitle>
           
           <DialogDescription className="text-2xl text-center text-foreground font-semibold">
