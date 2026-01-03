@@ -22,6 +22,7 @@ const Navigation = () => {
     { href: '/marketplace', label: 'Marketplace' },
     { href: '/services', label: 'Services' },
     { href: '/crypto-fight-club', label: 'Meme Tool' },
+    { href: 'https://dundiecal.lovable.app', label: 'Dundie Cal', external: true },
     { href: '/#community', label: 'Community' },
     { href: '/#about', label: 'About' },
     { href: '/#join', label: 'Join' },

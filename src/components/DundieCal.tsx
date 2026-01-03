@@ -9,7 +9,7 @@ const DundieCal = () => {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-hot-pink/20 border border-hot-pink/30 mb-6">
           <Calendar className="w-5 h-5 text-hot-pink" />
-          <span className="text-sm font-medium text-hot-pink">Community Calendar</span>
+          <span className="text-sm font-medium text-hot-pink">Twitter X Spaces Calendar</span>
         </div>
         
         <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 bright-text">
