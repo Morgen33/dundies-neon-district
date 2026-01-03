@@ -57,7 +57,7 @@ const Footer = () => {
         {/* Legal */}
         <div className="text-center">
           <p className="text-xs text-muted-foreground">
-            © 2024 Dundies District
+            © 2026 Dundies District
           </p>
         </div>
 
