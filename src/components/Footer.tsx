@@ -34,34 +34,31 @@ const Footer = () => {
   }];
   return <footer className="border-t border-hot-pink/20 bg-gradient-subtle py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-          {/* Logo & Tagline */}
-          <div className="text-center md:text-left">
-            <h3 className="text-2xl font-display font-bold bright-text text-hot-pink mb-2">
-              DUNDIES DISTRICT
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Hand-drawn NFTs by Neo.<br />
-              <span className="text-bright-blue font-bold">DUNDIES DO SHIT!</span>
-            </p>
-          </div>
+        {/* Logo & Tagline */}
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-display font-bold bright-text text-hot-pink mb-2">
+            DUNDIES DISTRICT
+          </h3>
+          <p className="text-sm text-muted-foreground">
+            Hand-drawn NFTs by Neo.<br />
+            <span className="text-bright-blue font-bold">DUNDIES DO SHIT!</span>
+          </p>
+        </div>
 
-          {/* Social Icons */}
-          <div className="flex justify-center">
-            <div className="flex space-x-4">
-              {socialLinks.map(social => <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center text-lg hover:scale-110 transition-transform duration-300 hover:text-hot-pink" title={social.label}>
-                  {social.icon}
-                </a>)}
-            </div>
+        {/* Social Icons */}
+        <div className="flex justify-center mb-8">
+          <div className="flex flex-wrap justify-center gap-4">
+            {socialLinks.map(social => <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center text-xl hover:scale-110 transition-transform duration-300 hover:text-hot-pink" title={social.label}>
+                {social.icon}
+              </a>)}
           </div>
+        </div>
 
-          {/* Legal */}
-          <div className="text-center md:text-right space-y-2">
-            <p className="text-xs text-muted-foreground">
-              © 2024 Dundies District
-            </p>
-            
-          </div>
+        {/* Legal */}
+        <div className="text-center">
+          <p className="text-xs text-muted-foreground">
+            © 2024 Dundies District
+          </p>
         </div>
 
         {/* Bottom Bar */}
