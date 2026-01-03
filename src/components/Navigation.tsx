@@ -25,7 +25,6 @@ const Navigation = () => {
     { href: 'https://dundiecal.lovable.app', label: 'Dundie Cal', external: true },
     { href: '/#community', label: 'Community' },
     { href: '/#about', label: 'About' },
-    { href: '/#join', label: 'Join' },
   ];
 
   const socialLinks = [
