@@ -27,6 +27,10 @@ const Footer = () => {
     icon: '📌',
     url: 'https://bio.site/dundies',
     label: 'Bio Hub'
+  }, {
+    icon: '📅',
+    url: 'https://dundiecal.lovable.app',
+    label: 'Dundie Cal'
   }];
   return <footer className="border-t border-hot-pink/20 bg-gradient-subtle py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
