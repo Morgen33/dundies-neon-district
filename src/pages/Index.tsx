@@ -8,6 +8,7 @@ import JoinBar from '@/components/JoinBar';
 import Footer from '@/components/Footer';
 import FloatingBubbles from '@/components/FloatingBubbles';
 import AnnouncementModal from '@/components/AnnouncementModal';
+import DundieCal from '@/components/DundieCal';
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
         <Navigation />
         <Hero />
         <Collection />
+        <DundieCal />
         <Community />
         <SpotifyPlaylist />
         <About />
