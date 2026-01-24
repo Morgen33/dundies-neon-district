@@ -2,6 +2,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Sparkles, Zap, Download } from 'lucide-react';
+import memeExample from '@/assets/meme-example.png';
 
 const CryptoFightClub = () => {
   return (
@@ -34,6 +35,14 @@ const CryptoFightClub = () => {
             Launch Meme Generator
             <ExternalLink className="w-4 h-4 ml-2" />
           </Button>
+          
+          <div className="mt-8">
+            <img 
+              src={memeExample} 
+              alt="Dundies Meme Example" 
+              className="max-w-md mx-auto rounded-2xl shadow-2xl border border-border/50"
+            />
+          </div>
         </div>
       </section>
 
