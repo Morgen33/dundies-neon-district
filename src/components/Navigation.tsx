@@ -1,18 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -29,91 +27,66 @@ const Navigation = () => {
   ];
 
   const socialLinks = [
-    { href: 'https://x.com/DundiesDistrict', label: '𝕏', external: true },
-    { href: 'https://discord.gg/vjSdsjDTZx', label: '🎤', external: true },
-    { href: 'https://instagram.com/dundiesnft', label: '📸', external: true },
-    { href: 'http://tiktok.com/@dundiesnft', label: '🎶', external: true },
-    { href: 'http://t.me/DundiesNFT', label: '💬', external: true },
+    { href: 'https://x.com/DundiesDistrict', label: '𝕏' },
+    { href: 'https://discord.gg/vjSdsjDTZx', label: '🎤' },
+    { href: 'https://instagram.com/dundiesnft', label: '📸' },
+    { href: 'http://tiktok.com/@dundiesnft', label: '🎶' },
+    { href: 'http://t.me/DundiesNFT', label: '💬' },
   ];
 
-  const renderNavLink = (link: any, isMobile = false) => {
-    const baseClasses = isMobile 
-      ? "block px-3 py-2 text-base font-medium text-foreground hover:text-hot-pink transition-colors duration-300"
-      : "text-foreground hover:text-hot-pink transition-colors duration-300 font-medium relative group";
+  const renderNavLink = (link: typeof navLinks[0], isMobile = false) => {
+    const baseClasses = isMobile
+      ? "block px-4 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-white/5 rounded-md transition-all duration-200"
+      : "text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium";
+
+    const props = {
+      className: baseClasses,
+      onClick: isMobile ? () => setIsMobileMenuOpen(false) : undefined,
+    };
 
     if (link.external) {
       return (
-        <a
-          key={link.href}
-          href={link.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={baseClasses}
-          onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
-        >
+        <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" {...props}>
           {link.label}
-          {!isMobile && <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-hot-pink transition-all duration-300 group-hover:w-full"></span>}
         </a>
       );
     }
 
     if (link.href.startsWith('#') || link.href.startsWith('/#')) {
-      return (
-        <a
-          key={link.href}
-          href={link.href}
-          className={baseClasses}
-          onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
-        >
-          {link.label}
-          {!isMobile && <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-hot-pink transition-all duration-300 group-hover:w-full"></span>}
-        </a>
-      );
+      return <a key={link.href} href={link.href} {...props}>{link.label}</a>;
     }
 
-    return (
-      <Link
-        key={link.href}
-        to={link.href}
-        className={baseClasses}
-        onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
-      >
-        {link.label}
-        {!isMobile && <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-hot-pink transition-all duration-300 group-hover:w-full"></span>}
-      </Link>
-    );
+    return <Link key={link.href} to={link.href} {...props}>{link.label}</Link>;
   };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-background/95 backdrop-blur-md border-b border-hot-pink/20' : 'bg-transparent'
+      isScrolled
+        ? 'bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20'
+        : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link to="/" className="text-2xl font-display font-bold bright-text hover:scale-105 transition-transform duration-300">
-              DUNDIES
-            </Link>
-          </div>
+          <Link to="/" className="text-lg font-display font-bold text-foreground tracking-wider hover:opacity-80 transition-opacity duration-200">
+            DUNDIES
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {navLinks.map((link) => renderNavLink(link))}
-            </div>
+          <div className="hidden lg:flex items-center gap-6">
+            {navLinks.map((link) => renderNavLink(link))}
           </div>
 
           {/* Social Links & Mobile Menu */}
-          <div className="flex items-center space-x-4">
-            <div className="hidden sm:flex items-center space-x-2">
+          <div className="flex items-center gap-1">
+            <div className="hidden sm:flex items-center gap-1">
               {socialLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-lg hover:text-hot-pink transition-colors duration-300 magnetic"
+                  className="w-8 h-8 flex items-center justify-center rounded-full text-sm text-muted-foreground hover:text-foreground hover:bg-white/10 transition-all duration-200"
                 >
                   {link.label}
                 </a>
@@ -121,14 +94,14 @@ const Navigation = () => {
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="lg:hidden">
               <Button
                 variant="ghost"
-                size="sm"
+                size="icon"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-foreground hover:text-hot-pink"
+                className="text-foreground hover:bg-white/10 h-9 w-9"
               >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </Button>
             </div>
           </div>
@@ -136,22 +109,20 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-hot-pink/20">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navLinks.map((link) => renderNavLink(link, true))}
-              <div className="flex items-center space-x-4 px-3 py-2">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-lg hover:text-hot-pink transition-colors duration-300"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
+          <div className="lg:hidden bg-black/90 backdrop-blur-xl border-t border-white/10 rounded-b-xl -mx-4 px-2 py-3 space-y-1 animate-fade-in">
+            {navLinks.map((link) => renderNavLink(link, true))}
+            <div className="flex items-center gap-2 px-4 pt-3 mt-2 border-t border-white/10">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 flex items-center justify-center rounded-full text-sm text-muted-foreground hover:text-foreground hover:bg-white/10 transition-all duration-200"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         )}
