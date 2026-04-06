@@ -17,7 +17,7 @@ const Hero = () => {
             <span className="text-black font-display font-bold text-base sm:text-lg tracking-wide mx-8">🎮 Have you played our new game Dundies Dash? Created by our one and only Ace101 — Play here! 🎮</span>
           </div>
         </a>
-        <a href="https://dundiedistrict.win/" target="_blank" rel="noopener noreferrer" className="w-full max-w-7xl bg-gradient-to-r from-purple via-hot-pink to-purple bg-[length:200%_100%] animate-gradient-x py-2 cursor-pointer hover:opacity-90 transition-opacity rounded-lg overflow-hidden">
+        <a href="https://dundiedistrict.win/" target="_blank" rel="noopener noreferrer" className="w-full max-w-7xl bg-gradient-to-r from-blue-600 via-aqua to-blue-600 bg-[length:200%_100%] animate-gradient-x py-2 cursor-pointer hover:opacity-90 transition-opacity rounded-lg overflow-hidden">
           <div className="animate-marquee-reverse whitespace-nowrap">
             <span className="text-white font-display font-bold text-base sm:text-lg tracking-wide mx-8">🛍️ Dundie Merch Store — Rep your Dundies! Shop now! 🛍️</span>
             <span className="text-white font-display font-bold text-base sm:text-lg tracking-wide mx-8">🛍️ Dundie Merch Store — Rep your Dundies! Shop now! 🛍️</span>
