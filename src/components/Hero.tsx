@@ -6,9 +6,16 @@ import heroImage2 from '@/assets/dundie-hero-2.png';
 const Hero = () => {
   return <section className="min-h-[140vh] flex items-center justify-center relative overflow-hidden pt-32">
       {/* V2 LIVE Banner */}
-      <div className="fixed top-16 left-0 right-0 z-40 flex justify-center px-4 sm:px-6 lg:px-8">
+      <div className="fixed top-16 left-0 right-0 z-40 flex flex-col items-center gap-2 px-4 sm:px-6 lg:px-8">
         <a href="https://dswapper.me/" target="_blank" rel="noopener noreferrer" className="w-full max-w-7xl bg-gradient-to-r from-hot-pink via-purple to-hot-pink bg-[length:200%_100%] animate-gradient-x py-3 text-center cursor-pointer hover:opacity-90 transition-opacity rounded-lg">
           <span className="text-white font-display font-bold text-lg sm:text-xl tracking-wide animate-pulse">🔄 Swap NFTs peer to peer with the D Swapper here! 🔄</span>
+        </a>
+        <a href="https://dundiedash.vercel.app/" target="_blank" rel="noopener noreferrer" className="w-full max-w-7xl bg-gradient-to-r from-lime via-aqua to-lime bg-[length:200%_100%] animate-gradient-x py-2 cursor-pointer hover:opacity-90 transition-opacity rounded-lg overflow-hidden">
+          <div className="animate-marquee whitespace-nowrap">
+            <span className="text-black font-display font-bold text-base sm:text-lg tracking-wide mx-8">🎮 Have you played our new game Dundies Dash? Created by our one and only Ace101 — Play here! 🎮</span>
+            <span className="text-black font-display font-bold text-base sm:text-lg tracking-wide mx-8">🎮 Have you played our new game Dundies Dash? Created by our one and only Ace101 — Play here! 🎮</span>
+            <span className="text-black font-display font-bold text-base sm:text-lg tracking-wide mx-8">🎮 Have you played our new game Dundies Dash? Created by our one and only Ace101 — Play here! 🎮</span>
+          </div>
         </a>
       </div>
 
